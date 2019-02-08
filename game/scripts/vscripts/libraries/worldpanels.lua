@@ -86,23 +86,23 @@ local vaStoI = {bottom=0, center=1, top=2}
 local vaItoS = {[0]="bottom", [1]="center", [2]="top"}
 
 if not WorldPanels then
-	WorldPanels = class({})
+  WorldPanels = class({})
 end
 
 local UpdateTable = function(wp)
-	local idString = wp.idString
-	local pt = wp.pt
-	local pids = wp.pids
-	for i=1,#pids do
-		local pid = pids[i]
-		local ptName = "worldpanels_" .. pid
+  local idString = wp.idString
+  local pt = wp.pt
+  local pids = wp.pids
+  for i=1,#pids do
+    local pid = pids[i]
+    local ptName = "worldpanels_" .. pid
 
-		if not PlayerTables:TableExists(ptName) then
-			PlayerTables:CreateTable(ptName, {[idString]=pt}, {pid})
-		else
-			PlayerTables:SetTableValue(ptName, idString, pt)
-		end
-	end
+    if not PlayerTables:TableExists(ptName) then
+      PlayerTables:CreateTable(ptName, {[idString]=pt}, {pid})
+    else
+      PlayerTables:SetTableValue(ptName, idString, pt)
+    end
+  end
 end
 
 function WorldPanels:start()
@@ -119,6 +119,7 @@ end
 function WorldPanels:OnEntityKilled( keys )
   --print( '[WorldPanels] OnEntityKilled Called' )
   --PrintTable( keys )
+  
 
   -- The Ent that was Killed
   local killedEnt = EntIndexToHScript( keys.entindex_killed )
@@ -136,6 +137,8 @@ function WorldPanels:OnEntityKilled( keys )
       end
     end
   end
+
+  
 end
 
 function WorldPanels:CreateWorldPanelForAll(conf)
