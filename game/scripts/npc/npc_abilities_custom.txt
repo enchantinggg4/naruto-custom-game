@@ -1,2 +1,2 @@
-#base "abilities/example_ability.txt"
-#base "abilities/rasengan.txt"
+#base "abilities/naruto/rasengan.txt"
+#base "abilities/naruto/kurama.txt"
