@@ -125,12 +125,3 @@ function IsCustomBuilding( entityIndex ){
     var ability_tower = Entities.GetAbilityByName( entityIndex, "ability_tower")
     return (ability_building != -1 || ability_tower != -1)
 }
-
-function IsMechanical( entityIndex ) {
-    var ability_siege = Entities.GetAbilityByName( entityIndex, "ability_siege")
-    return (ability_siege != -1)
-}
-
-function IsCityCenter( entityIndex ){
-    return (Entities.GetUnitLabel( entityIndex ) == "city_center")
-}

@@ -1,5 +1,4 @@
 
-// Dota Abilities Override File
 "DOTAAbilities"
 {
   "Version"   "1"
@@ -285,5 +284,5 @@
   //"item_tome_of_knowledge"      "REMOVE"
   //"item_recipe_hurricane_pike"      "REMOVE"
   //"item_hurricane_pike"      "REMOVE"
-  //"item_banana"      "REMOVE"
+  "item_banana"      "REMOVE"
 }

@@ -1,12 +1,18 @@
 "AddonInfo"
 {
-	"TeamCount"		"10"
+	"TeamCount" 	      	"2"
+	"maps"      			"template_map your_map_name"
+	"IsPlayable"  			"1"
+	"PenaltiesEnabled"  	"0"
+	"CheckAFKPlayers" 		"1" 
+	"HeroGuidesSupported" 	"1"
+	
 	"template_map"
 	{
-		"MaxPlayers"		"10"
+	  "MaxPlayers"          "10"
 	}
-	"playground"
+	"your_map_name"
 	{
-		"MaxPlayers"		"10"
+	  "MaxPlayers"          "10"
 	}
 }
