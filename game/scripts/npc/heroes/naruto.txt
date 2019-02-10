@@ -3,6 +3,8 @@
 	"npc_dota_hero_naruto"
 	{
 		"override_hero"     "npc_dota_hero_bloodseeker"
+		// "Model"             "models/source/model/naruto.vmdl" to be done later
+		"DisableWearables"  "0"
 		"AbilityLayout"     "6"
 		"Ability1"        	"rasengan"
 		"Ability2"        	"naruto_kurama"

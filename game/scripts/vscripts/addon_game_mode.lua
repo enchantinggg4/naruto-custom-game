@@ -1,11 +1,16 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
+
+require('game_events/spawn_bidju')
+
 -- Creating a global gamemode variable;
 if your_gamemode_name == nil then
 	_G.your_gamemode_name = class({})
 else
 	DebugPrint("[BAREBONES] your_gamemode_name class name is already in use, change the name if this is the first time you launch the game!")
 	DebugPrint("[BAREBONES] If this is not your first time, you probably used script_reload in console.")
+	InitialFindBidju()
+
 end
 
 require('util')

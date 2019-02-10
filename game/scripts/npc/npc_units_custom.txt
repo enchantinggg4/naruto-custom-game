@@ -2,6 +2,10 @@
 #base "units/npc_dota_custom_dummy_unit.txt"
 #base "units/npc_dota_custom_illusion_base.txt"
 
+
+#base "units/bidju/base_bidju.txt"
+#base "units/bidju/shukaku.txt"
+
 "DOTAUnits"
 {
 	"Version" 	"1"

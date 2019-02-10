@@ -1,5 +1,5 @@
 -- In this file you can set up all the properties and settings for your game mode.
-USE_DEBUG = false						-- Should we print statements on almost every function/event call? For debugging.
+USE_DEBUG = true						-- Should we print statements on almost every function/event call? For debugging.
 
 ENABLE_HERO_RESPAWN = true				-- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = false				-- Should the shops contain all items?

@@ -1,0 +1,26 @@
+"DOTAUnits"
+{
+	//=================================================================================
+	// Bidju
+	//=================================================================================
+	"npc_dota_custom_bidju"
+	{
+		"BaseClass"					"npc_dota_creature"
+
+		"IsSummoned"				"1"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+n
+        "Modifiers": {
+            "modifier_bidju_change_team" {
+                "Passive" "1"
+                "OnDeath" {
+                    "RunScript" {
+                        "ScriptFile" "scripts/vscripts/abilities/bidju/bidju.lua"
+                        "Function" "ChangeTeamOnDeath"
+                    }
+                }
+            }
+        }
+	}
+}

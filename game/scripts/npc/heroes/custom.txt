@@ -1,0 +1,9 @@
+"DOTAHeroes"
+{
+	"npc_dota_hero_arena_base"
+	{
+		"HeroID"	"126"
+		"BaseClass"		"npc_dota_hero"
+		"AttackRate"	"1.7"
+	}
+}

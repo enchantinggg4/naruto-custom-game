@@ -78,6 +78,14 @@ function your_gamemode_name:OnNPCSpawned(keys)
 	local npc = EntIndexToHScript(keys.entindex)
 	local unit_owner = npc:GetOwner()
 
+
+
+
+	if npc:IsRealHero() then
+		DebugPrint(npc:GetUnitName() .. "Real hero here")
+		AddBidjuContainer(npc)
+	end
+
 	-- Put things here that will happen for every unit or hero when they spawn
 
 	-- OnHeroInGame
@@ -369,7 +377,6 @@ end
 -- An entity died (an entity killed an entity)
 function your_gamemode_name:OnEntityKilled(keys)
 	DebugPrint("[BAREBONES] An entity was killed.")
-	--PrintTable(keys)
 
 	-- The Unit that was Killed
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
@@ -380,6 +387,10 @@ function your_gamemode_name:OnEntityKilled(keys)
 	if keys.entindex_attacker ~= nil then
 		killer_unit = EntIndexToHScript(keys.entindex_attacker)
 	end
+
+
+	ChangeTeamOnDeathIfBidju(killed_unit, killer_unit)
+	ChangeTeamOnDeathIfBidjuOwner(killed_unit, killer_unit)
 
 	-- The ability/item used to kill, or nil if not killed by an item/ability
 	local killing_ability = nil
