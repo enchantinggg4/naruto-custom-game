@@ -2,12 +2,6 @@ _G.beasts = {
     "npc_dota_custom_bidju_shukaku"
 }
 
-_G.bidju_list = {}
-
-local function GetBidju(name)
-    return bidju_list[name]
-end
-
 local function GetBidjuByOwner(owner)
     PrintTable(owner.bidju)
     local bidjus = {}
@@ -61,8 +55,6 @@ local function SpawnBidju(name, point, team, owner)
     local unit = CreateUnitByName(name, point, true, nil, nil, team)
 
     unit:SetThink("OnBidjuThink", self, "BidjuAIThink", 1)
-
-    bidju_list[name] = unit
 
     SetBidjuOwner(unit, owner)
 
@@ -120,25 +112,8 @@ function InitialSpawnBidju()
 
 
     for _, beast in ipairs(beasts) do
-        local b = SpawnBidju(beast)
-        bidju_list[beast] = b
+        SpawnBidju(beast)
     end
-
-end
-
-function InitialFindBidju()
-    --DebugPrint("HELP")
-    --PrintTable(Entities:FindAllByClassname("npc_creature"))
-    --
-    --for _, beast in ipairs(beasts) do
-    --    local b = Entities:FindByName(nil,beast)
-    --    DebugPrint("Finding bidju.. " .. beast)
-    --    PrintTable(b)
-    --    bidju_list[beast] = b
-    --end
-    --DebugPrint("Refound bidju")
-    --PrintTable(beasts)
-    --PrintTable(bidju_list)
 
 end
 
