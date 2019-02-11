@@ -23,6 +23,7 @@ require('events')
 -- filters.lua
 require('filters')
 require('game_events/bidju')
+require('game_events/shinobi')
 
 LinkLuaModifier("modifier_bidju_ready_capture", "abilities/bidju/modifier/modifier_bidju_ready_capture", LUA_MODIFIER_MOTION_NONE)
 

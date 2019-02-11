@@ -1,4 +1,5 @@
 require("game_events/bidju_shinobi")
+require("game_events/shinobi")
 
 local function CaptureBidju(bidju, hero)
     local entity = Entities:FindByName(nil, "akatsuki_preview_" .. bidju:GetUnitName())
@@ -15,19 +16,20 @@ local function CaptureBidju(bidju, hero)
 
 end
 
-local function UncaptureBidju(name)
-
-    local entity = Entities:FindByName(nil, "akatsuki_preview_" .. name)
-
-    if entity.bidju_indicator ~= nil then
-        ParticleManager:DestroyParticle(entity.bidju_indicator, false)
-    end
-
-end
+--local function UncaptureBidju(name)
+--
+--    local entity = Entities:FindByName(nil, "akatsuki_preview_" .. name)
+--
+--    if entity.bidju_indicator ~= nil then
+--        ParticleManager:DestroyParticle(entity.bidju_indicator, false)
+--    end
+--
+--end
 
 function SetBidjuCaptured(bidju_name, bidju)
     CaptureBidju(bidju_name, bidju)
     if bidju.owner ~= nil then
+        OnBidjuUncaptured(bidju.owner)
         bidju.owner.bidju = nil
         bidju.owner = nil
     end

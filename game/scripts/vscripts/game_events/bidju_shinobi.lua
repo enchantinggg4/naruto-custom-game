@@ -1,5 +1,7 @@
-local bidju_respawn_time = 5
+require("game_events/shinobi")
 
+
+local bidju_respawn_time = 5
 -- todo mappings
 local bidju_spirit_color = {
     npc_dota_custom_bidju_shukaku = Vector(219 / 255, 83 / 255, 41 / 255),
@@ -49,6 +51,7 @@ function BidjuJoinShinobi(bidju, hero, duration, ability)
     LifeDrainParticle(hero, bidju)
 
     Timers:CreateTimer(duration, function()
+        OnBidjuCaptured(hero)
         LifeDrainParticleEnd(hero)
     end)
 

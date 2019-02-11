@@ -80,8 +80,8 @@ function your_gamemode_name:OnNPCSpawned(keys)
 
 
 	if npc:IsRealHero() then
-		DebugPrint(npc:GetUnitName() .. "Real hero here")
 		ClearBidju(npc)
+		SetDefaultAbilities(npc)
 	end
 
 	-- Put things here that will happen for every unit or hero when they spawn

@@ -18,9 +18,13 @@
             "particle"			"particles/units/heroes/hero_medusa/medusa_mana_shield_impact.vpcf"
         }
 
+        "MaxLevel"                      "1"
         // Casting
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+        "AbilityCastPoint"				"0.4"
+
+        "AbilityManaCost"				"100"
+
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +33,12 @@
             "01"
             {
                 "var_type"				"FIELD_FLOAT"
-                "mana_per_second"		"100 80 60 40"
+                "cooldown"      		"10"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "mana_per_second"       "50"
             }
         }
 
@@ -81,10 +90,20 @@
                 "ThinkInterval"  "1"
                 "OnIntervalThink"
                 {
+
+
+                    "RunScript"
+                    {
+                        "ScriptFile"			"scripts/vscripts/abilities/shinobi/summon_bidju.lua"
+                        "Function"			    "OnManaTick"
+                        "Target" 		        "CASTER"
+                    }
+
                     "SpendMana"
                     {
                         "Mana"	"%mana_per_second"
                     }
+
                 }
             }
         }
