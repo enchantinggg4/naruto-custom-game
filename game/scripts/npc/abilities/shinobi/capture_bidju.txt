@@ -1,0 +1,47 @@
+"DOTAAbilities"
+{
+    "Version"   "1"
+    "shinobi_capture_bidju"
+    {
+        "ID"							"80854"
+        "BaseClass"						"ability_datadriven"
+        "AbilityTextureName"			"shinobi_capture_bidju"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+        "AoERadius"                     "%radius"
+
+        "AbilityChannelTime"			"%base_cast"
+
+        "AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+        "AbilityManaCost"				"300"
+        "AOERadius"						"%radius"
+
+        "OnSpellStart"
+        {
+                "RunScript"
+                {
+                    "ScriptFile"			"scripts/vscripts/abilities/shinobi/capture_bidju.lua"
+                    "Function"			    "StartCapture"
+			        "Target"			    "POINT"
+                }
+        }
+
+
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "radius"			"300"
+            }
+            "02"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "base_cast"			"1 10 20 30"
+            }
+        }
+    }
+}

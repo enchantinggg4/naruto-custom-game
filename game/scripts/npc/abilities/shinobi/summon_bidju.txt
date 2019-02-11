@@ -1,0 +1,92 @@
+"DOTAAbilities"
+{
+    "Version"   "1"
+    "shinobi_summon_bidju"
+    {
+        "BaseClass"				"ability_datadriven"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityTextureName"			"medusa_mana_shield"
+
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "soundfile"			"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+            "particle"			"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+            "particle"			"particles/units/heroes/hero_medusa/medusa_mana_shield_cast.vpcf"
+            "particle"			"particles/units/heroes/hero_medusa/medusa_mana_shield_end.vpcf"
+            "particle"			"particles/units/heroes/hero_medusa/medusa_mana_shield_impact.vpcf"
+        }
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "mana_per_second"		"100 80 60 40"
+            }
+        }
+
+
+        "OnToggleOn"
+        {
+            "ApplyModifier"
+            {
+                "ModifierName"	"modifier_summon_bidju"
+                "Target" 		"CASTER"
+            }
+
+            "RunScript"
+            {
+                "ScriptFile"			"scripts/vscripts/abilities/shinobi/summon_bidju.lua"
+                "Function"			    "SummonBidju"
+                "Target" 		        "CASTER"
+            }
+        }
+
+        "OnToggleOff"
+        {
+            "RunScript"
+            {
+                "ScriptFile"			"scripts/vscripts/abilities/shinobi/summon_bidju.lua"
+                "Function"			    "KillBidju"
+                "Target" 		        "CASTER"
+            }
+
+            "RemoveModifier"
+            {
+                "ModifierName"	"modifier_summon_bidju"
+                "Target"
+                {
+                    "Center"	"CASTER"
+                    "Flags" 	"DOTA_UNIT_TARGET_FLAG_DEAD"
+                }
+            }
+        }
+
+        "Modifiers"
+        {
+            "modifier_summon_bidju"
+            {
+                "Passive"			"0"
+                "IsHidden"			"0"
+                "IsDebuff"			"0"
+
+                "ThinkInterval"  "1"
+                "OnIntervalThink"
+                {
+                    "SpendMana"
+                    {
+                        "Mana"	"%mana_per_second"
+                    }
+                }
+            }
+        }
+    }
+}

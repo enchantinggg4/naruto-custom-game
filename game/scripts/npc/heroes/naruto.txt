@@ -8,6 +8,8 @@
 		"AbilityLayout"     "6"
 		"Ability1"        	"rasengan"
 		"Ability2"        	"naruto_kurama"
+		"Ability3"        	"shinobi_capture_bidju"
+		"Ability4"        	"shinobi_summon_bidju"
 
 
 		"ArmorPhysical"       		"0"                 	// Physical protection.
@@ -31,7 +33,7 @@
 		"StatusHealth"        		"1000"                 	// Base health.
 		"StatusHealthRegen"     	"1.5"                 	// Base health regeneration
 		"StatusMana"        		"400"                   // Base mana.
-		"StatusManaRegen"     		"100.0"                 // Base mana regeneration
+		"StatusManaRegen"     		"2.0"                 // Base mana regeneration
 
 		"VisionDaytimeRange"    	"1800"                  // Range of vision at night time.
 		"VisionNighttimeRange"    	"1800"                  // Range of vision at night time.

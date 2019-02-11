@@ -79,11 +79,9 @@ function your_gamemode_name:OnNPCSpawned(keys)
 	local unit_owner = npc:GetOwner()
 
 
-
-
 	if npc:IsRealHero() then
 		DebugPrint(npc:GetUnitName() .. "Real hero here")
-		AddBidjuContainer(npc)
+		ClearBidju(npc)
 	end
 
 	-- Put things here that will happen for every unit or hero when they spawn
@@ -389,15 +387,14 @@ function your_gamemode_name:OnEntityKilled(keys)
 	end
 
 
-	ChangeTeamOnDeathIfBidju(killed_unit, killer_unit)
-	ChangeTeamOnDeathIfBidjuOwner(killed_unit, killer_unit)
-
 	-- The ability/item used to kill, or nil if not killed by an item/ability
 	local killing_ability = nil
 
 	if keys.entindex_inflictor ~= nil then
 		killing_ability = EntIndexToHScript(keys.entindex_inflictor)
 	end
+
+	OnNPCKilled(killed_unit, killer_unit, killing_ability)
 
 	-- For Meepo clones, find the original
 	if killed_unit:IsClone() then

@@ -1,2 +1,4 @@
 #base "abilities/naruto/rasengan.txt"
 #base "abilities/naruto/kurama.txt"
+#base "abilities/shinobi/capture_bidju.txt"
+#base "abilities/shinobi/summon_bidju.txt"

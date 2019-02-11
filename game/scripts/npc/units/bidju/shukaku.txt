@@ -6,11 +6,20 @@
 	"npc_dota_custom_bidju_shukaku"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/heroes/sand_king/sand_king.vmdl"
-		"DisableWearables"          "0"
+		"Model"						"models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_big.vmdl"
+		"ModelScale"                "1.3"
 		"IsSummoned"				"1"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+
+
+		"AttachWearables"
+        {
+            "Wearable1"
+            {
+                "ItemDef" "4771"
+            }
+        }
 
 		"HasInventory"				"1"
 		"AttackRange"				"150"
