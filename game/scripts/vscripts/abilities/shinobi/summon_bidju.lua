@@ -8,7 +8,7 @@ local function Summon(hero)
         bidju:SetOwner(hero)
         bidju.summoned = true
     else
-        hero:CastAbilityToggle(hero:FindAbilityByName("shinobi_summon_bidju"), 0)
+        TurnOffSummon(hero)
     end
 end
 
@@ -17,7 +17,7 @@ local function Kill(hero, ability)
     if hero.bidju ~= nil then
         hero.bidju:Kill(ability, hero)
         ability:StartCooldown(
-                ability:GetSpecialValueFor("cooldown")
+            ability:GetSpecialValueFor("cooldown")
         )
     else
         -- unit killed
@@ -25,12 +25,10 @@ local function Kill(hero, ability)
 end
 
 function SummonBidju(event)
-    DebugPrint("Summon bidju huh? ")
     Summon(event.caster)
 end
 
 function KillBidju(event)
-    DebugPrint("Kill bidju huh? ")
     Kill(event.caster, event.ability)
 end
 

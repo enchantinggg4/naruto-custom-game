@@ -55,10 +55,12 @@ function BidjuJoinShinobi(bidju, hero, duration, ability)
         LifeDrainParticleEnd(hero)
     end)
 
-    DebugPrint("Hey shinobi " .. hero:GetUnitName())
-
     bidju:Kill(ability, hero)
     hero.bidju_name = bidju:GetUnitName()
+
+    local ab = hero:FindAbilityByName("shinobi_capture_bidju")
+    ab:SetActivated(false)
+
 end
 
 function OnBidjuKilledByShinobi(bidju, killer)

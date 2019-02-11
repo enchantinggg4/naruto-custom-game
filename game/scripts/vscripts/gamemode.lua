@@ -24,6 +24,7 @@ require('events')
 require('filters')
 require('game_events/bidju')
 require('game_events/shinobi')
+require('game_events/akatsuki')
 
 LinkLuaModifier("modifier_bidju_ready_capture", "abilities/bidju/modifier/modifier_bidju_ready_capture", LUA_MODIFIER_MOTION_NONE)
 
@@ -146,7 +147,6 @@ end
 function your_gamemode_name:OnGameInProgress()
     DebugPrint("[BAREBONES] The game has officially begun.")
     InitialSpawnBidju()
-
 end
 
 

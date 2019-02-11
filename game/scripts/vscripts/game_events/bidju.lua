@@ -72,24 +72,27 @@ function OnNPCKilled(killed, killer, ability)
         "shinobi_summon_bidju"
     }
 
-    DebugPrint("Killed npc")
-
     if IsBidju(killed) and (ability == nil or not has_value(ignored_abilities, ability:GetName())) then
         if IsShinobi(killer) then
             OnBidjuKilledByShinobi(killed, killer)
-        elseif killed.summoned ~= nil and killed.summoned then
-            -- its summoned bidju so other logic
+        elseif killed.summoned ~= nil and killed.summoned and not IsAkatsuki(killer) then
+            -- its summoned bidju so other logic - remove mana and set cooldown. if it killed by akatsuki - capture
             local hero = killed.owner
             hero:SetMana(0)
             hero:CastAbilityToggle(hero:FindAbilityByName("shinobi_summon_bidju"), 0)
         elseif IsAkatsuki(killer) then
             -- Akatsuki killed bidju, it should be placed in the demonic statue
-            DebugPrint("bidju captired!!" .. killed:GetUnitName())
-            SetBidjuCaptured(killed, killer)
+            SetBidjuCaptured(killed)
         end
 
-    --elseif IsShinobi(killed) and IsAkatsuki(killer) then
+    elseif killed:GetUnitName() == "npc_dota_custom_cave" then
+        --    defender killed
+        UncaptureBidju(killed.bidju_name)
 
+    elseif IsShinobi(killed) then
+        if killed.bidju ~= nil then
+            SetBidjuCaptured(killed.bidju)
+        end
     end
 
 end

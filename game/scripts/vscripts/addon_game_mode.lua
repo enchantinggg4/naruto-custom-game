@@ -10,18 +10,6 @@ if your_gamemode_name == nil then
 else
 	DebugPrint("[BAREBONES] your_gamemode_name class name is already in use, change the name if this is the first time you launch the game!")
 	DebugPrint("[BAREBONES] If this is not your first time, you probably used script_reload in console.")
-
-	--local entity = Entities:FindByName(nil, "akatsuki_preview_" .. "npc_dota_custom_bidju_shukaku")
-	--local entity = Entities:FindByName(nil, "npc_dota_hero_bloodseeker")
-	--local ps = ParticleManager:CreateParticle(
-	--		"particles/econ/items/spirit_breaker/spirit_breaker_weapon_fearlessimpactor/spirit_breaker_head_fearlessimpactor.vpcf",
-	--		PATTACH_ABSORIGIN_FOLLOW,
-	--		entity)
-	--
-	--
-	--DebugPrint(ps)
-	--DebugPrint("Craeted particle")
-
 end
 
 require('util')
@@ -55,6 +43,7 @@ function Precache(context)
 	-- PrecacheModel should generally used over PrecacheResource for individual models
 	PrecacheResource("model_folder", "particles/heroes/antimage", context)
 	PrecacheResource("model", "models/items/sand_king/deserts_deathly_embrace_head/deserts_deathly_embrace_head.vmdl", context)
+	PrecacheResource("model", "models/heroes/shadow_demon/shadow_demon.vmdl", context)
 	PrecacheResource("model_folder", "models/items/sand_king", context)
 
 

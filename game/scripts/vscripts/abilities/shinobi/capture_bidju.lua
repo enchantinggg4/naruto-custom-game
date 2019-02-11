@@ -1,5 +1,9 @@
 require("game_events/bidju_shinobi")
 
+
+
+
+
 function StartCapture(keys)
     local target = keys.target_points[1]
     local caster = keys.caster
