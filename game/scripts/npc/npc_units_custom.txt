@@ -5,6 +5,7 @@
 
 #base "units/bidju/matatabi.txt"
 #base "units/bidju/shukaku.txt"
+#base "units/bidju/kurama.txt"
 #base "units/npc_dota_custom_cave.txt"
 
 "DOTAUnits"

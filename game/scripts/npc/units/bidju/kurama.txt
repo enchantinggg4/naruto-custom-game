@@ -1,0 +1,54 @@
+"DOTAUnits"
+{
+	//=================================================================================
+	// Kurama 9 tails
+	//=================================================================================
+	"npc_dota_custom_bidju_kurama"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/lycan/lycan_wolf.vmdl"
+		"ModelScale"                "2"
+		"IsSummoned"				"1"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+
+		"HasInventory"				"1"
+		"AttackRange"				"150"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"800"
+		"ProjectileSpeed"			"0"
+
+		"AbilityTalentStart"		"10"
+
+		"Ability1"        	        "bidju_bidjudama"
+
+		"ArmorPhysical"       		"0"
+		"MagicalResistance"       	"0"
+
+		"AttackDamageMin"     		"1"
+		"AttackDamageMax"     		"1"
+		"AttackRate"        		"1.7"
+		"AttackAnimationPoint"    	"0.5"
+
+		"BountyXP"          		"0"
+		"BountyGoldMin"       		"0"
+		"BountyGoldMax"       		"0"
+
+		"BoundsHullName"      		"DOTA_HULL_SIZE_HERO"
+
+		"MovementSpeed"       		"400"
+		"MovementTurnRate"      	"0.5"
+
+		"StatusHealth"        		"200"
+		"StatusHealthRegen"     	"1.5"
+		"StatusMana"        		"75"
+		"StatusManaRegen"     		"0.9"
+
+		"CombatClassAttack"     	"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"     	"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"   	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+
+		"VisionDaytimeRange"    	"1800"
+		"VisionNighttimeRange"    	"800"
+	}
+}

@@ -10,6 +10,7 @@
 		"Ability2"        	"naruto_kurama"
 		"Ability3"        	"shinobi_capture_bidju"
 		"Ability4"        	"shinobi_summon_bidju"
+		"Ability5"        	"bidju_bidjudama"
 
 
 		"ArmorPhysical"       		"0"                 	// Physical protection.

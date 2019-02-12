@@ -5,7 +5,8 @@ local bidju_respawn_time = 5
 -- todo mappings
 local bidju_spirit_color = {
     npc_dota_custom_bidju_shukaku = Vector(219 / 255, 83 / 255, 41 / 255),
-    npc_dota_custom_bidju_matatabi = Vector(55 / 255, 88 / 255, 232 / 255)
+    npc_dota_custom_bidju_matatabi = Vector(55 / 255, 88 / 255, 232 / 255),
+    npc_dota_custom_bidju_kurama = Vector(255, 0, 0),
 }
 
 local function LifeDrainParticle(hero, bidju)

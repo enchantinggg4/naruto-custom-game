@@ -3,7 +3,8 @@ require("game_events/akatsuki")
 
 _G.beasts = {
     "npc_dota_custom_bidju_shukaku",
-    "npc_dota_custom_bidju_matatabi"
+    "npc_dota_custom_bidju_matatabi",
+    "npc_dota_custom_bidju_kurama",
 }
 
 local function has_value (tab, val)
@@ -52,7 +53,6 @@ function SpawnBidju(name, point, team, owner)
 
     local unit = CreateUnitByName(name, point, true, nil, nil, team)
 
-    --unit:SetThink("OnBidjuThink", self, "BidjuAIThink", 1)
 
     SetBidjuOwner(unit, owner)
 
