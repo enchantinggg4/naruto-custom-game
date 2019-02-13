@@ -1,6 +1,6 @@
 <root>
     <styles>
-		<include src="file://{resources}/styles/dotastyles.css"/>
+		<!--<include src="file://{resources}/styles/dotastyles.css"/>-->
 		<include src="file://{resources}/styles/custom_game/hero_select_overlay.css"/>
     </styles>
 
@@ -8,14 +8,24 @@
         <include src="file://{resources}/scripts/custom_game/hero_select_overlay.js"/>
     </scripts>
 
-	<Panel class="HeroSelectOverlayRoot">
-		<Panel id="PhaseInstructions">
-			<Label id="BanPhaseInstructions" text="#DOTA_LoadingBanPhase"/>
-			<Label id="PickPhaseInstructions" text="#DOTA_LoadingPickPhase"/>
-		</Panel>
-		<Panel class="HeroSelectTeamRowsContainer">
-			<Panel id="HeroSelectTeamsContainer"/>
-			<Panel id="HeroSelectTeamsContainer2"/>
-		</Panel>
+    <snippets>
+        <snippet name="Quest">
+            <Panel hittest="true" class="HeroPreview">
+                <Image hittest="true" id="HeroImage" scaling="stretch-to-cover-preserve-aspect"/>
+                <Label hittest="true" id="HeroName" />
+            </Panel>
+        </snippet>
+    </snippets>
+
+	<Panel hittest="false" class="HeroSelectOverlayRoot">
+        <Panel hittest="false"  id="HeroesRadiant">
+
+        </Panel>
+
+        <Panel hittest="false"  id="Spacer"/>
+
+        <Panel hittest="false"  id="HeroesDire">
+
+        </Panel>
 	</Panel>
 </root>

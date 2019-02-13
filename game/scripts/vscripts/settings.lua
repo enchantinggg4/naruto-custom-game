@@ -6,7 +6,7 @@ UNIVERSAL_SHOP_MODE = false				-- Should the shops contain all items?
 ALLOW_SAME_HERO_SELECTION = false		-- Should we let people select the same hero as each other
 
 CUSTOM_GAME_SETUP_TIME = 25.0			-- How long should custom game setup last - the screen where players pick a team?
-HERO_SELECTION_TIME = 60.0				-- How long should we let people select their hero? Should be at least 5 seconds.
+HERO_SELECTION_TIME = 1000.0				-- How long should we let people select their hero? Should be at least 5 seconds.
 STRATEGY_TIME = 20.0					-- How long should strategy time last? Bug: You can buy items during strategy time and it will not be spent!
 SHOWCASE_TIME = 12.0					-- How long should show case time be?
 PRE_GAME_TIME = 90.0					-- How long after showcase time should the horn blow and the game start?
