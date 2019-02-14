@@ -6,11 +6,6 @@ var heroes = {
             hero_name: "npc_dota_hero_naruto",
             hero_original_name: "npc_dota_hero_bloodseeker",
             hero_title: "Naruto"
-        },
-        {
-            hero_name: "npc_dota_hero_naruto",
-            hero_original_name: "npc_dota_hero_bloodseeker",
-            hero_title: "Naruto"
         }
     ],
     dire: [
@@ -30,9 +25,9 @@ GameEvents.Subscribe( "picking_player_pick", OnPlayerPicked );
 
 
 function EnterGame(){
-    // if ( canEnter ) {
-    //     $('#HeroSelectOverlayRoot').DeleteAsync( 0.0 );
-    // }
+    if ( canEnter ) {
+        $('#HeroSelectOverlayRoot').DeleteAsync( 0.0 );
+    }
 }
 
 function OnPlayerPicked(data){
@@ -127,19 +122,13 @@ function UpdateTimer() {
         timerValue = 0;
     }
 
-
     $("#TimerValue").text = timerValue.toString();
-
-    // OnHeroSelected(heroes.radiant[0]);
 
     $.Schedule(0.1, UpdateTimer);
 }
 
 (function () {
-    // var timerPanel = $.CreatePanel("Panel", $.GetContextPanel(), "TimerPanel");
-    // timerPanel.BLoadLayout( "file://{resources}/layout/custom_game/hero_select_overlay_timer.xml", false, false );
     FillHeroes();
     FillPlayers();
     UpdateTimer();
-    OnHeroSelected(heroes.radiant[0]);
 })();
