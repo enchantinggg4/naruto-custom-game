@@ -1,5 +1,9 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for you to use.
 
+
+
+
+
 -- Cleanup a player when they leave
 function your_gamemode_name:OnDisconnect(keys)
 	DebugPrint("[BAREBONES] A Player has disconnected ".. tostring(keys.userid))
@@ -10,6 +14,7 @@ function your_gamemode_name:OnDisconnect(keys)
 	local reason = keys.reason
 	local userID = keys.userid
 end
+
 
 -- The overall game state has changed
 function your_gamemode_name:OnGameRulesStateChange(keys)

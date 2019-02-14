@@ -1,32 +1,124 @@
-.HeroSelectOverlayRoot {
+#HeroSelectOverlayRoot {
     width: 100%;
     height: 100%;
-    background-color: #0d0000;
+    flow-children: down;
+    horizontal-align: center;
+}
+
+.HeroesList{
+    transition: width 500ms linear 0.0ms;
+    visibility: collapse;
+}
+#Players{
     flow-children: right;
+    height: 170px;
+    width: 100%;
+    vertical-align: center;
 }
-
-#HeroesRadiant {
+#RadiantPlayers, #DirePlayers{
+    flow-children: right;
     width: 40%;
     height: 100%;
-    margin-top: 40px;
-    background-color: #400000;
+    margin: 10px;
 }
 
-#Spacer {
+#DirePlayers{
+    horizontal-align: right;
+    flow-children: left;
+}
+
+#Filler{
     width: 20%;
+    background-color: blue;
 }
 
-#HeroesDire {
-    width: 40%;
+.PlayerHero{
+    width: 20%;
     height: 100%;
-    margin-top: 40px;
-    background-color: #192340;
+    flow-children: down;
+    vertical-align: center;
+    padding: 10px;
+    opacity-mask: url("file://{images}/custom_game/skew_mask.png");
+    border: 1px solid #d6d6d6;
 }
+
+
+#PlayerHeroName{
+    font-size: 16px;
+    margin-top: 5px;
+    color: #d6d6d6;
+    horizontal-align: center;
+    text-align: center;
+}
+
+#PlayerHeroImage{
+    width: 100%;
+    height: 100px;
+}
+
+#Spacer{
+    width: 80%;
+    height: 100%;
+    horizontal-align: center;
+}
+
+.AfterPickWide{
+    width: 80%;
+}
+
+#HeroesList {
+    width: 30%;
+    /*background-color: #400000;*/
+    horizontal-align: center;
+    height: 100%;
+    flow-children: down;
+}
+
+
+#SelectedHero{
+    width: 100%;
+    height: 100%;
+    /*visibility: collapse;*/
+    flow-children: down;
+    horizontal-align: center;
+}
+
+#EnterGameButton{
+    horizontal-align: center;
+    border-radius: 15px / 15px;
+    box-shadow: fill #00000066 -4px -4px 8px 8px;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #5AA15E ), to( #87d69533 ) );
+    background-image: url("s2r://panorama/images/backgrounds/background_play_button_large_2x_png.vtex");
+    background-size: 320px 120px;
+    height: 55px;
+    width: 420px;
+    padding-top: 6px;
+}
+
+#EnterGameButton.disabled, #EnterGameButton.disabled:Hover {
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #9C9C9C ), to( #D1D1D133 ) );
+}
+#EnterGameButton:Hover {
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #6FDE75 ), to( #87d69533 ) );
+}
+
+#EnterGameButton Label {
+    horizontal-align: center;
+    color: #7d4b62;
+    font-size: 36px;
+}
+
+#SelectedHeroImage{
+    width: 40%;
+    horizontal-align: center;
+    height: 500px;
+}
+
 
 .HeroPreview {
     width: 100%;
-    height: 200px;
-    /*flow-children: right;*/
+    height: 170px;
+    margin-top: 20px;
 }
 
 /* needed aspect : 2x1 */
@@ -35,19 +127,60 @@
     width: 100%;
     height: 100%;
     transition: transform 100ms linear 0.0ms, saturation 100ms linear 0.0ms;
-    saturation: 0.6;
+    saturation: 0.7;
+    /*opacity-mask: url("file://{images}/custom_game/skew_mask.png");*/
+    /*transform: rotateY(-10deg);*/
+}
+
+.HeroPreview.Picked {
+    opacity: 0.5;
+}
+
+.HeroPreview.Even > #HeroImage {
+    /*transform: rotateY(10deg);*/
+    /*opacity-mask: url("file://{images}/custom_game/skew_mask_right.png");*/
 }
 
 .HeroPreview > #HeroImage:Hover {
-
     saturation: 1;
-    transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.2, 1.2, 1.2) rotateY(0deg);
 }
+
 
 .HeroPreview > #HeroName {
     z-index: 100;
-    position: 5% 75% 0px;
+    position: 0px 0px 0px;
     font-size: 40px;
-    color: white;
+    color: #fdfbff;
+    font-weight: bold;
+}
 
+.HeroPreview.Even > #HeroName  {
+    z-index: 100;
+    position: 0% 60px 0px;
+    font-size: 40px;
+    color: #fdfbff;
+    font-weight: bold;
+}
+
+.HeroPreview > #HeroImage:Hover > #HeroName {
+    color: red;
+}
+
+
+#Timer{
+    width: 100px;
+    height: 50px;
+
+    wash-color: rgba(57, 176, 211, 0.18);
+
+    horizontal-align: center;
+    border-radius: 50% / 50%;
+}
+
+#TimerValue{
+    font-size: 40px;
+    horizontal-align: center;
+    vertical-align: center;
+    color: white;
 }

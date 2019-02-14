@@ -5,7 +5,7 @@ BAREBONES_VERSION = "2.0.1"
 require('libraries/physics')
 -- Projectiles library can be used for advanced 3D projectile systems.
 require('libraries/projectiles')
--- Notifications library can be used for sending panorama notifications to the UIs of players/teams/everyone
+-- Notifications library can be used for sending panorama notifications to the UIs of players/teams/everyones
 require('libraries/notifications')
 -- Animations library can be used for starting customized animations on units from lua
 require('libraries/animations')
@@ -150,9 +150,21 @@ function your_gamemode_name:OnGameInProgress()
 end
 
 
+function your_gamemode_name:OnHeroSelected( data)
+    local player = PlayerInstanceFromIndex(data.PlayerID + 1)
+    local hero = CreateHeroForPlayer(data.hero.hero_original_name, player)
+    -- This removes invisible copy of hero(valve hello
+    UTIL_Remove(hero)
+    CustomGameEventManager:Send_ServerToAllClients("picking_player_pick", data)
+end
+
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function your_gamemode_name:InitGameMode()
+
+
+
+    CustomGameEventManager:RegisterListener( "hero_selected", Dynamic_Wrap(your_gamemode_name, "OnHeroSelected"));
 
     DebugPrint("[BAREBONES] Starting to load Game Rules.")
     -- Setup rules

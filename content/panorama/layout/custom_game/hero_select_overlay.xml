@@ -14,17 +14,47 @@
                 <Image hittest="true" id="HeroImage" scaling="stretch-to-cover-preserve-aspect"/>
                 <Label hittest="true" id="HeroName" />
             </Panel>
+
         </snippet>
+
+        <snippet name="PlayerHeroTab">
+            <Panel hittest="true" class="PlayerHero">
+                <Image hittest="true" id="PlayerHeroImage" scaling="stretch-to-cover-preserve-aspect"/>
+                <Label hittest="true" id="PlayerHeroName" />
+            </Panel>
+        </snippet>
+
     </snippets>
 
-	<Panel hittest="false" class="HeroSelectOverlayRoot">
-        <Panel hittest="false"  id="HeroesRadiant">
 
-        </Panel>
+	<Panel hittest="false" style="width: 100%; height: 100%;background-color: #000000;">
+        <Panel id="HeroSelectOverlayRoot">
 
-        <Panel hittest="false"  id="Spacer"/>
+            <Panel id="Players">
+                <Panel id="RadiantPlayers"></Panel>
 
-        <Panel hittest="false"  id="HeroesDire">
+                <Panel id="Filler">
+                    <Panel id="Timer">
+                        <Label hittest="false" id="TimerValue" text="HAHAHA" />
+                    </Panel>
+                </Panel>
+                <Panel id="DirePlayers"></Panel>
+            </Panel>
+
+
+            <Panel hittest="false"  id="Spacer">
+                <Panel hittest="false" id="HeroesList" >
+
+                </Panel>
+            </Panel>
+
+
+            <Panel hittest="false" id="SelectedHero" >
+                <Image id="SelectedHeroImage" />
+                <Button id="EnterGameButton" onactivate="EnterGame()" class="disabled" >
+                    <Label id="EnterGameBtnTxt" text="Waiting for other players..." />
+                </Button>
+            </Panel>
 
         </Panel>
 	</Panel>
