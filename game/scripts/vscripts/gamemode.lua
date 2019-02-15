@@ -28,6 +28,8 @@ require('game_events/akatsuki')
 
 LinkLuaModifier("modifier_bidju_ready_capture", "abilities/bidju/modifier/modifier_bidju_ready_capture", LUA_MODIFIER_MOTION_NONE)
 
+LinkLuaModifier("modifier_tsukuyomi", "abilities/tsukuyomi/modifier/modifier_tsukuyomi", LUA_MODIFIER_MOTION_NONE)
+
 
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.

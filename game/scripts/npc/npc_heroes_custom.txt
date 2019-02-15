@@ -1,3 +1,3 @@
-#base "heroes/ancient_apparation.txt"
 #base "heroes/naruto.txt"
 #base "heroes/sasuke.txt"
+#base "heroes/itachi.txt"

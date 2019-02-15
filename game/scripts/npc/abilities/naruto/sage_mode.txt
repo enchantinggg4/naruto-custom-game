@@ -1,0 +1,97 @@
+"DOTAAbilities"
+{
+    "Version"   "1"
+    "naruto_sage_mode"
+    {
+        "BaseClass"						"ability_datadriven"
+        "AbilityTextureName"			"naruto_sage_mode"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+        "AbilityChannelTime"            "1.0"
+        "AbilityCooldown"				"10.0"
+
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+
+
+        "precache"
+        {
+            "particle"          "particles/abilities/sage_mode/sage_mode_collection.vpcf"
+        }
+
+
+        "OnSpellStart"
+        {
+            "ApplyModifier"
+            {
+                "Target"    	"CASTER"
+                "ModifierName"  "modifier_sage_mode_charge"
+            }
+        }
+
+
+        "OnChannelFinish"
+        {
+            "ApplyModifier"
+            {
+                "Target"    	"CASTER"
+                "ModifierName"  "modifier_sage_mode_active"
+                "Duration"      "%duration"
+            }
+
+            "RemoveModifier"
+            {
+                "Target"        	"CASTER"
+                "ModifierName"      "modifier_sage_mode_charge"
+            }
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "duration"						"3 6 9 12"
+            }
+
+            "01"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "mana_regen"    				"5 10 15 20"
+            }
+        }
+
+
+        "Modifiers"
+        {
+
+            "modifier_sage_mode_charge"
+            {
+                "IsHidden"			"0"
+                "IsBuff"			"1"
+                "IsDebuff"			"0"
+                "IsStunDebuff"		"0"
+                "IsPurgable"		"0"
+
+                "EffectName"      		"particles/abilities/sage_mode/sage_mode_collection.vpcf"
+                "EffectAttachType"      "point_follow"
+                "Target"                "CASTER"
+            }
+
+            "modifier_sage_mode_active"
+            {
+                "IsHidden"			"0"
+                "IsBuff"			"1"
+                "IsDebuff"			"0"
+                "IsStunDebuff"		"0"
+                "IsPurgable"		"1"
+
+                "ThinkInterval" "1"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%mana_regen"
+                }
+            }
+        }
+    }
+}

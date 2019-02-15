@@ -13,6 +13,11 @@ var heroes = {
             hero_name: "npc_dota_hero_sasuke",
             hero_original_name: "npc_dota_hero_antimage",
             hero_title: "Sasuke"
+        },
+        {
+            hero_name: "npc_dota_hero_itachi",
+            hero_original_name: "npc_dota_hero_terrorblade",
+            hero_title: "Itachi"
         }
     ]
 };

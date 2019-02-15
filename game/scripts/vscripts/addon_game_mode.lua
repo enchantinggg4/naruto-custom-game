@@ -46,6 +46,10 @@ function Precache(context)
 	PrecacheResource("model", "models/heroes/shadow_demon/shadow_demon.vmdl", context)
 	PrecacheResource("model_folder", "models/items/sand_king", context)
 
+	PrecacheResource("soundfile", "soundevents/game_sounds_tsukuyomi.vsndevts", ctx)
+	PrecacheResource("soundfile", "soundevents/game_sounds_rasengan.vsndevts", ctx)
+	PrecacheResource("soundfile", "soundevents/game_sounds_chidori.vsndevts", ctx)
+
 
 	--PrecacheResource("model_folder", "models/heroes/sand_king", context)
 	--PrecacheResource("model", "particles/heroes/viper/viper.vmdl", context)
