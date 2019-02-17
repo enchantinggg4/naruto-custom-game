@@ -2,6 +2,18 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_nBehaviorVersion = 8
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_SetControlPointPositions"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_bUseWorldLocation = true
+			m_vecCP1Pos = [ 0.0, 0.0, 0.0 ]
+		},
+	]
 	m_Emitters = 
 	[
 		{

@@ -4,66 +4,13 @@
     "bidju_bidjudama"
     {
         "ID"							"80854"
-        "BaseClass"						"ability_datadriven"
+        "BaseClass"						"ability_lua"
+        "ScriptFile"                    "abilities/bidju/bidjudama.lua"
         "AbilityTextureName"			"shinobi_capture_bidju"
 
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
-
-        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-
-        "MaxLevel"                      "1"
-        "AbilityChannelTime"			"%base_cast"
-
-        "AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-        "AbilityManaCost"				"10"
-        "AOERadius"						"%radius"
-
-
-
-        "precache"
-        {
-            "particle"          "particles/abilities/bidju/kurama/bidjudama.vpcf"
-        }
-
-        "OnSpellStart"
-        {
-                "RunScript"
-                {
-                    "ScriptFile"			"scripts/vscripts/abilities/bidju/bidjudama.lua"
-                    "Function"			    "OnSpellStart"
-			        "Target"			    "TARGET"
-                }
-        }
-
-
-        "OnChannelFinish"
-        {
-                "RunScript"
-                {
-                    "ScriptFile"			"scripts/vscripts/abilities/bidju/bidjudama.lua"
-                    "Function"			    "OnChannelFinish"
-			        "Target"			    "TARGET"
-                }
-        }
-
-
-
-
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"			"FIELD_FLOAT"
-                "dps"			    "300"
-            }
-            "02"
-            {
-                "var_type"			"FIELD_FLOAT"
-                "base_cast"			"2"
-            }
-        }
     }
 }

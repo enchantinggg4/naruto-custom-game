@@ -11,6 +11,7 @@
 		"Ability3"        	"shinobi_capture_bidju"
 		"Ability4"        	"shinobi_summon_bidju"
 		"Ability5"        	"chaos_knight_phantasm"
+		"Ability6"        	"bidju_bidjudama"
 
 		"ArmorPhysical"       		"0"                 	// Physical protection.
 		"MagicalResistance"       	"0"                 	// Magical protection (percentage).

@@ -1,8 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
 
-require('game_events/bidju')
-require('game_events/akatsuki')
 
 -- Creating a global gamemode variable;
 if your_gamemode_name == nil then
@@ -17,7 +15,7 @@ require('custom_illusions')
 -- Essential lua libraries: (don't remove!)
 require('libraries/timers')
 require('libraries/player_resource')
-require('gamemode')
+require('gamemode2')
 
 function Precache(context)
 --[[

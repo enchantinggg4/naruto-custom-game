@@ -1,0 +1,24 @@
+{
+  "name": "naruto_shippuden_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tstl -p game/scripts/vscripts/tsconfig.json",
+    "watch": "tstl -p game/scripts/vscripts/tsconfig.json --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enchantinggg4/naruto-custom-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enchantinggg4/naruto-custom-game/issues"
+  },
+  "homepage": "https://github.com/enchantinggg4/naruto-custom-game#readme",
+  "dependencies": {
+    "typescript-to-lua": "^0.14.1"
+  }
+}

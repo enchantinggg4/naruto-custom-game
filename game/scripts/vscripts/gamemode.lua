@@ -22,9 +22,10 @@ require('settings')
 require('events')
 -- filters.lua
 require('filters')
-require('game_events/bidju')
-require('game_events/shinobi')
-require('game_events/akatsuki')
+
+--require('game_events/bidju')
+--require('game_events/shinobi')
+--require('game_events/akatsuki')
 
 LinkLuaModifier("modifier_bidju_ready_capture", "abilities/bidju/modifier/modifier_bidju_ready_capture", LUA_MODIFIER_MOTION_NONE)
 
@@ -81,9 +82,6 @@ end
   The hero parameter is the hero entity that just spawned in
 ]]
 function your_gamemode_name:OnHeroInGame(hero)
-
-    -- Innate abilities (this is applied to bots and custom created heroes/illusions too)
-    InitializeInnateAbilities(hero)
 
     Timers:CreateTimer(0.5, function()
         local playerID = hero:GetPlayerID()    -- never nil (-1 by default), needs delay 1 or more frames
@@ -365,22 +363,4 @@ function your_gamemode_name:CaptureGameMode()
     gamemode:SetStickyItemDisabled(DISABLE_STICKY_ITEM)
 
     self:OnFirstPlayerLoaded()
-end
-
--- Initializes heroes' innate abilities (abilities that a hero has auto-leveled up at the start of the game)
-function InitializeInnateAbilities(hero)
-
-    -- List of all innate abilities
-    local innate_abilities = {
-        "detonator_conjure_image",
-        "innate_ability2"
-    }
-
-    -- Cycle through any innate abilities found, then set their level to 1
-    for i = 1, #innate_abilities do
-        local current_ability = hero:FindAbilityByName(innate_abilities[i])
-        if current_ability then
-            current_ability:SetLevel(1)
-        end
-    end
 end

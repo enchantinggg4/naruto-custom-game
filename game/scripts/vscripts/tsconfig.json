@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "noImplicitAny" : true,
+    "noImplicitThis" : true,
+    "alwaysStrict" : true,
+    "strictNullChecks" : true,
+    "target": "es6"
+  },
+  "luaTarget": "JIT",
+  "luaLibImport": "inline"
+}
