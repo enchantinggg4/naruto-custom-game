@@ -4,7 +4,8 @@
     "rasengan"
     {
         "ID"							"80852"
-        "BaseClass"						"ability_datadriven"
+        "BaseClass"						"ability_lua"
+        "ScriptFile"                    "abilities/rasengan/rasengan.lua"
         "AbilityTextureName"			"naruto_rasengan_active"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
@@ -31,131 +32,5 @@
             "soundfile"         "soundevents/game_sounds_rasengan.vsndevts"
         }
 
-        "OnSpellStart"
-        {
-            "ApplyModifier"
-            {
-                "Target"    	"CASTER"
-                "ModifierName"  "modifier_channel_start"
-            }
-            "FireSound"
-            {
-                "EffectName"    "Rasengan.Charge"
-                "Target"      	"CASTER"
-            }
-        }
-
-        "OnChannelSucceeded"
-        {
-            "RemoveModifier"
-            {
-                "Target"        	"CASTER"
-                "ModifierName"      "modifier_channel_start"
-            }
-            "ApplyModifier"
-            {
-                "Target"    	"CASTER"
-                "ModifierName"  "modifier_rasengan_active"
-                "Duration"      "%duration"
-            }
-
-            "RunScript"
-            {
-                "ScriptFile"			"scripts/vscripts/abilities/rasengan/rasengan_buff.lua"
-                "Function"			    "AddBuff"
-            }
-        }
-
-        "OnChannelFinish"
-        {
-            "RemoveModifier"
-            {
-                "Target"        	"CASTER"
-                "ModifierName"      "modifier_channel_start"
-            }
-        }
-
-        "OnChannelInterrupted"
-        {
-            "RemoveModifier"
-            {
-                "Target"    		"CASTER"
-                "ModifierName"  	"modifier_channel_start"
-            }
-        }
-
-        "Modifiers"
-        {
-
-            "modifier_channel_start"
-            {
-                "IsHidden"			"1"
-                "IsBuff"			"1"
-                "IsDebuff"			"0"
-                "IsStunDebuff"		"0"
-                "IsPurgable"		"1"
-
-                "EffectName"      		"particles/abilities/rasengan/rasengan_charge.vpcf"
-                "EffectAttachType"      "point_follow"
-                "Target"                "CASTER"
-            }
-
-            "modifier_rasengan_active"
-            {
-                "IsHidden"			"0"
-                "IsBuff"			"1"
-                "IsDebuff"			"0"
-                "IsStunDebuff"		"0"
-                "IsPurgable"		"0"
-
-                "EffectName"      		"particles/abilities/rasengan/rasengan_active.vpcf"
-                "EffectAttachType"      "point_follow"
-                "Target"                "CASTER"
-                "Duration"              "%duration"
-
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"           "%damage"
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"          "%move_speed"
-                }
-
-
-                "OnAttackLanded"
-                {
-                    "FireSound"
-                    {
-                        "EffectName"	"Rasengan.Hit"
-                        "Target"		"CASTER"
-                    }
-                }
-            }
-        }
-
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"						"FIELD_INTEGER"
-                "duration"						"3 6 9 12"
-            }
-
-            "02"
-            {
-                "var_type"						"FIELD_INTEGER"
-                "damage"						"200 400 600 800"
-            }
-
-            "03"
-            {
-                "var_type"                       "FIELD_FLOAT"
-                "charge_time"                    "1.5"
-            }
-
-            "04"
-            {
-                "var_type"                       "FIELD_INTEGER"
-                "move_speed"                      "10 20 30 40"
-            }
-        }
     }
 }

@@ -32,10 +32,6 @@ require('filters');
 
 declare class your_gamemode_name{}
 
-
-declare function DebugPrint(some: any): void;
-declare function Dynamic_Wrap(some: any, some2: any): any;
-
 interface HeroSelectionData {
     PlayerID: PlayerID,
     hero: {
