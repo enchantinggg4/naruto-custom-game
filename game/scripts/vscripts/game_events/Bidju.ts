@@ -1,4 +1,8 @@
 import {ShinobiExtension} from "./Shinobi";
+require("client-server");
+
+
+LinkLuaModifier("modifier_bidju_ready_capture", "abilities/bidju/modifier/modifier_bidju_ready_capture.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 
 export enum BidjuName {
     SHUKAKU = "npc_dota_custom_bidju_shukaku",
@@ -6,11 +10,10 @@ export enum BidjuName {
     KURAMA = "npc_dota_custom_bidju_kurama",
 }
 
-
 /** @extension */
 export class BidjuExtension extends CDOTA_BaseNPC {
     owner: ShinobiExtension | null;
-    summoned: boolean = false;
+    summoned: boolean;
 
     setOwner(shinobi: ShinobiExtension) {
         this.owner = shinobi;
@@ -20,6 +23,19 @@ export class BidjuExtension extends CDOTA_BaseNPC {
     removeOwner() {
         this.owner = null;
         this.SetTeam(DOTATeam_t.DOTA_TEAM_NEUTRALS);
+    }
+
+
+    captureReadyRespawn() {
+        this.SetTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS);
+
+        this.StartGesture(GameActivity_t.ACT_DOTA_DISABLED);
+
+        this.AddNewModifier(this, null, "modifier_invulnerable", {
+            duration: 5
+        });
+
+        this.AddNewModifier(this, null, "modifier_bidju_ready_capture", {})
     }
 }
 
@@ -33,7 +49,6 @@ export class BidjuManager {
         owner: ShinobiExtension | null = null): BidjuExtension {
 
         const v = point || Entities.FindByName(undefined, `spawn_${bidju}`).GetAbsOrigin();
-
 
 
         DebugPrint(team);
@@ -53,8 +68,8 @@ export class BidjuManager {
 
     static IsBidju(unit: CDOTA_BaseNPC): boolean {
         const unitName = unit.GetUnitName();
-        for(const key in BidjuName){
-            if(BidjuName[key] === unitName){
+        for (const key in BidjuName) {
+            if (BidjuName[key] === unitName) {
                 return true
             }
         }
@@ -62,7 +77,7 @@ export class BidjuManager {
     }
 
     static InitialSpawnBidju() {
-        for(const key in BidjuName){
+        for (const key in BidjuName) {
             BidjuManager.SpawnBidju(BidjuName[key])
         }
     }

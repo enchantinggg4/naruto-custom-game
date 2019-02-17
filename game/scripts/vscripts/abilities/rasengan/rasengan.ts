@@ -1,3 +1,4 @@
+import {ShinobiExtension} from "../../game_events/Shinobi";
 
 LinkLuaModifier("modifier_rasengan_channel", "abilities/rasengan/modifier/modifier_rasengan_channel.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 LinkLuaModifier("modifier_rasengan_active", "abilities/rasengan/modifier/modifier_rasengan_active.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
@@ -44,6 +45,9 @@ class rasengan extends CDOTA_Ability_Lua {
     }
 
     OnSpellStart(): void {
+
+        // FIXME
+        (this.GetCaster() as ShinobiExtension).setBidjuState(false);
         EmitSoundOn("Rasengan.Charge", this.GetCaster());
         this.GetCaster().AddNewModifier(
             this.GetCaster(),

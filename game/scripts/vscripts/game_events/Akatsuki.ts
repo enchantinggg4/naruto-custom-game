@@ -26,7 +26,7 @@ export class AkatsukiManager {
         AkatsukiManager.createParticleIndicator(killedBidju);
         AkatsukiManager.createDefender(killedBidju);
         if(killedBidju.owner){
-
+            DebugPrint("capture this shit!")
         }
     }
 

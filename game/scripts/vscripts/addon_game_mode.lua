@@ -1,7 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
 
-
 -- Creating a global gamemode variable;
 if your_gamemode_name == nil then
 	_G.your_gamemode_name = class({})

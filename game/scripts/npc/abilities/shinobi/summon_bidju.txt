@@ -3,9 +3,9 @@
     "Version"   "1"
     "shinobi_summon_bidju"
     {
-        "BaseClass"				"ability_datadriven"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "BaseClass"				        "ability_lua"
         "AbilityTextureName"			"medusa_mana_shield"
+        "ScriptFile"                    "abilities/shinobi/shinobi_summon_bidju.lua"
 
         // Precache
         //-------------------------------------------------------------------------------------------------------------
@@ -19,93 +19,6 @@
         }
 
         "MaxLevel"                      "1"
-        // Casting
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastPoint"				"0.4"
 
-        "AbilityManaCost"				"100"
-
-
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"				"FIELD_FLOAT"
-                "cooldown"      		"10"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "mana_per_second"       "50"
-            }
-        }
-
-
-        "OnToggleOn"
-        {
-            "ApplyModifier"
-            {
-                "ModifierName"	"modifier_summon_bidju"
-                "Target" 		"CASTER"
-            }
-
-            "RunScript"
-            {
-                "ScriptFile"			"scripts/vscripts/abilities/shinobi/summon_bidju.lua"
-                "Function"			    "SummonBidju"
-                "Target" 		        "CASTER"
-            }
-        }
-
-        "OnToggleOff"
-        {
-            "RunScript"
-            {
-                "ScriptFile"			"scripts/vscripts/abilities/shinobi/summon_bidju.lua"
-                "Function"			    "KillBidju"
-                "Target" 		        "CASTER"
-            }
-
-            "RemoveModifier"
-            {
-                "ModifierName"	"modifier_summon_bidju"
-                "Target"
-                {
-                    "Center"	"CASTER"
-                    "Flags" 	"DOTA_UNIT_TARGET_FLAG_DEAD"
-                }
-            }
-        }
-
-        "Modifiers"
-        {
-            "modifier_summon_bidju"
-            {
-                "Passive"			"0"
-                "IsHidden"			"0"
-                "IsDebuff"			"0"
-
-                "ThinkInterval"  "1"
-                "OnIntervalThink"
-                {
-
-
-                    "RunScript"
-                    {
-                        "ScriptFile"			"scripts/vscripts/abilities/shinobi/summon_bidju.lua"
-                        "Function"			    "OnManaTick"
-                        "Target" 		        "CASTER"
-                    }
-
-                    "SpendMana"
-                    {
-                        "Mana"	"%mana_per_second"
-                    }
-
-                }
-            }
-        }
     }
 }

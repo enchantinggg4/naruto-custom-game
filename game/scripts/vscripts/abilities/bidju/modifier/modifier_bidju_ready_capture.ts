@@ -1,4 +1,4 @@
-class Modifier_Bidju_Ready_Capture extends CDOTA_Modifier_Lua {
+class modifier_bidju_ready_capture extends CDOTA_Modifier_Lua {
     IsStunDebuff(): boolean {
         return false
     }

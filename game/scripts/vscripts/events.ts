@@ -1,6 +1,7 @@
 import {CUSTOM_GAME_SETUP_TIME, HERO_SELECTION_TIME} from "./settings";
 import {Lol} from "./gamemode";
 import {GameEvents} from "./game_events/GameEvents";
+import {ShinobiExtension} from "./game_events/Shinobi";
 
 
 declare function DebugPrint(some: any): void;
@@ -90,9 +91,20 @@ class GameModeEvents extends your_gamemode_name {
         const npc = EntIndexToHScript(data.entindex) as CDOTA_BaseNPC;
         // const owner = npc.GetOwner();
 
+
+        GameEvents.OnNPCSpawned(npc);
+
+
         if(npc.IsRealHero() && (npc as any).bFirstSpawned === null){
             (npc as any).bFirstSpawned = true;
+
             your_gamemode_name.OnHeroInGame(npc);
+
+            if(npc.GetTeam() === DOTATeam_t.DOTA_TEAM_GOODGUYS){
+                const shinobi = (npc as any) as ShinobiExtension;
+                shinobi.onFirstSpawn();
+                shinobi.setBidjuState(false);
+            }
         }
     }
 

@@ -57,22 +57,20 @@ export class Lol extends your_gamemode_name {
 
 
     static OnHeroInGame(hero: CDOTA_BaseNPC_Hero) {
-        // Timers.CreateTimer(0.5, () => {
-        //     if(hero && hero.GetPlayerID()) {
-        //         const playerID = hero.GetPlayerID();
+        // if(hero && hero.GetPlayerID()) {
+        //     const playerID = hero.GetPlayerID();
         //
-        //         if (PlayerResource.IsFakeClient(playerID)) {
-        //             DebugPrint(`[TS] Bot hero ${hero.GetUnitName()}(re)spawned in the game.`);
-        //             hero.SetGold(600, false)
-        //         } else {
-        //             DebugPrint(`[TS] Real Hero ${hero.GetUnitName()} spawned in the game first time PID: ${playerID}.`);
+        //     if (PlayerResource.IsFakeClient(playerID)) {
+        //         DebugPrint(`[TS] Bot hero ${hero.GetUnitName()}(re)spawned in the game.`);
+        //         hero.SetGold(600, false)
+        //     } else {
+        //         DebugPrint(`[TS] Real Hero ${hero.GetUnitName()} spawned in the game first time PID: ${playerID}.`);
         //
-        //             // Bug avoid
-        //             hero.MakeVisibleToTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS, 0.5);
-        //             hero.MakeVisibleToTeam(DOTATeam_t.DOTA_TEAM_BADGUYS, 0.5);
-        //         }
+        //         // Bug avoid
+        //         hero.MakeVisibleToTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS, 0.5);
+        //         hero.MakeVisibleToTeam(DOTATeam_t.DOTA_TEAM_BADGUYS, 0.5);
         //     }
-        // });
+        // }
     }
 
     static OnGameInProgress(){

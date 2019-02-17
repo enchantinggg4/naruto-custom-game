@@ -1,0 +1,1 @@
+CDOTA_BaseNPC = CDOTA_BaseNPC or C_DOTA_BaseNPC
