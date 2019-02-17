@@ -1,5 +1,5 @@
 import {BidjuExtension, BidjuManager} from "./bidju";
-import {ShinobiManager} from "./Shinobi";
+import {ShinobiExtension, ShinobiManager} from "./Shinobi";
 import {AkatsukiManager, BidjuDefender} from "./Akatsuki";
 
 export class GameEvents {
@@ -22,10 +22,14 @@ export class GameEvents {
         const isAkatsukiKiller = AkatsukiManager.IsAkatsuki(killer);
 
 
+        DebugPrint("unit killed");
+
         if (isBidjuKilled && abilityIgnored) {
             const killedBidju = killed as BidjuExtension;
             if (isShinobiKiller) {
                 // shinobi capture bidju!
+                DebugPrint("ShinobiExtension capture!");
+                ShinobiManager.CaptureBidju(killedBidju, killer as ShinobiExtension);
 
             } else if (killedBidju.summoned && !isAkatsukiKiller) {
                 // summoned bidju died NOT to akatsuki.

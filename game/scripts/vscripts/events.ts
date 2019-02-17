@@ -1,5 +1,5 @@
-import {CUSTOM_GAME_SETUP_TIME, HERO_SELECTION_TIME} from "./settings2";
-import {Lol} from "./gamemode2";
+import {CUSTOM_GAME_SETUP_TIME, HERO_SELECTION_TIME} from "./settings";
+import {Lol} from "./gamemode";
 import {GameEvents} from "./game_events/GameEvents";
 
 

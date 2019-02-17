@@ -1,8 +1,8 @@
-import {BidjuExtension} from "./Bidju";
+import {BidjuExtension, BidjuManager} from "./Bidju";
 
 
 /** @extension */
-export class Shinobi extends CDOTA_BaseNPC {
+export class ShinobiExtension extends CDOTA_BaseNPC {
     bidju: BidjuExtension | null;
 
 
@@ -39,7 +39,7 @@ export class Shinobi extends CDOTA_BaseNPC {
     }
 
 
-    onFirstSpawn(){
+    onFirstSpawn() {
         this.FindAbilityByName("shinobi_summon_bidju").UpgradeAbility(false);
         this.FindAbilityByName("shinobi_capture_bidju").UpgradeAbility(false);
     }
@@ -63,5 +63,25 @@ export class ShinobiManager {
 
     static FreeBidju(bidjuName: string) {
 
+    }
+
+    static CaptureBidju(killedBidju: BidjuExtension, owner: ShinobiExtension) {
+
+        const bidju = BidjuManager.SpawnBidju(
+            killedBidju.GetUnitName(),
+            killedBidju.GetAbsOrigin(),
+            DOTATeam_t.DOTA_TEAM_GOODGUYS,
+            null
+        );
+
+        bidju.SetTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS);
+
+        bidju.StartGesture(GameActivity_t.ACT_DOTA_DISABLED);
+
+        bidju.AddNewModifier(owner, null, "modifier_invulnerable", {
+            duration: 5
+        });
+
+        bidju.AddNewModifier(owner, null, "modifier_bidju_ready_capture", {})
     }
 }

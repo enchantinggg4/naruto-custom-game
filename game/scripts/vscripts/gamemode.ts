@@ -5,7 +5,7 @@ import {
     HERO_SELECTION_TIME, POST_GAME_TIME,
     PRE_GAME_TIME, SHOWCASE_TIME, STRATEGY_TIME, TREE_REGROW_TIME,
     UNIVERSAL_SHOP_MODE
-} from "./settings2";
+} from "./settings";
 
 require('libraries/physics');
 // Projectiles library can be used for advanced 3D projectile systems.
@@ -24,9 +24,9 @@ require('libraries/selection');
 require('libraries/timers');
 
 // settings.lua is where you can specify many different properties for your game mode and is one of the core barebones files.
-require('settings2');
+require('settings');
 // events.lua is where you can specify the actions to be taken when any event occurs and is one of the core barebones files.
-require('events2');
+require('events');
 // filters.lua
 require('filters');
 

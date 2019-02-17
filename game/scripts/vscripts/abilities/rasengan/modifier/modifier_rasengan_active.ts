@@ -31,7 +31,6 @@ class modifier_rasengan_active extends CDOTA_Modifier_Lua {
     }
 
     OnCreated(params: table): void {
-        DebugPrint("Hello.");
         EmitSoundOn("Rasengan.Active", this.GetCaster());
     }
 

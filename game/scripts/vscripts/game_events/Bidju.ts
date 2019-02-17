@@ -1,4 +1,4 @@
-import {Shinobi} from "./Shinobi";
+import {ShinobiExtension} from "./Shinobi";
 
 export enum BidjuName {
     SHUKAKU = "npc_dota_custom_bidju_shukaku",
@@ -9,10 +9,10 @@ export enum BidjuName {
 
 /** @extension */
 export class BidjuExtension extends CDOTA_BaseNPC {
-    owner: Shinobi | null;
+    owner: ShinobiExtension | null;
     summoned: boolean = false;
 
-    setOwner(shinobi: Shinobi) {
+    setOwner(shinobi: ShinobiExtension) {
         this.owner = shinobi;
         this.SetTeam(shinobi.GetTeam())
     }
@@ -27,13 +27,16 @@ export class BidjuManager {
 
 
     static SpawnBidju(
-        bidju: BidjuName,
+        bidju: string,
         point: Vector | null = null,
         team: DOTATeam_t = DOTATeam_t.DOTA_TEAM_NEUTRALS,
-        owner: Shinobi | null = null): BidjuExtension {
+        owner: ShinobiExtension | null = null): BidjuExtension {
 
         const v = point || Entities.FindByName(undefined, `spawn_${bidju}`).GetAbsOrigin();
 
+
+
+        DebugPrint(team);
 
         const unit = CreateUnitByName(bidju, v, true, null, null, team) as BidjuExtension;
 
@@ -49,15 +52,18 @@ export class BidjuManager {
 
 
     static IsBidju(unit: CDOTA_BaseNPC): boolean {
-        const keys = Object.keys(BidjuName).filter(k => typeof BidjuName[k as any] === "number"); // ["A", "B"]
-        const values = keys.map(k => BidjuName[k as any]);
-        return values.some(it => it === unit.GetUnitName());
+        const unitName = unit.GetUnitName();
+        for(const key in BidjuName){
+            if(BidjuName[key] === unitName){
+                return true
+            }
+        }
+        return false
     }
 
     static InitialSpawnBidju() {
-        const keys = Object.keys(BidjuName).filter(k => typeof BidjuName[k as any] === "number"); // ["A", "B"]
-        keys.forEach(key => {
-            BidjuManager.SpawnBidju(key as BidjuName)
-        });
+        for(const key in BidjuName){
+            BidjuManager.SpawnBidju(BidjuName[key])
+        }
     }
 }

@@ -1,4 +1,7 @@
 // In this file you can set up all the properties and settings for your game mode.
+declare let USE_DEBUG_GLOBAL: boolean;
+USE_DEBUG_GLOBAL = true;
+
 export const USE_DEBUG = true;						// Should we print statements on almost every function/event call? For debugging.
 
 export const ENABLE_HERO_RESPAWN = true;				// Should the heroes automatically respawn on a timer or stay dead until manually respawned

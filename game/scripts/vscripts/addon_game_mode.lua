@@ -15,7 +15,7 @@ require('custom_illusions')
 -- Essential lua libraries: (don't remove!)
 require('libraries/timers')
 require('libraries/player_resource')
-require('gamemode2')
+require('gamemode')
 
 function Precache(context)
 --[[

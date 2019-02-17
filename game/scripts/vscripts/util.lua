@@ -1,5 +1,5 @@
 function DebugPrint(...)
-	if USE_DEBUG then
+	if true then
 		print(...)
 	end
 end
