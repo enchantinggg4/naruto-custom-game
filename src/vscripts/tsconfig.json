@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "noImplicitAny" : true,
+    "noImplicitThis" : true,
+    "alwaysStrict" : true,
+    "strictNullChecks" : true,
+    "target": "es6",
+    "outDir": "../../game/scripts/vscripts"
+  },
+  "luaTarget": "JIT",
+  "luaLibImport": "inline"
+}

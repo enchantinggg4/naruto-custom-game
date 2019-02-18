@@ -4,7 +4,7 @@
     "itachi_tsukuyomi"
     {
         "BaseClass"						"ability_lua"
-        "ScriptFile"					"abilities/tsukuyomi/tsukuyomi.lua"
+        "ScriptFile"					"abilities/tsukuyomi/itachi_tsukuyomi.lua"
 
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"

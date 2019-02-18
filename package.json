@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tstl -p game/scripts/vscripts/tsconfig.json",
-    "watch": "tstl -p game/scripts/vscripts/tsconfig.json --watch"
+    "build2": "tstl -p src/vscripts/tsconfig.json",
+    "watch": "tstl -p game/scripts/vscripts/tsconfig.json --watch",
+    "watch2": "tstl -p src/vscripts/tsconfig.json --watch"
   },
   "repository": {
     "type": "git",

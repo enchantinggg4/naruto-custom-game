@@ -1,5 +1,3 @@
-import {ShinobiExtension} from "../../game_events/Shinobi";
-
 LinkLuaModifier("modifier_rasengan_channel", "abilities/rasengan/modifier/modifier_rasengan_channel.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 LinkLuaModifier("modifier_rasengan_active", "abilities/rasengan/modifier/modifier_rasengan_active.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 
