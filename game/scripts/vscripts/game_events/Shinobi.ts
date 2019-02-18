@@ -1,4 +1,5 @@
 import {BidjuExtension, BidjuManager} from "./Bidju";
+import {AkatsukiManager} from "./Akatsuki";
 require("client-server");
 
 /** @extension */
@@ -65,9 +66,11 @@ export class ShinobiManager {
         return unit.GetTeam() === DOTATeam_t.DOTA_TEAM_GOODGUYS;
     }
 
-    static FreeBidju(bidjuName: string) {
-        // ha ha.
 
+    static FreeBidju(bidjuName: string) {
+        DebugPrint("FreeBidju");
+        AkatsukiManager.removeParticleIndicator(bidjuName);
+        BidjuManager.SpawnBidju(bidjuName);
     }
 
     static CaptureBidju(killedBidju: BidjuExtension, owner: ShinobiExtension) {

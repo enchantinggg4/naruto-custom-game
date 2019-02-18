@@ -1,14 +1,42 @@
-function AddBuff(event)
-    local target = event.caster
-    local ability = event.ability
-
-    local duration = ability:GetLevelSpecialValueFor("duration", ability:GetLevel() - 1)
-
-    target:EmitSound("Chidori.Active")
-
-    -- Stops the sound after the duration, a bit early to ensure the thinker still exists
-    Timers:CreateTimer(duration - 0.1, function()
-        target:StopSound("Chidori.Active")
-        target:EmitSound("Chidori.End")
-    end)
-end
+--[[ Generated with https://github.com/Perryvw/TypescriptToLua ]]
+LinkLuaModifier("modifier_chidori_charge", "abilities/chidori/modifier/modifier_chidori_charge.lua", LUA_MODIFIER_MOTION_NONE);
+LinkLuaModifier("modifier_chidori_active", "abilities/chidori/modifier/modifier_chidori_active.lua", LUA_MODIFIER_MOTION_NONE);
+chidori = chidori or {};
+chidori.__index = chidori;
+chidori.new = function(construct, ...)
+    local self = setmetatable({}, chidori);
+    if construct and chidori.constructor then
+        chidori.constructor(self, ...);
+    end
+    return self;
+end;
+chidori.constructor = function(self)
+end;
+chidori.GetBehavior = function(self)
+    return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED;
+end;
+chidori.GetChannelTime = function(self)
+    return 2;
+end;
+chidori.GetCooldown = function(self, iLevel)
+    return 10;
+end;
+chidori.GetCastAnimation = function(self)
+    return ACT_DOTA_TELEPORT;
+end;
+chidori.GetManaCost = function(self, iLevel)
+    return 100;
+end;
+chidori.ProcsMagicStick = function(self)
+    return true;
+end;
+chidori.OnChannelFinish = function(self, bInterrupted)
+    self:GetCaster():RemoveModifierByName("modifier_chidori_charge");
+    if not bInterrupted then
+        self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_chidori_active", {duration = 3});
+    end
+end;
+chidori.OnSpellStart = function(self)
+    EmitSoundOn("Chidori.Charge", self:GetCaster());
+    self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_chidori_charge", {});
+end;

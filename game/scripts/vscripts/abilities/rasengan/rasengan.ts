@@ -45,9 +45,6 @@ class rasengan extends CDOTA_Ability_Lua {
     }
 
     OnSpellStart(): void {
-
-        // FIXME
-        (this.GetCaster() as ShinobiExtension).setBidjuState(false);
         EmitSoundOn("Rasengan.Charge", this.GetCaster());
         this.GetCaster().AddNewModifier(
             this.GetCaster(),

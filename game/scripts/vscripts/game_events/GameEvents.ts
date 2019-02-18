@@ -24,6 +24,8 @@ export class GameEvents {
 
 
         DebugPrint("unit killed");
+        DebugPrint(killed.GetUnitName());
+
 
         if (isBidjuKilled && !killedBySpecialAbilities) {
             const killedBidju = killed as BidjuExtension;
@@ -41,9 +43,9 @@ export class GameEvents {
                     throw "Something wrong. killed bidju has summoned flag but doesnt have owner"
                 }
             } else if (isAkatsukiKiller) {
-                AkatsukiManager.onBidjuCaptured(killedBidju);
+                AkatsukiManager.OnBidjuCaptured(killedBidju);
             }
-        }else if(isBidjuKilled && killedBySpecialAbilities){
+        } else if (isBidjuKilled && killedBySpecialAbilities) {
             DebugPrint("Killed by special ability!");
         } else if (killed.GetUnitName() === "npc_dota_custom_cave") {
             ShinobiManager.FreeBidju(

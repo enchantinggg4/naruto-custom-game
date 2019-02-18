@@ -90,10 +90,7 @@ class GameModeEvents extends your_gamemode_name {
 
         const npc = EntIndexToHScript(data.entindex) as CDOTA_BaseNPC;
         // const owner = npc.GetOwner();
-
-
         GameEvents.OnNPCSpawned(npc);
-
 
         if(npc.IsRealHero() && (npc as any).bFirstSpawned === null){
             (npc as any).bFirstSpawned = true;

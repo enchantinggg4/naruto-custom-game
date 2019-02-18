@@ -1,5 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
-
+--GameRules:SetCustomGameAllowBattleMusic(false);
+--GameRules:SetCustomGameAllowMusicAtGameStart(false);
 
 -- Creating a global gamemode variable;
 if your_gamemode_name == nil then
@@ -46,6 +47,7 @@ function Precache(context)
 	PrecacheResource("soundfile", "soundevents/game_sounds_tsukuyomi.vsndevts", ctx)
 	PrecacheResource("soundfile", "soundevents/game_sounds_rasengan.vsndevts", ctx)
 	PrecacheResource("soundfile", "soundevents/game_sounds_chidori.vsndevts", ctx)
+	PrecacheResource("soundfile", "soundevents/game_sounds_music.vsndevts", ctx)
 
 
 	--PrecacheResource("model_folder", "models/heroes/sand_king", context)

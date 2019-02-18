@@ -17,9 +17,15 @@ class modifier_shinobi_summoned extends CDOTA_Modifier_Lua {
             const manaToRemove = manaPool * 0.01;
             if (this.GetParent().GetMana() < manaToRemove) {
                 this.GetAbility().GetToggleState() ? this.GetAbility().ToggleAbility() : false;
-            } else {
-                this.GetParent().SpendMana(manaToRemove, this.GetAbility());
-            }
+            } //else {
+            //     try{
+            //         this.GetParent().SpendMana(manaToRemove, this.GetAbility());
+            //     }catch(e){
+            //         print("Error at SpendMana?");
+            //         print(this.GetParent());
+            //         print(this.GetParent().SpendMana);
+            //     }
+            // }
         }
     }
 

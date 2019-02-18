@@ -57,6 +57,9 @@ export class Lol extends your_gamemode_name {
 
 
     static OnHeroInGame(hero: CDOTA_BaseNPC_Hero) {
+
+
+        // Player:SetMusicStatus(DOTA_MUSIC_STATUS_NONE, intensity)
         // if(hero && hero.GetPlayerID()) {
         //     const playerID = hero.GetPlayerID();
         //

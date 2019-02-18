@@ -22,7 +22,8 @@ export class AkatsukiManager {
         return unit.GetTeam() === DOTATeam_t.DOTA_TEAM_BADGUYS;
     }
 
-    static onBidjuCaptured(killedBidju: BidjuExtension) {
+
+    static OnBidjuCaptured(killedBidju: BidjuExtension) {
         AkatsukiManager.createParticleIndicator(killedBidju);
         AkatsukiManager.createDefender(killedBidju);
         if(killedBidju.owner){
@@ -30,7 +31,7 @@ export class AkatsukiManager {
         }
     }
 
-    private static createParticleIndicator(killedBidju: BidjuExtension) {
+    static createParticleIndicator(killedBidju: BidjuExtension) {
         const targetEntity = Entities.FindByName(undefined, `akatsuki_preview_${killedBidju.GetUnitName()}`) as CapturedPreview;
         if (targetEntity.bidjuIndicatorParticle) {
             ParticleManager.DestroyParticle(targetEntity.bidjuIndicatorParticle, false)
@@ -52,6 +53,14 @@ export class AkatsukiManager {
             true
         )
     }
+
+    static removeParticleIndicator(killedBidjuName: string){
+        const targetEntity = Entities.FindByName(undefined, `akatsuki_preview_${killedBidjuName}`) as CapturedPreview;
+        if (targetEntity.bidjuIndicatorParticle) {
+            ParticleManager.DestroyParticle(targetEntity.bidjuIndicatorParticle, false)
+        }
+    }
+
 
     private static createDefender(killedBidju: BidjuExtension) {
         const entity = Entities.FindByName(undefined, `akatsuki_preview_${killedBidju.GetUnitName()}`);
