@@ -28,12 +28,15 @@ modifier_tsukuyomi.OnDestroy = function(self)
     StopSoundOn(Sound_tsukuyomi.Loop, self:GetParent());
     EmitSoundOn(Sound_tsukuyomi.End, self:GetParent());
     self:StartIntervalThink(-1);
+    ParticleManager:DestroyParticle(self.particle, false);
 end;
 modifier_tsukuyomi.OnCreated = function(self, params)
     EmitSoundOn(Sound_tsukuyomi.Loop, self:GetParent());
     if IsServer() then
         self:StartIntervalThink(0.1);
     end
+    local target = self:GetParent();
+    self.particle = ParticleManager:CreateParticle("particles/abilities/tsukuyomi/tsukuyomi_damage.vpcf", PATTACH_CENTER_FOLLOW, target);
 end;
 modifier_tsukuyomi.OnIntervalThink = function(self)
     ApplyDamage({victim = self:GetParent(), attacker = self:GetCaster(), damage = 10, damage_type = DAMAGE_TYPE_MAGICAL});

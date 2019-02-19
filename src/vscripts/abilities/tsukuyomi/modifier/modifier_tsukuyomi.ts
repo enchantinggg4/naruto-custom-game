@@ -1,6 +1,9 @@
 import {Sound_tsukuyomi} from "../../../Sounds";
 
 class modifier_tsukuyomi extends CDOTA_Modifier_Lua {
+
+    private particle: ParticleID;
+
     IsHidden(): boolean {
         return false
     }
@@ -21,6 +24,7 @@ class modifier_tsukuyomi extends CDOTA_Modifier_Lua {
         StopSoundOn(Sound_tsukuyomi.Loop, this.GetParent());
         EmitSoundOn(Sound_tsukuyomi.End, this.GetParent());
         this.StartIntervalThink(-1);
+        ParticleManager.DestroyParticle(this.particle, false);
     }
 
     OnCreated(params: table): void {
@@ -28,6 +32,14 @@ class modifier_tsukuyomi extends CDOTA_Modifier_Lua {
         if (IsServer()) {
             this.StartIntervalThink(0.1);
         }
+
+        const target = this.GetParent();
+
+        this.particle = ParticleManager.CreateParticle(
+            "particles/abilities/tsukuyomi/tsukuyomi_damage.vpcf",
+            ParticleAttachment_t.PATTACH_CENTER_FOLLOW,
+            target,
+        );
     }
 
     OnIntervalThink(): void {

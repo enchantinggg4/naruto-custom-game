@@ -7,6 +7,10 @@ class tsukuyomi extends CDOTA_Ability_Lua {
         return DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
     }
 
+    GetCastAnimation(): GameActivity_t {
+        return GameActivity_t.ACT_DOTA_CAST_ABILITY_4
+    }
+
     GetCooldown(iLevel: number): number {
         return 10
     }
