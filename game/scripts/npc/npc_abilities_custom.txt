@@ -13,4 +13,5 @@
 
 
 #base "abilities/itachi/tsukuyomi.txt"
+#base "abilities/itachi/amaterasu.txt"
 

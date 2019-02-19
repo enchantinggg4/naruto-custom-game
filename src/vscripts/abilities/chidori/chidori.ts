@@ -10,7 +10,7 @@ class chidori extends CDOTA_Ability_Lua {
     }
 
     GetChannelTime(): number {
-        return 2; // 2sec
+        return 1; // 2sec
     }
 
     GetCooldown(iLevel: number): number {

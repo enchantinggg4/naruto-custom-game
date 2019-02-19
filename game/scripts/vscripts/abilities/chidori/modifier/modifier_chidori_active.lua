@@ -1,4 +1,6 @@
 --[[ Generated with https://github.com/Perryvw/TypescriptToLua ]]
+local __TSTL_Sounds = require("Sounds");
+local Sound_chidori = __TSTL_Sounds.Sound_chidori;
 modifier_chidori_active = modifier_chidori_active or {};
 modifier_chidori_active.__index = modifier_chidori_active;
 modifier_chidori_active.new = function(construct, ...)
@@ -29,17 +31,17 @@ modifier_chidori_active.GetModifierDamageOutgoing_Percentage = function(self, ev
     return 1000;
 end;
 modifier_chidori_active.OnAttackLanded = function(self, event)
-    EmitSoundOn("Rasengan.Hit", event.target);
+    EmitSoundOn(Sound_chidori.Hit, event.target);
 end;
 modifier_chidori_active.OnCreated = function(self, params)
-    EmitSoundOn("Rasengan.Active", self:GetCaster());
+    EmitSoundOn(Sound_chidori.Loop, self:GetCaster());
 end;
 modifier_chidori_active.OnDestroy = function(self)
-    StopSoundOn("Rasengan.Active", self:GetCaster());
-    EmitSoundOn("Rasengan.End", self:GetCaster());
+    StopSoundOn(Sound_chidori.Loop, self:GetCaster());
+    EmitSoundOn(Sound_chidori.End, self:GetCaster());
 end;
 modifier_chidori_active.GetEffectName = function(self)
-    return "particles/abilities/rasengan/rasengan_active.vpcf";
+    return "particles/abilities/chidori/chidori.vpcf";
 end;
 modifier_chidori_active.GetEffectAttachType = function(self)
     return PATTACH_POINT_FOLLOW;

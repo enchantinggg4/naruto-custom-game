@@ -1,4 +1,6 @@
 --[[ Generated with https://github.com/Perryvw/TypescriptToLua ]]
+local __TSTL_Sounds = require("Sounds");
+local Sound_chidori = __TSTL_Sounds.Sound_chidori;
 LinkLuaModifier("modifier_chidori_charge", "abilities/chidori/modifier/modifier_chidori_charge.lua", LUA_MODIFIER_MOTION_NONE);
 LinkLuaModifier("modifier_chidori_active", "abilities/chidori/modifier/modifier_chidori_active.lua", LUA_MODIFIER_MOTION_NONE);
 chidori = chidori or {};
@@ -16,7 +18,7 @@ chidori.GetBehavior = function(self)
     return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED;
 end;
 chidori.GetChannelTime = function(self)
-    return 2;
+    return 1;
 end;
 chidori.GetCooldown = function(self, iLevel)
     return 10;
@@ -37,6 +39,6 @@ chidori.OnChannelFinish = function(self, bInterrupted)
     end
 end;
 chidori.OnSpellStart = function(self)
-    EmitSoundOn("Chidori.Charge", self:GetCaster());
+    EmitSoundOn(Sound_chidori.Start, self:GetCaster());
     self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_chidori_charge", {});
 end;

@@ -15,7 +15,7 @@
                     {
                         "value"
                         {
-                              "value0"        "naruto_shippuden_2/content/sounds/abilities/tsukuyomi/End.vsnd"
+                              "value0"        "abilities/tsukuyomi/End.vsnd"
                         }
                     }
                     "volume"            {   "value"     "10.00000"  }
@@ -47,7 +47,7 @@
                     {
                         "value"
                         {
-                              "value0"        "naruto_shippuden_2/content/sounds/abilities/tsukuyomi/Loop.vsnd"
+                              "value0"        "abilities/tsukuyomi/Loop.vsnd"
                         }
                     }
                     "volume"            {   "value"     "10.00000"  }
@@ -79,7 +79,7 @@
                     {
                         "value"
                         {
-                              "value0"        "naruto_shippuden_2/content/sounds/abilities/tsukuyomi/Start.vsnd"
+                              "value0"        "abilities/tsukuyomi/Start.vsnd"
                         }
                     }
                     "volume"            {   "value"     "10.00000"  }

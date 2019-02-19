@@ -11,5 +11,11 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityTextureName"			"naruto_rasengan_active"
 
+
+         "precache"
+        {
+            "particle"          "particles/abilities/tsukuyomi/overhead2.vpcf"
+            "soundfile"         "soundevents/game_sounds_tsukuyomi.vsndevts"
+        }
     }
 }

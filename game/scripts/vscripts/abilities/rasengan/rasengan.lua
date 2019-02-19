@@ -1,4 +1,6 @@
 --[[ Generated with https://github.com/Perryvw/TypescriptToLua ]]
+local __TSTL_Sounds = require("Sounds");
+local Sound_rasengan = __TSTL_Sounds.Sound_rasengan;
 LinkLuaModifier("modifier_rasengan_channel", "abilities/rasengan/modifier/modifier_rasengan_channel.lua", LUA_MODIFIER_MOTION_NONE);
 LinkLuaModifier("modifier_rasengan_active", "abilities/rasengan/modifier/modifier_rasengan_active.lua", LUA_MODIFIER_MOTION_NONE);
 rasengan = rasengan or {};
@@ -37,6 +39,6 @@ rasengan.OnChannelFinish = function(self, bInterrupted)
     end
 end;
 rasengan.OnSpellStart = function(self)
-    EmitSoundOn("Rasengan.Charge", self:GetCaster());
+    EmitSoundOn(Sound_rasengan.Start, self:GetCaster());
     self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_rasengan_channel", {});
 end;

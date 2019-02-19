@@ -1,4 +1,6 @@
 --[[ Generated with https://github.com/Perryvw/TypescriptToLua ]]
+local __TSTL_Sounds = require("Sounds");
+local Sound_tsukuyomi = __TSTL_Sounds.Sound_tsukuyomi;
 modifier_tsukuyomi = modifier_tsukuyomi or {};
 modifier_tsukuyomi.__index = modifier_tsukuyomi;
 modifier_tsukuyomi.new = function(construct, ...)
@@ -23,12 +25,12 @@ modifier_tsukuyomi.GetEffectAttachType = function(self)
     return PATTACH_OVERHEAD_FOLLOW;
 end;
 modifier_tsukuyomi.OnDestroy = function(self)
-    StopSoundOn("Tsukuyomi.Process", self:GetParent());
-    EmitSoundOn("Tsukuyomi.End", self:GetParent());
+    StopSoundOn(Sound_tsukuyomi.Loop, self:GetParent());
+    EmitSoundOn(Sound_tsukuyomi.End, self:GetParent());
     self:StartIntervalThink(-1);
 end;
 modifier_tsukuyomi.OnCreated = function(self, params)
-    EmitSoundOn("Tsukuyomi.Process", self:GetParent());
+    EmitSoundOn(Sound_tsukuyomi.Loop, self:GetParent());
     if IsServer() then
         self:StartIntervalThink(0.1);
     end

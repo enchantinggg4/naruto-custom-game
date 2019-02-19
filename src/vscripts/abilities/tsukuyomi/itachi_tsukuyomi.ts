@@ -23,7 +23,11 @@ class itachi_tsukuyomi extends CDOTA_Ability_Lua {
     OnChannelFinish(bInterrupted: boolean): void {
         const target = this.GetCursorTarget();
         const caster = this.GetCaster();
+
         if(!bInterrupted){
+            target.AddNewModifier(caster, this, "modifier_stunned", {
+                duration: 5
+            });
             target.AddNewModifier(caster, this, "modifier_tsukuyomi", {
                 duration: 5
             })

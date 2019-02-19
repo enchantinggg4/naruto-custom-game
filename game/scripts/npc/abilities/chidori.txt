@@ -26,8 +26,8 @@
 
         "precache"
         {
-            "particle"          "particles/abilities/rasengan/rasengan_charge.vpcf"
-            "particle"          "particles/abilities/rasengan/rasengan_active.vpcf"
+            "particle"          "particles/abilities/chidori/chidori.vpcf"
+            "particle"          "particles/abilities/chidori/chidori_charge.vpcf"
             "soundfile"         "soundevents/game_sounds_chidori.vsndevts"
         }
 

@@ -17,7 +17,7 @@ class modifier_chidori_charge extends CDOTA_Modifier_Lua {
     }
 
     GetEffectName(): string {
-        return "particles/abilities/rasengan/rasengan_charge.vpcf"
+        return "particles/abilities/chidori/chidori_charge.vpcf"
     }
 
     GetEffectAttachType(): ParticleAttachment_t {

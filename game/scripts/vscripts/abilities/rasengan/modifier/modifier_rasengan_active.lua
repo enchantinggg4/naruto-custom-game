@@ -1,4 +1,6 @@
 --[[ Generated with https://github.com/Perryvw/TypescriptToLua ]]
+local __TSTL_Sounds = require("Sounds");
+local Sound_rasengan = __TSTL_Sounds.Sound_rasengan;
 modifier_rasengan_active = modifier_rasengan_active or {};
 modifier_rasengan_active.__index = modifier_rasengan_active;
 modifier_rasengan_active.new = function(construct, ...)
@@ -29,14 +31,14 @@ modifier_rasengan_active.GetModifierDamageOutgoing_Percentage = function(self, e
     return 1000;
 end;
 modifier_rasengan_active.OnAttackLanded = function(self, event)
-    EmitSoundOn("Rasengan.Hit", event.target);
+    EmitSoundOn(Sound_rasengan.Hit, event.target);
 end;
 modifier_rasengan_active.OnCreated = function(self, params)
-    EmitSoundOn("Rasengan.Active", self:GetCaster());
+    EmitSoundOn(Sound_rasengan.Loop, self:GetCaster());
 end;
 modifier_rasengan_active.OnDestroy = function(self)
-    StopSoundOn("Rasengan.Active", self:GetCaster());
-    EmitSoundOn("Rasengan.End", self:GetCaster());
+    StopSoundOn(Sound_rasengan.Loop, self:GetCaster());
+    EmitSoundOn(Sound_rasengan.End, self:GetCaster());
 end;
 modifier_rasengan_active.GetEffectName = function(self)
     return "particles/abilities/rasengan/rasengan_active.vpcf";

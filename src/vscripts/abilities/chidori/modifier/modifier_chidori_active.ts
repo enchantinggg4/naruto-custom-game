@@ -42,7 +42,7 @@ class modifier_chidori_active extends CDOTA_Modifier_Lua {
     }
 
     GetEffectName(): string {
-        return "particles/abilities/rasengan/rasengan_active.vpcf"
+        return "particles/abilities/chidori/chidori.vpcf"
     }
 
     GetEffectAttachType(): ParticleAttachment_t {

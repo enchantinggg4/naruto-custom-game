@@ -23,7 +23,7 @@ modifier_chidori_charge.IsPurgable = function(self)
     return false;
 end;
 modifier_chidori_charge.GetEffectName = function(self)
-    return "particles/abilities/rasengan/rasengan_charge.vpcf";
+    return "particles/abilities/chidori/chidori_charge.vpcf";
 end;
 modifier_chidori_charge.GetEffectAttachType = function(self)
     return PATTACH_POINT_FOLLOW;
