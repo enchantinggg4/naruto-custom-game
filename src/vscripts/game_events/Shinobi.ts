@@ -27,12 +27,12 @@ export class ShinobiExtension extends CDOTA_BaseNPC {
     setBidjuState(hasBidju: boolean) {
         if (hasBidju) {
             // can summon, cant capture
-            this.FindAbilityByName("shinobi_summon_bidju").SetActivated(true);
-            this.FindAbilityByName("shinobi_capture_bidju").SetActivated(false);
+            this.FindAbilityByName("summon_bidju").SetActivated(true);
+            this.FindAbilityByName("capture_bidju").SetActivated(false);
         } else {
             // can capture, cant summon
-            this.FindAbilityByName("shinobi_summon_bidju").SetActivated(false);
-            this.FindAbilityByName("shinobi_capture_bidju").SetActivated(true);
+            this.FindAbilityByName("summon_bidju").SetActivated(false);
+            this.FindAbilityByName("capture_bidju").SetActivated(true);
         }
     }
 
@@ -45,12 +45,12 @@ export class ShinobiExtension extends CDOTA_BaseNPC {
 
 
     onFirstSpawn() {
-        this.FindAbilityByName("shinobi_summon_bidju").UpgradeAbility(false);
-        this.FindAbilityByName("shinobi_capture_bidju").UpgradeAbility(false);
+        this.FindAbilityByName("summon_bidju").UpgradeAbility(false);
+        this.FindAbilityByName("capture_bidju").UpgradeAbility(false);
     }
 
     private setSummonToggle(enabled: boolean) {
-        const ability = this.FindAbilityByName("shinobi_summon_bidju");
+        const ability = this.FindAbilityByName("summon_bidju");
         const toggled = ability.GetToggleState();
         if (toggled && !enabled) { // true -> false
             ability.ToggleAbility()
@@ -85,7 +85,7 @@ export class ShinobiManager {
     }
 
     static OnBidjuCaptured(bidju: BidjuExtension, hero: ShinobiExtension) {
-        bidju.Kill(hero.FindAbilityByName("shinobi_capture_bidju"), hero);
+        bidju.Kill(hero.FindAbilityByName("capture_bidju"), hero);
         hero.setBidjuState(true);
         hero.setBidju(bidju);
     }

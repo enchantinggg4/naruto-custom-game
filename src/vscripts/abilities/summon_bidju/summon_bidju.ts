@@ -4,10 +4,10 @@
 import {ShinobiExtension} from "../../game_events/Shinobi";
 import {BidjuManager} from "../../game_events/Bidju";
 
-LinkLuaModifier("modifier_shinobi_summoned", "abilities/shinobi/modifier/modifier_shinobi_summoned.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
+LinkLuaModifier("modifier_bidju_summoned", "abilities/summon_bidju/modifier/modifier_bidju_summoned.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 
 
-class shinobi_summon_bidju extends CDOTA_Ability_Lua {
+class summon_bidju extends CDOTA_Ability_Lua {
 
     GetMaxLevel(): number {
         return 1;
@@ -37,7 +37,7 @@ class shinobi_summon_bidju extends CDOTA_Ability_Lua {
             bidju.SetControllableByPlayer(caster.GetPlayerOwnerID(), true);
             bidju.SetOwner(bidju);
             bidju.summoned = true;
-            caster.AddNewModifier(caster, this, "modifier_shinobi_summoned", {});
+            caster.AddNewModifier(caster, this, "modifier_bidju_summoned", {});
         } else {
             throw "Hero doesn't have bidjuName - and his ability is unlocked. ????"
         }
@@ -46,7 +46,7 @@ class shinobi_summon_bidju extends CDOTA_Ability_Lua {
 
     private onToggleOff() {
         const caster = this.GetCaster() as ShinobiExtension;
-        caster.RemoveModifierByName("modifier_shinobi_summoned");
+        caster.RemoveModifierByName("modifier_bidju_summoned");
         if (caster.bidju != null) {
             // summon is still alive
             caster.bidju.Kill(this, undefined);

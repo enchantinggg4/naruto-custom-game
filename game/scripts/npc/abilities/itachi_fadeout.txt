@@ -1,0 +1,18 @@
+"DOTAAbilities"
+{
+    "Version"   "1"
+    "itachi_fadeout"
+    {
+        "BaseClass"						"ability_lua"
+        "ScriptFile"					"abilities/itachi_fadeout/itachi_fadeout.lua"
+
+        "AbilityTextureName"			"itachi_fadeout"
+
+
+         "precache"
+        {
+            "particle"          "particles/abilities/itachi_fadeout/itachi_fadeout.vpcf"
+            "soundfile"         "soundevents/game_sounds_shadow_fadeout.vsndevts"
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import {ShinobiExtension, ShinobiManager} from "../../game_events/Shinobi";
 import {BidjuExtension} from "../../game_events/Bidju";
 
-class shinobi_capture_bidju extends CDOTA_Ability_Lua {
+class capture_bidju extends CDOTA_Ability_Lua {
 
     private particleID: ParticleID;
 

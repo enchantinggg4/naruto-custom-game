@@ -30,7 +30,7 @@ end;
 exports.GameEvents.constructor = function(self)
 end;
 exports.GameEvents.OnNPCKilled = function(self, killed, killer, ability)
-    local ignoredAbilities = {"shinobi_capture_bidju", "shinobi_summon_bidju"};
+    local ignoredAbilities = {"capture_bidju", "summon_bidju"};
     local isBidjuKilled = BidjuManager:IsBidju(killed);
     local killedBySpecialAbilities = (ability and __TS__ArraySome(ignoredAbilities, function(it)
         return it == ability:GetName();

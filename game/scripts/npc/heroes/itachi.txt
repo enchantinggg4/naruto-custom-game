@@ -6,8 +6,9 @@
 
 
 
-		"Ability1"        	"itachi_tsukuyomi"
-		"Ability2"        	"itachi_amaterasu"
+		"Ability1"        	"tsukuyomi"
+		"Ability2"        	"amaterasu"
+		"Ability3"        	"itachi_fadeout"
 
 		"DisableWearables"  "0"
 		"AbilityLayout"     "6"

@@ -1,0 +1,18 @@
+"DOTAAbilities"
+{
+    "Version"   "1"
+    "summon_bidju"
+    {
+        "BaseClass"				        "ability_lua"
+        "AbilityTextureName"			"medusa_mana_shield"
+        "ScriptFile"                    "abilities/summon_bidju/summon_bidju.lua"
+
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+
+        }
+        "MaxLevel"                      "1"
+    }
+}

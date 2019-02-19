@@ -7,7 +7,7 @@ interface IBudjudamaState {
 declare function PrintTable(t: table): void
 
 
-class bidju_bidjudama extends CDOTA_Ability_Lua implements IBudjudamaState {
+class bidjudama extends CDOTA_Ability_Lua implements IBudjudamaState {
 
     private ThrowProjectile() {
         const info: TrackingProjectileTable = {

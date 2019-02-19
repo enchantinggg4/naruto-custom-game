@@ -1,4 +1,4 @@
-class modifier_shinobi_summoned extends CDOTA_Modifier_Lua {
+class modifier_bidju_summoned extends CDOTA_Modifier_Lua {
 
     GetTexture(): string {
         return "medusa_mana_shield"

@@ -2,7 +2,7 @@ import {Sound_tsukuyomi} from "../../Sounds";
 
 LinkLuaModifier("modifier_tsukuyomi", "abilities/tsukuyomi/modifier/modifier_tsukuyomi.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 
-class itachi_tsukuyomi extends CDOTA_Ability_Lua {
+class tsukuyomi extends CDOTA_Ability_Lua {
     GetBehavior(): DOTA_ABILITY_BEHAVIOR {
         return DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
     }

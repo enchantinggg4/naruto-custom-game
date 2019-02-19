@@ -1,16 +1,21 @@
 "DOTAAbilities"
 {
     "Version"   "1"
-    "bidju_bidjudama"
+    "tsukuyomi"
     {
-        "ID"							"80854"
         "BaseClass"						"ability_lua"
-        "ScriptFile"                    "abilities/bidju/bidjudama.lua"
-        "AbilityTextureName"			"shinobi_capture_bidju"
+        "ScriptFile"					"abilities/tsukuyomi/tsukuyomi.lua"
 
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityTextureName"			"tsukuyomi"
 
+
+         "precache"
+        {
+            "particle"          "particles/abilities/tsukuyomi/overhead2.vpcf"
+            "soundfile"         "soundevents/game_sounds_tsukuyomi.vsndevts"
+        }
     }
 }

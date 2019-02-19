@@ -7,8 +7,8 @@ export class GameEvents {
 
     static OnNPCKilled(killed: CDOTA_BaseNPC, killer: CDOTA_BaseNPC, ability: CDOTABaseAbility | null) {
         const ignoredAbilities = [
-            "shinobi_capture_bidju",
-            "shinobi_summon_bidju",
+            "capture_bidju",
+            "summon_bidju",
         ];
 
 

@@ -1,11 +1,11 @@
 "DOTAAbilities"
 {
     "Version"   "1"
-    "shinobi_capture_bidju"
+    "capture_bidju"
     {
         "ID"							"80854"
         "BaseClass"						"ability_lua"
-        "ScriptFile"                    "abilities/shinobi/shinobi_capture_bidju.lua"
+        "ScriptFile"                    "abilities/capture_bidju/capture_bidju.lua"
         "AbilityTextureName"			"shinobi_capture_bidju"
         "MaxLevel"                      "1"
     }

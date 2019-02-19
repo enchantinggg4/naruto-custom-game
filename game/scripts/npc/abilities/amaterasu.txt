@@ -1,10 +1,10 @@
 "DOTAAbilities"
 {
     "Version"   "1"
-    "itachi_amaterasu"
+    "amaterasu"
     {
         "BaseClass"						"ability_lua"
-        "ScriptFile"					"abilities/amaterasu/itachi_amaterasu.lua"
+        "ScriptFile"					"abilities/amaterasu/amaterasu.lua"
 
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"

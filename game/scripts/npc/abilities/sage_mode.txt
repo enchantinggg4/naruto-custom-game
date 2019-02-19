@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
     "Version"   "1"
-    "naruto_sage_mode"
+    "sage_mode"
     {
         "BaseClass"						"ability_datadriven"
         "AbilityTextureName"			"naruto_sage_mode"

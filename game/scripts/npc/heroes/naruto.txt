@@ -7,11 +7,11 @@
 		"DisableWearables"  "0"
 		"AbilityLayout"     "6"
 		"Ability1"        	"rasengan"
-		"Ability2"        	"naruto_sage_mode"
-		"Ability3"        	"shinobi_capture_bidju"
-		"Ability4"        	"shinobi_summon_bidju"
+		"Ability2"        	"sage_mode"
+		"Ability3"        	"capture_bidju"
+		"Ability4"        	"summon_bidju"
 		"Ability5"        	"chaos_knight_phantasm"
-		"Ability6"        	"bidju_bidjudama"
+		"Ability6"        	"bidjudama"
 
 		"ArmorPhysical"       		"0"                 	// Physical protection.
 		"MagicalResistance"       	"0"                 	// Magical protection (percentage).

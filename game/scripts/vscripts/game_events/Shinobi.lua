@@ -19,11 +19,11 @@ CDOTA_BaseNPC.onBidjuKilled = function(self)
 end;
 CDOTA_BaseNPC.setBidjuState = function(self, hasBidju)
     if hasBidju then
-        self:FindAbilityByName("shinobi_summon_bidju"):SetActivated(true);
-        self:FindAbilityByName("shinobi_capture_bidju"):SetActivated(false);
+        self:FindAbilityByName("summon_bidju"):SetActivated(true);
+        self:FindAbilityByName("capture_bidju"):SetActivated(false);
     else
-        self:FindAbilityByName("shinobi_summon_bidju"):SetActivated(false);
-        self:FindAbilityByName("shinobi_capture_bidju"):SetActivated(true);
+        self:FindAbilityByName("summon_bidju"):SetActivated(false);
+        self:FindAbilityByName("capture_bidju"):SetActivated(true);
     end
 end;
 CDOTA_BaseNPC.onLoseBidju = function(self)
@@ -32,11 +32,11 @@ CDOTA_BaseNPC.onLoseBidju = function(self)
     self:setBidjuState(false);
 end;
 CDOTA_BaseNPC.onFirstSpawn = function(self)
-    self:FindAbilityByName("shinobi_summon_bidju"):UpgradeAbility(false);
-    self:FindAbilityByName("shinobi_capture_bidju"):UpgradeAbility(false);
+    self:FindAbilityByName("summon_bidju"):UpgradeAbility(false);
+    self:FindAbilityByName("capture_bidju"):UpgradeAbility(false);
 end;
 CDOTA_BaseNPC.setSummonToggle = function(self, enabled)
-    local ability = self:FindAbilityByName("shinobi_summon_bidju");
+    local ability = self:FindAbilityByName("summon_bidju");
     local toggled = ability:GetToggleState();
     if toggled and (not enabled) then
         ability:ToggleAbility();
@@ -68,7 +68,7 @@ exports.ShinobiManager.CaptureBidju = function(self, killedBidju, owner)
     bidju:captureReadyRespawn();
 end;
 exports.ShinobiManager.OnBidjuCaptured = function(self, bidju, hero)
-    bidju:Kill(hero:FindAbilityByName("shinobi_capture_bidju"), hero);
+    bidju:Kill(hero:FindAbilityByName("capture_bidju"), hero);
     hero:setBidjuState(true);
     hero:setBidju(bidju);
 end;

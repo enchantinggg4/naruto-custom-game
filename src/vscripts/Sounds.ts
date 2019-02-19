@@ -1,4 +1,9 @@
 
+export enum Sound_amaterasu {
+	Start = "amaterasu.Start"
+}	
+	
+
 export enum Sound_chidori {
 	End = "chidori.End", 
 	Hit = "chidori.Hit", 
@@ -12,6 +17,11 @@ export enum Sound_rasengan {
 	Hit = "rasengan.Hit", 
 	Loop = "rasengan.Loop", 
 	Start = "rasengan.Start"
+}	
+	
+
+export enum Sound_shadow_fadeout {
+	Start = "shadow_fadeout.Start"
 }	
 	
 

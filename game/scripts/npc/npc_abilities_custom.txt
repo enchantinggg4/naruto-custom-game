@@ -1,17 +1,15 @@
 #base "abilities/chidori.txt"
 
 
-#base "abilities/naruto/rasengan.txt"
-#base "abilities/naruto/kurama.txt"
-#base "abilities/naruto/sage_mode.txt"
+#base "abilities/rasengan.txt"
+#base "abilities/sage_mode.txt"
 
 
-#base "abilities/shinobi/capture_bidju.txt"
-#base "abilities/shinobi/summon_bidju.txt"
+#base "abilities/capture_bidju.txt"
+#base "abilities/summon_bidju.txt"
 
-#base "abilities/bidju/bidjudama.txt"
+#base "abilities/bidjudama.txt"
 
-
-#base "abilities/itachi/tsukuyomi.txt"
-#base "abilities/itachi/amaterasu.txt"
-
+#base "abilities/tsukuyomi.txt"
+#base "abilities/amaterasu.txt"
+#base "abilities/itachi_fadeout.txt"
