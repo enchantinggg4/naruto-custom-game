@@ -1,4 +1,5 @@
 import {ShinobiExtension} from "../../game_events/Shinobi";
+import {Sound_chidori} from "../../Sounds";
 
 LinkLuaModifier("modifier_chidori_charge", "abilities/chidori/modifier/modifier_chidori_charge.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 LinkLuaModifier("modifier_chidori_active", "abilities/chidori/modifier/modifier_chidori_active.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
@@ -45,7 +46,7 @@ class chidori extends CDOTA_Ability_Lua {
     }
 
     OnSpellStart(): void {
-        EmitSoundOn("Chidori.Charge", this.GetCaster());
+        EmitSoundOn(Sound_chidori.Start, this.GetCaster());
         this.GetCaster().AddNewModifier(
             this.GetCaster(),
             this,

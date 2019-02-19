@@ -1,36 +1,5 @@
-"Rasengan.Charge"
-{
-    "operator_stacks"
-    {
-        "update_stack"
-        {
-            "reference_operator"
-            {
-                "operator"              "sos_reference_stack"
-                "reference_stack"       "dota_update_default"
-                "operator_variables"
-                {
-                    "vsnd_files"
-                    {
-                        "value"
-                        {
-                              "value0"        "sounds/abilities/rasengan/rasengan_charge.vsnd"
-                        }
-                    }
-                    "volume"            {   "value"     "10.00000"  }
-                    "pitch_rand_min"    {   "value"     "-0.05000"  }
-                    "pitch_rand_max"    {   "value"     "0.050000"  }
-                    "pitch"             {   "value"     "1.000000"  }
-                    "soundlevel"        {   "value"     "100.00000" }
-                    "distance_max"      {   "value"     "1600.000"  }
-                    "event_type"        {   "value"     "1.000000"  }
-                }
-            }
-        }
-    }
-}
 
-"Rasengan.Active"
+"rasengan.End"
 {
     "operator_stacks"
     {
@@ -46,7 +15,7 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/abilities/rasengan/rasengan_active.vsnd"
+                              "value0"        "naruto_shippuden_2/content/sounds/abilities/rasengan/End.vsnd"
                         }
                     }
                     "volume"            {   "value"     "10.00000"  }
@@ -61,8 +30,8 @@
         }
     }
 }
-
-"Rasengan.End"
+		
+"rasengan.Hit"
 {
     "operator_stacks"
     {
@@ -78,7 +47,7 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/abilities/rasengan/rasengan_end.vsnd"
+                              "value0"        "naruto_shippuden_2/content/sounds/abilities/rasengan/Hit.vsnd"
                         }
                     }
                     "volume"            {   "value"     "10.00000"  }
@@ -93,8 +62,8 @@
         }
     }
 }
-
-"Rasengan.Hit"
+		
+"rasengan.Loop"
 {
     "operator_stacks"
     {
@@ -110,7 +79,7 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/abilities/rasengan/rasengan_hit.vsnd"
+                              "value0"        "naruto_shippuden_2/content/sounds/abilities/rasengan/Loop.vsnd"
                         }
                     }
                     "volume"            {   "value"     "10.00000"  }
@@ -125,3 +94,36 @@
         }
     }
 }
+		
+"rasengan.Start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_update_default"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "naruto_shippuden_2/content/sounds/abilities/rasengan/Start.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "10.00000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.00000" }
+                    "distance_max"      {   "value"     "1600.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+		

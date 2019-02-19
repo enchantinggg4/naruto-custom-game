@@ -1,3 +1,5 @@
+import {Sound_tsukuyomi} from "../../Sounds";
+
 LinkLuaModifier("modifier_tsukuyomi", "abilities/tsukuyomi/modifier/modifier_tsukuyomi.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 
 class itachi_tsukuyomi extends CDOTA_Ability_Lua {
@@ -15,7 +17,7 @@ class itachi_tsukuyomi extends CDOTA_Ability_Lua {
 
     OnSpellStart(): void {
         const target = this.GetCursorTarget();
-        EmitSoundOn("Tsukuyomi.Start", target);
+        EmitSoundOn(Sound_tsukuyomi.Start, target);
     }
 
     OnChannelFinish(bInterrupted: boolean): void {

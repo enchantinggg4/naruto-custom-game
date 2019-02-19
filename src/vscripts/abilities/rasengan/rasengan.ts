@@ -1,3 +1,5 @@
+import {Sound_rasengan} from "../../Sounds";
+
 LinkLuaModifier("modifier_rasengan_channel", "abilities/rasengan/modifier/modifier_rasengan_channel.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 LinkLuaModifier("modifier_rasengan_active", "abilities/rasengan/modifier/modifier_rasengan_active.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 
@@ -43,7 +45,7 @@ class rasengan extends CDOTA_Ability_Lua {
     }
 
     OnSpellStart(): void {
-        EmitSoundOn("Rasengan.Charge", this.GetCaster());
+        EmitSoundOn(Sound_rasengan.Start, this.GetCaster());
         this.GetCaster().AddNewModifier(
             this.GetCaster(),
             this,

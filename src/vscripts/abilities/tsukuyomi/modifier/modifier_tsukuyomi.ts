@@ -1,3 +1,5 @@
+import {Sound_tsukuyomi} from "../../../Sounds";
+
 class modifier_tsukuyomi extends CDOTA_Modifier_Lua {
     IsHidden(): boolean {
         return false
@@ -16,15 +18,15 @@ class modifier_tsukuyomi extends CDOTA_Modifier_Lua {
     }
 
     OnDestroy(): void {
-        StopSoundOn("Tsukuyomi.Process", this.GetParent());
-        EmitSoundOn("Tsukuyomi.End", this.GetParent());
+        StopSoundOn(Sound_tsukuyomi.Loop, this.GetParent());
+        EmitSoundOn(Sound_tsukuyomi.End, this.GetParent());
         this.StartIntervalThink(-1);
     }
 
     OnCreated(params: table): void {
-        EmitSoundOn("Tsukuyomi.Process", this.GetParent());
+        EmitSoundOn(Sound_tsukuyomi.Loop, this.GetParent());
         if (IsServer()) {
-            this.StartIntervalThink(0.3);
+            this.StartIntervalThink(0.1);
         }
     }
 
@@ -32,7 +34,7 @@ class modifier_tsukuyomi extends CDOTA_Modifier_Lua {
         ApplyDamage({
             victim: this.GetParent(),
             attacker: this.GetCaster(),
-            damage: 1,
+            damage: 10,
             damage_type: DAMAGE_TYPES.DAMAGE_TYPE_MAGICAL
         })
     }

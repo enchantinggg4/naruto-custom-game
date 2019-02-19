@@ -1,4 +1,5 @@
-"Chidori.Charge"
+
+"chidori.End"
 {
     "operator_stacks"
     {
@@ -14,7 +15,7 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/abilities/chidori/chidori_charge.vsnd"
+                              "value0"        "naruto_shippuden_2/content/sounds/abilities/chidori/End.vsnd"
                         }
                     }
                     "volume"            {   "value"     "10.00000"  }
@@ -29,7 +30,8 @@
         }
     }
 }
-"Chidori.Active"
+		
+"chidori.Hit"
 {
     "operator_stacks"
     {
@@ -45,7 +47,7 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/abilities/chidori/chidori_loop.vsnd"
+                              "value0"        "naruto_shippuden_2/content/sounds/abilities/chidori/Hit.vsnd"
                         }
                     }
                     "volume"            {   "value"     "10.00000"  }
@@ -60,7 +62,8 @@
         }
     }
 }
-"Chidori.End"
+		
+"chidori.Loop"
 {
     "operator_stacks"
     {
@@ -76,7 +79,7 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/abilities/chidori/chidori_end.vsnd"
+                              "value0"        "naruto_shippuden_2/content/sounds/abilities/chidori/Loop.vsnd"
                         }
                     }
                     "volume"            {   "value"     "10.00000"  }
@@ -91,7 +94,8 @@
         }
     }
 }
-"Chidori.Hit"
+		
+"chidori.Start"
 {
     "operator_stacks"
     {
@@ -107,7 +111,7 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/abilities/chidori/chidori_hit.vsnd"
+                              "value0"        "naruto_shippuden_2/content/sounds/abilities/chidori/Start.vsnd"
                         }
                     }
                     "volume"            {   "value"     "10.00000"  }
@@ -122,3 +126,4 @@
         }
     }
 }
+		

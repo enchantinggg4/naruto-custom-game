@@ -30,9 +30,9 @@ end;
 modifier_tsukuyomi.OnCreated = function(self, params)
     EmitSoundOn("Tsukuyomi.Process", self:GetParent());
     if IsServer() then
-        self:StartIntervalThink(0.3);
+        self:StartIntervalThink(0.1);
     end
 end;
 modifier_tsukuyomi.OnIntervalThink = function(self)
-    ApplyDamage({victim = self:GetParent(), attacker = self:GetCaster(), damage = 1, damage_type = DAMAGE_TYPE_MAGICAL});
+    ApplyDamage({victim = self:GetParent(), attacker = self:GetCaster(), damage = 10, damage_type = DAMAGE_TYPE_MAGICAL});
 end;

@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tstl -p game/scripts/vscripts/tsconfig.json",
-    "build2": "tstl -p src/vscripts/tsconfig.json",
-    "watch": "tstl -p game/scripts/vscripts/tsconfig.json --watch",
-    "watch2": "tstl -p src/vscripts/tsconfig.json --watch"
+    "build": "tstl -p src/vscripts/tsconfig.json",
+    "watch": "tstl -p src/vscripts/tsconfig.json --watch",
+    "buildSound": "node gen_soundevents.js"
   },
   "repository": {
     "type": "git",

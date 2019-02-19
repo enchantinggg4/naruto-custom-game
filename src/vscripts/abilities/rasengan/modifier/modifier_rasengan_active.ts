@@ -1,3 +1,5 @@
+import {Sound_rasengan} from "../../../Sounds";
+
 class modifier_rasengan_active extends CDOTA_Modifier_Lua {
 
     IsHidden(): boolean {
@@ -27,16 +29,16 @@ class modifier_rasengan_active extends CDOTA_Modifier_Lua {
     }
 
     OnAttackLanded(event: ModifierAttackEvent): void {
-        EmitSoundOn("Rasengan.Hit", event.target);
+        EmitSoundOn(Sound_rasengan.Hit, event.target);
     }
 
     OnCreated(params: table): void {
-        EmitSoundOn("Rasengan.Active", this.GetCaster());
+        EmitSoundOn(Sound_rasengan.Loop, this.GetCaster());
     }
 
     OnDestroy(): void {
-        StopSoundOn("Rasengan.Active", this.GetCaster());
-        EmitSoundOn("Rasengan.End", this.GetCaster());
+        StopSoundOn(Sound_rasengan.Loop, this.GetCaster());
+        EmitSoundOn(Sound_rasengan.End, this.GetCaster());
     }
 
     GetEffectName(): string {

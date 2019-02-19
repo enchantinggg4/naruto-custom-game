@@ -1,3 +1,5 @@
+import {Sound_chidori} from "../../../Sounds";
+
 class modifier_chidori_active extends CDOTA_Modifier_Lua {
 
     IsHidden(): boolean {
@@ -27,16 +29,16 @@ class modifier_chidori_active extends CDOTA_Modifier_Lua {
     }
 
     OnAttackLanded(event: ModifierAttackEvent): void {
-        EmitSoundOn("Rasengan.Hit", event.target);
+        EmitSoundOn(Sound_chidori.Hit, event.target);
     }
 
     OnCreated(params: table): void {
-        EmitSoundOn("Rasengan.Active", this.GetCaster());
+        EmitSoundOn(Sound_chidori.Loop, this.GetCaster());
     }
 
     OnDestroy(): void {
-        StopSoundOn("Rasengan.Active", this.GetCaster());
-        EmitSoundOn("Rasengan.End", this.GetCaster());
+        StopSoundOn(Sound_chidori.Loop, this.GetCaster());
+        EmitSoundOn(Sound_chidori.End, this.GetCaster());
     }
 
     GetEffectName(): string {
