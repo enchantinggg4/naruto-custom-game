@@ -28,7 +28,7 @@ modifier_rasengan_active.DeclareFunctions = function(self)
     return {MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE};
 end;
 modifier_rasengan_active.GetModifierDamageOutgoing_Percentage = function(self, event)
-    return 1000;
+    return self:GetAbility():GetSpecialValueFor("damage_amplify");
 end;
 modifier_rasengan_active.OnAttackLanded = function(self, event)
     EmitSoundOn(Sound_rasengan.Hit, event.target);
@@ -41,7 +41,7 @@ modifier_rasengan_active.OnDestroy = function(self)
     EmitSoundOn(Sound_rasengan.End, self:GetCaster());
 end;
 modifier_rasengan_active.GetEffectName = function(self)
-    return "particles/abilities/rasengan/rasengan_active.vpcf";
+    return (self:GetCaster():HasModifier("modifier_sage_mode_active") and "particles/abilities/rasengan/rasen_shuriken.vpcf") or "particles/abilities/rasengan/rasengan_active.vpcf";
 end;
 modifier_rasengan_active.GetEffectAttachType = function(self)
     return PATTACH_POINT_FOLLOW;

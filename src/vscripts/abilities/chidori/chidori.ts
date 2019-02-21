@@ -10,11 +10,11 @@ class chidori extends CDOTA_Ability_Lua {
     }
 
     GetChannelTime(): number {
-        return 1; // 2sec
+        return this.GetSpecialValueFor("charge_time"); // 2sec
     }
 
     GetCooldown(iLevel: number): number {
-        return 10
+        return this.GetSpecialValueFor("cooldown")
     }
 
     GetCastAnimation(): GameActivity_t {
@@ -22,7 +22,7 @@ class chidori extends CDOTA_Ability_Lua {
     }
 
     GetManaCost(iLevel: number): number {
-        return 100;
+        return this.GetSpecialValueFor("manacost");
     }
 
     ProcsMagicStick(): boolean {
@@ -39,7 +39,7 @@ class chidori extends CDOTA_Ability_Lua {
                 this,
                 "modifier_chidori_active",
                 {
-                    duration: 3
+                    duration: this.GetSpecialValueFor("duration")
                 }
             )
         }

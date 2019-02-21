@@ -31,5 +31,44 @@
             "soundfile"         "soundevents/game_sounds_chidori.vsndevts"
         }
 
+        "AbilitySpecial"
+        {
+            "00"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "charge_time"   				"1.5 1.0 0.5 0.0"
+            }
+
+            "01"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "damage_amplify"   				"150 300 450 600"
+            }
+
+            "02"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "duration"        				"7"
+            }
+
+            "03"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "cooldown"        				"20"
+            }
+
+            "04"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "manacost"        				"70"
+            }
+
+            "05"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "mana_burn"        				"10 20 30 40"
+            }
+        }
+
     }
 }
