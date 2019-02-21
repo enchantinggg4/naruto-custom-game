@@ -35,7 +35,7 @@ end;
 rasengan.OnChannelFinish = function(self, bInterrupted)
     self:GetCaster():RemoveModifierByName("modifier_rasengan_channel");
     if not bInterrupted then
-        self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_rasengan_active", {duration = self:GetSpecialValueFor("manacost")});
+        self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_rasengan_active", {duration = self:GetSpecialValueFor("duration")});
     end
 end;
 rasengan.OnSpellStart = function(self)

@@ -31,10 +31,11 @@ class modifier_amaterasu extends CDOTA_Modifier_Lua {
     }
 
     OnIntervalThink(): void {
+        print(this.GetAbility().GetSpecialValueFor("damage"));
         ApplyDamage({
             victim: this.GetParent(),
             attacker: this.GetCaster(),
-            damage: this.GetAbility().GetSpecialValueFor("damage") * this.GetParent().GetMaxHealth(),
+            damage: (this.GetAbility().GetSpecialValueFor("damage") / 100) * this.GetParent().GetMaxHealth(),
             damage_type: DAMAGE_TYPES.DAMAGE_TYPE_MAGICAL
         })
     }
