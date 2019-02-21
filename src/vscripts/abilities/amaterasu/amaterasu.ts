@@ -10,11 +10,15 @@ class amaterasu extends CDOTA_Ability_Lua {
     }
 
     GetCooldown(iLevel: number): number {
-        return 10
+        return this.GetSpecialValueFor("cooldown")
     }
 
     GetChannelTime(): number {
-        return 1.3
+        return this.GetSpecialValueFor("charge_time")
+    }
+
+    GetManaCost(iLevel: number): number {
+        return this.GetSpecialValueFor("mana_cost")
     }
 
 
@@ -24,7 +28,7 @@ class amaterasu extends CDOTA_Ability_Lua {
             const caster = this.GetCaster();
 
             target.AddNewModifier(caster, this, "modifier_amaterasu", {
-                duration: 100
+                duration: this.GetSpecialValueFor("duration")
             })
         }
     }

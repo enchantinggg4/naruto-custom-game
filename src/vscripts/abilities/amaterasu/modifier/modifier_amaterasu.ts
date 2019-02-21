@@ -26,7 +26,7 @@ class modifier_amaterasu extends CDOTA_Modifier_Lua {
     OnCreated(params: table): void {
         // EmitSoundOn(Sound_tsukuyomi.Loop, this.GetParent());
         if (IsServer()) {
-            this.StartIntervalThink(0.1);
+            this.StartIntervalThink(1);
         }
     }
 
@@ -34,7 +34,7 @@ class modifier_amaterasu extends CDOTA_Modifier_Lua {
         ApplyDamage({
             victim: this.GetParent(),
             attacker: this.GetCaster(),
-            damage: 1,
+            damage: this.GetAbility().GetSpecialValueFor("damage") * this.GetParent().GetMaxHealth(),
             damage_type: DAMAGE_TYPES.DAMAGE_TYPE_MAGICAL
         })
     }
