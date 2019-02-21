@@ -25,7 +25,7 @@ class modifier_rasengan_active extends CDOTA_Modifier_Lua {
     }
 
     GetModifierDamageOutgoing_Percentage(event: ModifierAttackEvent): number {
-        return 1000;
+        return this.GetAbility().GetSpecialValueFor("damage_amplify");
     }
 
     OnAttackLanded(event: ModifierAttackEvent): void {
@@ -42,7 +42,7 @@ class modifier_rasengan_active extends CDOTA_Modifier_Lua {
     }
 
     GetEffectName(): string {
-        return "particles/abilities/rasengan/rasengan_active.vpcf"
+        return this.GetCaster().HasModifier("modifier_sage_mode_active") ? "particles/abilities/rasengan/rasen_shuriken.vpcf" : "particles/abilities/rasengan/rasengan_active.vpcf"
     }
 
     GetEffectAttachType(): ParticleAttachment_t {

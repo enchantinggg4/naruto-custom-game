@@ -18,16 +18,16 @@ rasengan.GetBehavior = function(self)
     return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED;
 end;
 rasengan.GetChannelTime = function(self)
-    return 2;
+    return self:GetSpecialValueFor("charge_time");
 end;
 rasengan.GetCooldown = function(self, iLevel)
-    return 10;
+    return self:GetSpecialValueFor("cooldown");
 end;
 rasengan.GetCastAnimation = function(self)
     return ACT_DOTA_TELEPORT;
 end;
 rasengan.GetManaCost = function(self, iLevel)
-    return 100;
+    return self:GetSpecialValueFor("manacost");
 end;
 rasengan.ProcsMagicStick = function(self)
     return true;
@@ -35,7 +35,7 @@ end;
 rasengan.OnChannelFinish = function(self, bInterrupted)
     self:GetCaster():RemoveModifierByName("modifier_rasengan_channel");
     if not bInterrupted then
-        self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_rasengan_active", {duration = 3});
+        self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_rasengan_active", {duration = self:GetSpecialValueFor("manacost")});
     end
 end;
 rasengan.OnSpellStart = function(self)

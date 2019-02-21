@@ -9,11 +9,11 @@ class rasengan extends CDOTA_Ability_Lua {
     }
 
     GetChannelTime(): number {
-        return 2; // 2sec
+        return this.GetSpecialValueFor("charge_time");
     }
 
     GetCooldown(iLevel: number): number {
-        return 10
+        return this.GetSpecialValueFor("cooldown");
     }
 
     GetCastAnimation(): GameActivity_t {
@@ -21,7 +21,7 @@ class rasengan extends CDOTA_Ability_Lua {
     }
 
     GetManaCost(iLevel: number): number {
-        return 100;
+        return this.GetSpecialValueFor("manacost");
     }
 
     ProcsMagicStick(): boolean {
@@ -38,7 +38,7 @@ class rasengan extends CDOTA_Ability_Lua {
                 this,
                 "modifier_rasengan_active",
                 {
-                    duration: 3
+                    duration: this.GetSpecialValueFor("manacost")
                 }
             )
         }

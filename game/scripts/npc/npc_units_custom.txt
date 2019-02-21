@@ -7,7 +7,12 @@
 #base "units/bidju/shukaku.txt"
 #base "units/bidju/kurama.txt"
 #base "units/npc_dota_custom_cave.txt"
-#base "units/npc_dota_custom_dummy_unit.txt"
+
+
+
+
+#base "units/naruto_summon/gamabunta.txt"
+#base "units/naruto_summon/gamatatsu.txt"
 
 "DOTAUnits"
 {

@@ -3,6 +3,7 @@
 
 #base "abilities/rasengan.txt"
 #base "abilities/sage_mode.txt"
+#base "abilities/summon_frog.txt"
 
 
 #base "abilities/capture_bidju.txt"

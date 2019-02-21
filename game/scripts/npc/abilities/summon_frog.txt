@@ -1,0 +1,18 @@
+"DOTAAbilities"
+{
+    "Version"   "1"
+    "summon_frog"
+    {
+        "BaseClass"						"ability_lua"
+        "ScriptFile"                    "abilities/summon_frog/summon_frog.lua"
+        "AbilityTextureName"			"gamatatsu"
+
+        "precache"
+        {
+            "particle"          "particles/abilities/rasengan/rasengan_charge.vpcf"
+            "particle"          "particles/abilities/rasengan/rasengan_active.vpcf"
+            "soundfile"         "soundevents/game_sounds_rasengan.vsndevts"
+        }
+
+    }
+}

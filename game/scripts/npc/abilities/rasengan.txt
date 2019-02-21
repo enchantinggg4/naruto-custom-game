@@ -16,14 +16,11 @@
         "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
         "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 
-        "AbilityCastPoint"				"0.3"
-        "AbilityCooldown"				"10.0"
+        "AbilityCooldown"				"%cooldown"
 
         "AbilityChannelTime"			"%charge_time"
 
         "AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
-        "AbilityManaCost"				"300"
-        "AbilityProcsMagicStick"		"1"
 
         "precache"
         {
@@ -32,5 +29,38 @@
             "soundfile"         "soundevents/game_sounds_rasengan.vsndevts"
         }
 
+
+        "AbilitySpecial"
+        {
+            "00"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "charge_time"   				"2.0 1.5 1.0 0.5"
+            }
+
+            "01"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "damage_amplify"   				"200 400 600 800"
+            }
+
+            "02"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "duration"        				"4 6 8 10"
+            }
+
+            "03"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "cooldown"        				"20"
+            }
+
+            "04"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "manacost"        				"50"
+            }
+        }
     }
 }
