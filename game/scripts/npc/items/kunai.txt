@@ -1,0 +1,17 @@
+"DOTAAbilities"
+{
+	//Shield
+	"item_kunai"
+	{
+		"BaseClass"           		"item_lua"
+		"ScriptFile"                "items/kunai.lua"
+		"AbilityTextureName"		"items2/kunai"
+
+
+        "ItemStackable"					"1"
+        "ItemPermanent"					"0"
+        "ItemInitialCharges"			"10"
+        "AbilityManaCost"               "10"
+
+	}
+}
