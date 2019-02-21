@@ -14,5 +14,33 @@
             "soundfile"         "soundevents/game_sounds_rasengan.vsndevts"
         }
 
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "good_chance"      				"10 20 30 40"
+            }
+            "02"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "duration"        				"10 20 30 40"
+            }
+
+            "03"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "cooldown"        				"40"
+            }
+
+            "04"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "manacost"        				"150"
+            }
+        }
+
     }
 }

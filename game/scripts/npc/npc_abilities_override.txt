@@ -6,7 +6,7 @@
 
   "chaos_knight_phantasm"
   {
-      "AbilityTextureName"			"naruto_sage_mode"
+      "AbilityTextureName"			"naruto_shadow_clone"
       "AbilityCooldown"				"30.0"
 
       "AbilitySpecial"

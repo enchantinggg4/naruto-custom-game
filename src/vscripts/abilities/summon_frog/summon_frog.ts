@@ -12,7 +12,7 @@ class summon_frog extends CDOTA_Ability_Lua {
     }
 
     GetCooldown(iLevel: number): number {
-        return 10
+        return this.GetSpecialValueFor("cooldown");
     }
 
     GetCastAnimation(): GameActivity_t {
@@ -20,7 +20,7 @@ class summon_frog extends CDOTA_Ability_Lua {
     }
 
     GetManaCost(iLevel: number): number {
-        return 100;
+        return this.GetSpecialValueFor("manacost");
     }
 
     ProcsMagicStick(): boolean {
@@ -34,8 +34,7 @@ class summon_frog extends CDOTA_Ability_Lua {
 
     private Summon() {
 
-        const chanceGood = 0.2;
-        // const chanceBad = 0.8;
+        const chanceGood = this.GetSpecialValueFor("manacost") / 100;
 
         const summonName = summon_frog.frogs[Math.random() > chanceGood ? 1 : 0];
 
@@ -53,18 +52,14 @@ class summon_frog extends CDOTA_Ability_Lua {
         );
 
         this.summon.AddNewModifier(this.summon, null, "modifier_kill", {
-            duration: 30
+            duration: this.GetSpecialValueFor("duration")
         })
     }
 
     private KillSummon() {
 
         if (this.summon && !(this.summon!! as any).IsNull() && this.summon.IsAlive() && IsServer()) {
-            try {
-                this.summon.Kill(undefined, this.GetCaster());
-            } catch (e) {
-
-            }
+            this.summon.Kill(undefined, this.GetCaster());
         }
         this.summon = undefined;
 
