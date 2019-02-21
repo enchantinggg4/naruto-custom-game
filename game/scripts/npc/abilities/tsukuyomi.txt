@@ -17,5 +17,38 @@
             "particle"          "particles/abilities/tsukuyomi/overhead2.vpcf"
             "soundfile"         "soundevents/game_sounds_tsukuyomi.vsndevts"
         }
+
+        "AbilitySpecial"
+        {
+            "00"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "charge_time"   				"0.1"
+            }
+
+            "01"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "damage"           				"200 300 400 500"
+            }
+
+            "02"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "duration"        				"2 3 4 5"
+            }
+
+            "03"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "cooldown"        				"30"
+            }
+
+            "04"
+            {
+                "var_type"						"FIELD_INTEGER"
+                "manacost"        				"150"
+            }
+        }
     }
 }

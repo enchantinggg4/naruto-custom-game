@@ -46,7 +46,7 @@ class modifier_tsukuyomi extends CDOTA_Modifier_Lua {
         ApplyDamage({
             victim: this.GetParent(),
             attacker: this.GetCaster(),
-            damage: 10,
+            damage: this.GetAbility().GetSpecialValueFor("damage") / 10, // damage each 0.1 sec
             damage_type: DAMAGE_TYPES.DAMAGE_TYPE_MAGICAL
         })
     }

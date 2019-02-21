@@ -12,11 +12,11 @@ class tsukuyomi extends CDOTA_Ability_Lua {
     }
 
     GetCooldown(iLevel: number): number {
-        return 10
+        return this.GetSpecialValueFor("cooldown");
     }
 
     GetChannelTime(): number {
-        return 0.5
+        return this.GetSpecialValueFor("charge_time");
     }
 
     OnSpellStart(): void {
@@ -30,10 +30,10 @@ class tsukuyomi extends CDOTA_Ability_Lua {
 
         if(!bInterrupted){
             target.AddNewModifier(caster, this, "modifier_stunned", {
-                duration: 5
+                duration: this.GetSpecialValueFor("duration")
             });
             target.AddNewModifier(caster, this, "modifier_tsukuyomi", {
-                duration: 5
+                duration: this.GetSpecialValueFor("duration")
             })
         }
 
