@@ -39,5 +39,5 @@ modifier_tsukuyomi.OnCreated = function(self, params)
     self.particle = ParticleManager:CreateParticle("particles/abilities/tsukuyomi/tsukuyomi_damage.vpcf", PATTACH_CENTER_FOLLOW, target);
 end;
 modifier_tsukuyomi.OnIntervalThink = function(self)
-    ApplyDamage({victim = self:GetParent(), attacker = self:GetCaster(), damage = 10, damage_type = DAMAGE_TYPE_MAGICAL});
+    ApplyDamage({victim = self:GetParent(), attacker = self:GetCaster(), damage = self:GetAbility():GetSpecialValueFor("damage") / 10, damage_type = DAMAGE_TYPE_MAGICAL});
 end;

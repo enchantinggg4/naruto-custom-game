@@ -38,7 +38,7 @@ class rasengan extends CDOTA_Ability_Lua {
                 this,
                 "modifier_rasengan_active",
                 {
-                    duration: this.GetSpecialValueFor("manacost")
+                    duration: this.GetSpecialValueFor("duration")
                 }
             )
         }
