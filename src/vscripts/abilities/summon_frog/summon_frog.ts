@@ -52,13 +52,21 @@ class summon_frog extends CDOTA_Ability_Lua {
             true
         );
 
-        this.summon.AddNewModifier(this.summon, null, "modifier_kill", {duration: 30})
+        this.summon.AddNewModifier(this.summon, null, "modifier_kill", {
+            duration: 30
+        })
     }
 
     private KillSummon() {
-        if (this.summon && this.summon.IsAlive() && IsServer()) {
-            this.summon.Kill(undefined, this.GetCaster());
+
+        if (this.summon && !(this.summon!! as any).IsNull() && this.summon.IsAlive() && IsServer()) {
+            try {
+                this.summon.Kill(undefined, this.GetCaster());
+            } catch (e) {
+
+            }
         }
+        this.summon = undefined;
 
     }
 
