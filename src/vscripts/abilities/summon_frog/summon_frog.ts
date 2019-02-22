@@ -34,7 +34,7 @@ class summon_frog extends CDOTA_Ability_Lua {
 
     private Summon() {
 
-        const chanceGood = this.GetSpecialValueFor("manacost") / 100;
+        const chanceGood = this.GetSpecialValueFor("good_chance") / 100;
 
         const summonName = summon_frog.frogs[Math.random() > chanceGood ? 1 : 0];
 
