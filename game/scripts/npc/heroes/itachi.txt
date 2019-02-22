@@ -9,6 +9,7 @@
 		"Ability1"        	"tsukuyomi"
 		"Ability2"        	"amaterasu"
 		"Ability3"        	"itachi_fadeout"
+		"Ability4"        	"genjutsu"
 
 		"DisableWearables"  "0"
 		"AbilityLayout"     "6"

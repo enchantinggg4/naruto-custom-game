@@ -53,7 +53,12 @@ class itachi_fadeout extends CDOTA_Ability_Lua {
         return illusion;
     }
 
+    private tmp(){
+        CreateUnitByName("npc_dota_hero_pudge", this.GetCaster().GetAbsOrigin(), true, null, null, DOTATeam_t.DOTA_TEAM_NEUTRALS);
+    }
+
     OnSpellStart(): void {
+        // this.tmp();
 
         const caster = this.GetCaster();
 

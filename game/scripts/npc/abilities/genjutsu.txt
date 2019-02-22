@@ -1,15 +1,16 @@
 "DOTAAbilities"
 {
     "Version"   "1"
-    "amaterasu"
+    "genjutsu"
     {
         "BaseClass"						"ability_lua"
-        "ScriptFile"					"abilities/amaterasu/amaterasu.lua"
+        "ScriptFile"					"abilities/genjutsu/genjutsu.lua"
 
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityTextureName"			"naruto_rasengan_active"
+        "AbilityTextureName"			"genjutsu"
 
 
          "precache"
@@ -24,31 +25,26 @@
             "00"
             {
                 "var_type"						"FIELD_FLOAT"
-                "charge_time"   				"1.2 0.9 0.6 0.3"
+                "duration"   				    "3 6 9"
             }
 
             "01"
             {
-                "var_type"						"FIELD_FLOAT"
-                "damage"           				"1.5 3.0 4.5 6.0"
+                "var_type"						"FIELD_INTEGER"
+                "cooldown"        				"80"
             }
 
             "02"
             {
                 "var_type"						"FIELD_INTEGER"
-                "duration"        				"20 40 60 80"
+                "mana_cost"        				"300"
             }
 
-            "03"
-            {
-                "var_type"						"FIELD_INTEGER"
-                "cooldown"        				"40"
-            }
 
-            "04"
+            "02"
             {
                 "var_type"						"FIELD_INTEGER"
-                "manacost"        				"150"
+                "charge_time"        			"3"
             }
         }
     }

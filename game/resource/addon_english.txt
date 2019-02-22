@@ -67,6 +67,11 @@
 		"DOTA_Tooltip_ability_tsukuyomi_charge_time"               "CHANNEL TIME:"
 		"DOTA_Tooltip_ability_tsukuyomi_Lore"               "Itachi was master of genjutsu"
 		"DOTA_Tooltip_ability_tsukuyomi_Description"               "Damage and stun unit for some time"
+		"DOTA_Tooltip_ability_amaterasu_manacost"               "AbilityName"
+		"DOTA_Tooltip_ability_amaterasu_cooldown"               "AbilityName"
+		"DOTA_Tooltip_ability_amaterasu_duration"               "AbilityName"
+		"DOTA_Tooltip_ability_amaterasu_damage"               "AbilityName"
+		"DOTA_Tooltip_ability_amaterasu_charge_time"               "AbilityName"
 	}
 	"Language"               "English"
 }

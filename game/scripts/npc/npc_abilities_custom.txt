@@ -14,3 +14,4 @@
 #base "abilities/tsukuyomi.txt"
 #base "abilities/amaterasu.txt"
 #base "abilities/itachi_fadeout.txt"
+#base "abilities/genjutsu.txt"
