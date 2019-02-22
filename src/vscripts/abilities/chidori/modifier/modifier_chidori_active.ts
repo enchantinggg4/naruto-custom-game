@@ -20,16 +20,18 @@ class modifier_chidori_active extends CDOTA_Modifier_Lua {
 
     DeclareFunctions(): modifierfunction[] {
         return [
-            modifierfunction.MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE
+            modifierfunction.MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
+            modifierfunction.MODIFIER_EVENT_ON_ATTACK_LANDED,
         ]
     }
 
     GetModifierDamageOutgoing_Percentage(event: ModifierAttackEvent): number {
-        return this.GetAbility().GetSpecialValueFor("damage_ampify");
+        return this.GetAbility().GetSpecialValueFor("damage_amplify");
     }
 
     OnAttackLanded(event: ModifierAttackEvent): void {
-        event.target.ReduceMana(this.GetAbility().GetSpecialValueFor("mana_burn"));
+        // event.target.ReduceMana(this.GetAbility().GetSpecialValueFor("mana_burn"));
+        event.target.ReduceMana(1000);
         EmitSoundOn(Sound_chidori.Hit, event.target);
     }
 
