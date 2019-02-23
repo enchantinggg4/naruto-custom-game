@@ -1,8 +1,8 @@
 "DOTAHeroes"
 {
-	"npc_dota_hero_itachi"
+	"npc_dota_hero_zetsu"
 	{
-		"override_hero"     "npc_dota_hero_terrorblade"
+		"override_hero"     "npc_dota_hero_riki"
 
 
 

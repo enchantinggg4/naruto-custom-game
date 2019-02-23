@@ -25,13 +25,13 @@ modifier_chidori_active.IsPurgable = function(self)
     return false;
 end;
 modifier_chidori_active.DeclareFunctions = function(self)
-    return {MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE};
+    return {MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE, MODIFIER_EVENT_ON_ATTACK_LANDED};
 end;
 modifier_chidori_active.GetModifierDamageOutgoing_Percentage = function(self, event)
-    return self:GetAbility():GetSpecialValueFor("damage_ampify");
+    return self:GetAbility():GetSpecialValueFor("damage_amplify");
 end;
 modifier_chidori_active.OnAttackLanded = function(self, event)
-    event.target:ReduceMana(self:GetAbility():GetSpecialValueFor("mana_burn"));
+    event.target:ReduceMana(1000);
     EmitSoundOn(Sound_chidori.Hit, event.target);
 end;
 modifier_chidori_active.OnCreated = function(self, params)

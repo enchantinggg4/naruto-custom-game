@@ -1,3 +1,11 @@
+// radiant
 #base "heroes/naruto.txt"
 #base "heroes/sasuke.txt"
+#base "heroes/kakashi.txt"
+#base "heroes/sakura.txt"
+#base "heroes/maitoguy.txt"
+
+// dire
 #base "heroes/itachi.txt"
+#base "heroes/nagato.txt"
+#base "heroes/zetsu.txt"
