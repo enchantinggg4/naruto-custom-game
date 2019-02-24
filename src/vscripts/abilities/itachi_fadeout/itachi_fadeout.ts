@@ -25,7 +25,7 @@ class itachi_fadeout extends CDOTA_Ability_Lua {
         const caster = this.GetCaster();
 
         const illusion = CreateUnitByName(
-            "npc_dota_hero_terrorblade",
+            this.GetCaster().GetUnitName(),
             caster.GetAbsOrigin(),
             true,
             caster,

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "noImplicitAny" : true,
+    "noImplicitThis" : true,
+    "alwaysStrict" : true,
+    "strictNullChecks" : true,
+    "target": "es5",
+    "module": "amd",
+    "outFile": "../../content/panorama/scripts/custom_game/bundle.js"
+  }
+}

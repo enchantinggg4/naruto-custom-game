@@ -22,26 +22,34 @@ function insertMissingTooltips(ability, specials, global) {
     });
 }
 
+const languages = [
+    "english",
+    "russian"
+];
+
+
 function readRec(root) {
+    languages.forEach(language => {
+        const tooltipFileJSON = `tooltip/addon_${language}.json`;
+        const tooltipFile = `game/resource/addon_${language}.txt`;
+        const exists = fs.existsSync(tooltipFileJSON);
+        const tooltips = exists ? JSON.parse(fs.readFileSync(tooltipFileJSON, {encoding: "UTF-8"})) : {lang: {Tokens: {}}};
 
-    // const tooltips = parseKV("game/resource/addon_english.txt");
-    const tooltips = JSON.parse(fs.readFileSync("tooltip/tooltip.json", { encoding: "UTF-8"}));
+        const files = fs.readdirSync(root);
+        files.forEach(it => {
+            const json = parseKV(path.join(root, it));
+            const abilityName = Object.keys(json.DOTAAbilities)[0];
+            const abilitySpecs = json.DOTAAbilities[abilityName].AbilitySpecial && Object.values(json.DOTAAbilities[abilityName].AbilitySpecial).map(it => {
+                const sub = {...it};
+                delete sub["var_type"];
+                return Object.keys(sub)[0];
+            }) || [];
+            insertMissingTooltips(abilityName, abilitySpecs, tooltips.lang.Tokens, json.DOTAAbilities)
+        });
 
-    const files = fs.readdirSync(root);
-    files.forEach(it => {
-        const json = parseKV(path.join(root, it));
-        const abilityName = Object.keys(json.DOTAAbilities)[0];
-        // tooltipAbility(abilityName, )
-        const abilitySpecs = json.DOTAAbilities[abilityName].AbilitySpecial && Object.values(json.DOTAAbilities[abilityName].AbilitySpecial).map(it => {
-            const sub = {...it};
-            delete sub["var_type"];
-            return Object.keys(sub)[0];
-        }) || [];
-        insertMissingTooltips(abilityName, abilitySpecs, tooltips.lang.Tokens, json.DOTAAbilities)
+        fs.writeFileSync(tooltipFileJSON, JSON.stringify(tooltips, null, 2));
+        fs.writeFileSync(tooltipFile, jsonToKV(tooltips));
     });
-
-    fs.writeFileSync("tooltip/tooltip.json", JSON.stringify(tooltips, null, 2));
-    fs.writeFileSync("game/resource/addon_english.txt", jsonToKV(tooltips));
 }
 
 readRec("game/scripts/npc/abilities");
