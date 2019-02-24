@@ -30,8 +30,7 @@ class modifier_chidori_active extends CDOTA_Modifier_Lua {
     }
 
     OnAttackLanded(event: ModifierAttackEvent): void {
-        // event.target.ReduceMana(this.GetAbility().GetSpecialValueFor("mana_burn"));
-        event.target.ReduceMana(1000);
+        event.target.ReduceMana(this.GetAbility().GetSpecialValueFor("mana_burn"));
         EmitSoundOn(Sound_chidori.Hit, event.target);
     }
 

@@ -31,7 +31,7 @@ modifier_chidori_active.GetModifierDamageOutgoing_Percentage = function(self, ev
     return self:GetAbility():GetSpecialValueFor("damage_amplify");
 end;
 modifier_chidori_active.OnAttackLanded = function(self, event)
-    event.target:ReduceMana(1000);
+    event.target:ReduceMana(self:GetAbility():GetSpecialValueFor("mana_burn"));
     EmitSoundOn(Sound_chidori.Hit, event.target);
 end;
 modifier_chidori_active.OnCreated = function(self, params)

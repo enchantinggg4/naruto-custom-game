@@ -65,7 +65,7 @@ class item_kunai extends CDOTA_Item_Lua {
             vSpawnOrigin: this.GetCaster().GetAbsOrigin(),
             fDistance: 3500,
             fStartRadius: 100,
-            fEndRadius: 500,
+            fEndRadius: 100,
             Source: this.GetCaster(),
             vVelocity: (1500 * direction) as Vector,
             iUnitTargetTeam: DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_BOTH,

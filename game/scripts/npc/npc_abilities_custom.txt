@@ -6,6 +6,7 @@
 #base "abilities/genjutsu.txt"
 #base "abilities/itachi_fadeout.txt"
 #base "abilities/kakashi_sharingan.txt"
+#base "abilities/kakashi_sharingan_steal.txt"
 #base "abilities/kakashi_wall.txt"
 #base "abilities/kamui_offensive.txt"
 #base "abilities/rasengan.txt"

@@ -1,0 +1,32 @@
+
+"DOTAAbilities"
+{
+    "Version"   "1"
+    "kakashi_sharingan"
+    {
+        "BaseClass"						"ability_lua"
+        "ScriptFile"					"abilities/kakashi_sharingan/kakashi_sharingan.lua"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityTextureName"			"naruto_rasengan_active"
+
+
+         "precache"
+        {
+            "particle"          "particles/abilities/amaterasu/amaterasu_fire2.vpcf"
+            "soundfile"         "soundevents/game_sounds_amaterasu.vsndevts"
+        }
+
+
+        "AbilitySpecial"
+        {
+            "00"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "charge_time"   				"1 2 3 4"
+            }
+        }
+    }
+}

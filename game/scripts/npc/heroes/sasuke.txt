@@ -5,7 +5,13 @@
 		"override_hero"     "npc_dota_hero_antimage"
 		"DisableWearables"  "0"
 		"AbilityLayout"     "6"
+
 		"Ability1"        	"chidori"
+		"Ability2"        	"fireball"
+		"Ability3"        	"rinneblink"
+		"Ability4"        	"capture_bidju"
+		"Ability5"        	"summon_bidju"
+		"Ability6"        	"susano"
 
 
 		"ArmorPhysical"       		"0"                 	// Physical protection.
