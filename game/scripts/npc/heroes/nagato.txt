@@ -6,10 +6,10 @@
 
 
 
-		"Ability1"        	"tsukuyomi"
-		"Ability2"        	"amaterasu"
-		"Ability3"        	"itachi_fadeout"
-		"Ability6"        	"genjutsu"
+		"Ability1"        	"rinne_pull"
+		"Ability2"        	"rinne_push"
+		"Ability3"        	"rinne_tensei"
+		"Ability6"        	"rinne_path"
 
 		"DisableWearables"  "0"
 		"AbilityLayout"     "4"
