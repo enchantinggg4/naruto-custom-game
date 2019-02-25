@@ -11,9 +11,9 @@ class modifier_scale extends CDOTA_Modifier_Lua {
     GetModifierModelScale(): number {
         if (this.GetElapsedTime() < this.time) {
             const diff = (this.targetScale - this.initScale) * this.GetElapsedTime() / this.time;
-            return (this.initScale + diff) * 100;
+            return (this.initScale + diff) * 100 - 100;
         } else {
-            return this.targetScale * 100;
+            return this.targetScale * 100 - 100;
         }
     }
 

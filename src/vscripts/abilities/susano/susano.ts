@@ -5,6 +5,7 @@ class susano extends CDOTA_Ability_Lua {
         return DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_TOGGLE
     }
 
+
     GetCooldown(iLevel: number): number {
         return 0
     }
@@ -27,7 +28,7 @@ class susano extends CDOTA_Ability_Lua {
                 "modifier_scale",
                 {
                     targetScale: 2,
-                    time: 0.5,
+                    time: this.GetSpecialValueFor("charge_time"),
                     initScale: this.GetCaster().GetModelScale()
                 }
             );
@@ -47,7 +48,7 @@ class susano extends CDOTA_Ability_Lua {
                 "modifier_scale",
                 {
                     targetScale: 1,
-                    time: 0.5,
+                    time: this.GetSpecialValueFor("charge_time"),
                     initScale: this.GetCaster().GetModelScale()
                 }
             );

@@ -1,5 +1,7 @@
 LinkLuaModifier("modifier_scale", "abilities/modifier/modifier_scale.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 
+const think = 0.01;
+
 class modifier_susano extends CDOTA_Modifier_Lua {
 
     oldHealth: number;
@@ -26,7 +28,10 @@ class modifier_susano extends CDOTA_Modifier_Lua {
     }
 
     OnIntervalThink(): void {
-        const manaToSpend = this.GetParent().GetMaxMana() * 0.01 * 0.01;
+        const manaPercentPerSecond = this.GetAbility().GetSpecialValueFor("mana_cost_second");
+
+
+        const manaToSpend = this.GetParent().GetMaxMana() * think * (manaPercentPerSecond / 100);
         if (this.GetParent().GetMana() < manaToSpend) {
             this.GetAbility().ToggleAbility();
             return;
@@ -42,11 +47,19 @@ class modifier_susano extends CDOTA_Modifier_Lua {
         const dmg = event.damage;
         const mana = this.GetParent().GetMana();
 
-        if (dmg > mana) {
+        const manaPerDamage = this.GetAbility().GetSpecialValueFor("absorb_mana_per_dmg");
+
+        const fullAbsorbMana = manaPerDamage * dmg;
+
+
+        if (dmg > fullAbsorbMana) {
+            // spend all mana
             this.GetParent().SpendMana(mana, this.GetAbility());
-            this.GetParent().SetHealth(this.oldHealth - (dmg - mana));
+            const reflectedDamage = mana / manaPerDamage;
+            const unreflectedDamage = dmg - reflectedDamage;
+            this.GetParent().SetHealth(this.oldHealth - unreflectedDamage);
         } else {
-            this.GetParent().SpendMana(dmg, this.GetAbility());
+            this.GetParent().SpendMana(fullAbsorbMana, this.GetAbility());
             this.GetParent().SetHealth(this.oldHealth);
         }
 
@@ -60,7 +73,7 @@ class modifier_susano extends CDOTA_Modifier_Lua {
 
     OnCreated(params: table): void {
         if (IsServer()) {
-            this.StartIntervalThink(0.01);
+            this.StartIntervalThink(think);
         }
     }
 }

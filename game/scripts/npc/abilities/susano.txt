@@ -8,9 +8,10 @@
         "ScriptFile"					"abilities/susano/susano.lua"
 
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityTextureName"			"naruto_rasengan_active"
+        "AbilityTextureName"			"susano"
 
 
          "precache"
@@ -26,6 +27,16 @@
             {
                 "var_type"						"FIELD_FLOAT"
                 "charge_time"   				"1.5 1.0 0.5 0.1"
+            }
+            "01"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "mana_cost_second" 				"4 3 2 1"
+            }
+            "02"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "absorb_mana_per_dmg"			"3 2 1 0.5"
             }
          }
     }
