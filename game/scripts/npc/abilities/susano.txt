@@ -20,13 +20,13 @@
         }
 
 
-        "AbilitySpecial"
-        {
+         "AbilitySpecial"
+         {
             "00"
             {
                 "var_type"						"FIELD_FLOAT"
-                "charge_time"   				"1 2 3 4"
+                "charge_time"   				"1.5 1.0 0.5 0.1"
             }
-        }
+         }
     }
 }

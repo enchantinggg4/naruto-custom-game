@@ -17,11 +17,11 @@ ATTACHMENTS_VERSION = "1.00"
   -Attachment properties are specified as a 3-tuple of unit model name, attachment point string, and attachment prop model name.
     -Ex: ("models/heroes/antimage/antimage.vmdl" // "attach_hitloc" // "models/items/axe/weapon_heavy_cutter.vmdl")
   -Optional particles can be specified in the "Particles" block of attachmets.txt.
-  -To attach a prop to a unit, use the Attachments:AttachProp(unit, attachPoint, model[, scale[, properties] ]) function
+  -To attach a prop to a unit, use the Attachments:AttachProp(unit, attachPoint, model[, targetScale[, properties] ]) function
     -Ex: Attachments:AttachProp(unit, "attach_hitloc", "models/items/axe/weapon_heavy_cutter.vmdl", 1.0)
     -This will create the prop and retrieve the properties from the database to attach it to the provided unit
-    -If you pass in an already created prop or unit as the 'model' parameter, the attachment system will scale, position, and attach that prop/unit without creating a new one
-    -Scale is the prop scale to be used, and defaults to 1.0.  The scale of the prop will also be scaled based on the unit model scale.
+    -If you pass in an already created prop or unit as the 'model' parameter, the attachment system will targetScale, position, and attach that prop/unit without creating a new one
+    -Scale is the prop targetScale to be used, and defaults to 1.0.  The targetScale of the prop will also be scaled based on the unit model targetScale.
     -It is possible not to use the attachment database, but to instead provide the properties directly in the 'properties' parameter.
     -This properties table will look like:
       {
@@ -49,7 +49,7 @@ ATTACHMENTS_VERSION = "1.00"
 
   Notes
   -"attach_origin" can be used as the attachment string for attaching a prop do the origin of the unit, even if that unit has no attachment point named "attach_origin"
-  -Attached props will automatically scale when the parent unit/models are scaled, so rescaling individual props after attachment is not necessary.
+  -Attached props will automatically targetScale when the parent unit/models are scaled, so rescaling individual props after attachment is not necessary.
   -This library requires that the "libraries/timers.lua" be present in your vscripts directory.
 
   Examples:
@@ -319,7 +319,7 @@ function Attachments:Attachment_UpdateAttach(args)
     prop:RemoveSelf()
   end
 
-  --Attachments.currentAttach[args.index][attach] = Attachments:AttachProp(unit, attach, model, properties.scale)
+  --Attachments.currentAttach[args.index][attach] = Attachments:AttachProp(unit, attach, model, properties.targetScale)
   Attachments:AttachProp(unit, attach, model, properties.scale)
 end
 

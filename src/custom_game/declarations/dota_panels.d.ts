@@ -717,7 +717,7 @@ interface VCSSStyleDeclaration {
     preTransformRotate2d: string | null;
 
     /**
-     * Sets 2 dimensional X/Y scale factors that apply to the quad for this panel prior to 3 dimensional transforms. This scaling applies without perspective and leaves the panel centered at the same
+     * Sets 2 dimensional X/Y targetScale factors that apply to the quad for this panel prior to 3 dimensional transforms. This scaling applies without perspective and leaves the panel centered at the same
      * spot as it started. Default of 1.0 means no scaling, 0.5 would be half size.
      *
      * Examples:
@@ -727,7 +727,7 @@ interface VCSSStyleDeclaration {
     preTransformScale2d: string | null;
 
     /**
-     * Sets the amount of saturation to apply to the panel and all it's children during composition.  Default of 1.0 means no adjustment, 0.0 means fully desaturated to gray scale, greater than 1.0
+     * Sets the amount of saturation to apply to the panel and all it's children during composition.  Default of 1.0 means no adjustment, 0.0 means fully desaturated to gray targetScale, greater than 1.0
      * means over-saturation.
      *
      * Example:
@@ -848,7 +848,7 @@ interface VCSSStyleDeclaration {
     transform: string | null;
 
     /**
-     * Sets the transform origin about which transforms will be applied.  Default is 50% 50% on the panel so a rotation/scale is centered.
+     * Sets the transform origin about which transforms will be applied.  Default is 50% 50% on the panel so a rotation/targetScale is centered.
      *
      * Example:
      * transform-origin: 50% 50%
@@ -905,42 +905,42 @@ interface VCSSStyleDeclaration {
     transitionTimingFunction: string | null;
 
     /**
-     * Specifies a scale to apply to this panel's layout and all descendants. This scale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size
+     * Specifies a targetScale to apply to this panel's layout and all descendants. This targetScale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size
      * rather than just bitmap scaling.
      *
      * Examples:
-     * ui-scale: 150%; // 150% scaling for X, Y, and Z.
-     * ui-scale: 50% 100% 150%; // 50% scaling for X, 100% for Y. 150% for Z.
+     * ui-targetScale: 150%; // 150% scaling for X, Y, and Z.
+     * ui-targetScale: 50% 100% 150%; // 50% scaling for X, 100% for Y. 150% for Z.
      */
     uiScale: string | null;
 
     /**
-     * Specifies a scale to apply to this panel's layout and all descendants. This scale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size
+     * Specifies a targetScale to apply to this panel's layout and all descendants. This targetScale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size
      * rather than just bitmap scaling.
      *
      * Examples:
-     * ui-scale: 150%; // 150% scaling for X, Y, and Z.
-     * ui-scale: 50% 100% 150%; // 50% scaling for X, 100% for Y. 150% for Z.
+     * ui-targetScale: 150%; // 150% scaling for X, Y, and Z.
+     * ui-targetScale: 50% 100% 150%; // 50% scaling for X, 100% for Y. 150% for Z.
      */
     uiScaleX: string | null;
 
     /**
-     * Specifies a scale to apply to this panel's layout and all descendants. This scale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size
+     * Specifies a targetScale to apply to this panel's layout and all descendants. This targetScale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size
      * rather than just bitmap scaling.
      *
      * Examples:
-     * ui-scale: 150%; // 150% scaling for X, Y, and Z.
-     * ui-scale: 50% 100% 150%; // 50% scaling for X, 100% for Y. 150% for Z.
+     * ui-targetScale: 150%; // 150% scaling for X, Y, and Z.
+     * ui-targetScale: 50% 100% 150%; // 50% scaling for X, 100% for Y. 150% for Z.
      */
     uiScaleY: string | null;
 
     /**
-     * Specifies a scale to apply to this panel's layout and all descendants. This scale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size
+     * Specifies a targetScale to apply to this panel's layout and all descendants. This targetScale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size
      * rather than just bitmap scaling.
      *
      * Examples:
-     * ui-scale: 150%; // 150% scaling for X, Y, and Z.
-     * ui-scale: 50% 100% 150%; // 50% scaling for X, 100% for Y. 150% for Z.
+     * ui-targetScale: 150%; // 150% scaling for X, Y, and Z.
+     * ui-targetScale: 50% 100% 150%; // 50% scaling for X, 100% for Y. 150% for Z.
      */
     uiScaleZ: string | null;
 

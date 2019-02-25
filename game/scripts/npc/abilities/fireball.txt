@@ -27,7 +27,7 @@
             "00"
             {
                 "var_type"						"FIELD_FLOAT"
-                "charge_time"   				"1"
+                "charge_time"   				"0.5"
             }
             "01"
             {

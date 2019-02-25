@@ -561,9 +561,9 @@ function Physics:CalcNormal(pos, unit, scale)
   local zrd = GetGroundPosition(pos + Vector(diag,ndiag,0), unit).z
   local zru = GetGroundPosition(pos + Vector(diag,diag,0), unit).z]]
 
-  --print (Vector(zld - zlu, zrd - zru, 2*scale))
-  --print (Vector(zl - zr, zd - zu, 2*scale))
-  --return (RotatePosition(Vector(0,0,0), QAngle(0,45,0), Vector(zld - zlu, zrd - zru, 2*scale)) + Vector(zl - zr, zd - zu, 2*scale)):Normalized()
+  --print (Vector(zld - zlu, zrd - zru, 2*targetScale))
+  --print (Vector(zl - zr, zd - zu, 2*targetScale))
+  --return (RotatePosition(Vector(0,0,0), QAngle(0,45,0), Vector(zld - zlu, zrd - zru, 2*targetScale)) + Vector(zl - zr, zd - zu, 2*targetScale)):Normalized()
   return Vector(zl - zr, zd - zu, 2*scale):Normalized()
 end
 

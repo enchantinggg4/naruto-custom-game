@@ -41,7 +41,7 @@ declare abstract class CBaseAnimating extends CBaseModelEntity {
      */
     GetGraphParameter(pszParam: string): any;
     /**
-     * Get scale of entity's model.
+     * Get targetScale of entity's model.
      */
     GetModelScale(): number;
     /**
@@ -101,7 +101,7 @@ declare abstract class CBaseAnimating extends CBaseModelEntity {
      */
     SetGraphParameterVector(szName: string, vValue: Vector): void;
     /**
-     * Set scale of entity's model.
+     * Set targetScale of entity's model.
      */
     SetModelScale(flScale: number): void;
     /**
@@ -1285,7 +1285,7 @@ declare abstract class CDOTABaseGameMode extends CBaseEntity {
      */
     GetRecommendedItemsDisabled(): boolean;
     /**
-     * Returns the scale applied to non-fixed respawn times.
+     * Returns the targetScale applied to non-fixed respawn times.
      */
     GetRespawnTimeScale(): number;
     /**
@@ -1521,7 +1521,7 @@ declare abstract class CDOTABaseGameMode extends CBaseEntity {
      */
     SetRemoveIllusionsOnDeath(bRemove: boolean): void;
     /**
-     * Sets the scale applied to non-fixed respawn times. 1 = default DOTA respawn calculations.
+     * Sets the targetScale applied to non-fixed respawn times. 1 = default DOTA respawn calculations.
      */
     SetRespawnTimeScale(flValue: number): void;
     /**

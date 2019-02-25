@@ -29,12 +29,7 @@ export class GameEvents {
 
         if (isBidjuKilled && !killedBySpecialAbilities) {
             const killedBidju = killed as BidjuExtension;
-            if (isShinobiKiller) {
-                // shinobi capture bidju!
-                DebugPrint("ShinobiExtension capture!");
-                ShinobiManager.CaptureBidju(killedBidju, killer as ShinobiExtension);
-
-            } else if (killedBidju.summoned && !isAkatsukiKiller) {
+            if (killedBidju.summoned && !isAkatsukiKiller) {
                 // summoned bidju died NOT to akatsuki.
                 if (killedBidju.owner) {
                     // delegate logic
@@ -42,6 +37,11 @@ export class GameEvents {
                 } else {
                     throw "Something wrong. killed bidju has summoned flag but doesnt have owner"
                 }
+            } else if (isShinobiKiller) {
+                // shinobi capture bidju!
+                DebugPrint("ShinobiExtension capture!");
+                ShinobiManager.CaptureBidju(killedBidju, killer as ShinobiExtension);
+
             } else if (isAkatsukiKiller) {
                 AkatsukiManager.OnBidjuCaptured(killedBidju);
             }
