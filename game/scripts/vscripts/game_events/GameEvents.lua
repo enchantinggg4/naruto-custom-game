@@ -43,15 +43,15 @@ exports.GameEvents.OnNPCKilled = function(self, killed, killer, ability)
     DebugPrint(killed:GetUnitName());
     if isBidjuKilled and (not killedBySpecialAbilities) then
         local killedBidju = killed;
-        if isShinobiKiller then
-            DebugPrint("ShinobiExtension capture!");
-            ShinobiManager:CaptureBidju(killedBidju, killer);
-        elseif killedBidju.summoned and (not isAkatsukiKiller) then
+        if killedBidju.summoned and (not isAkatsukiKiller) then
             if killedBidju.owner then
                 killedBidju.owner:onBidjuKilled();
             else
                 error("Something wrong. killed bidju has summoned flag but doesnt have owner");
             end
+        elseif isShinobiKiller then
+            DebugPrint("ShinobiExtension capture!");
+            ShinobiManager:CaptureBidju(killedBidju, killer);
         elseif isAkatsukiKiller then
             AkatsukiManager:OnBidjuCaptured(killedBidju);
         end
