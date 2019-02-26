@@ -27,6 +27,31 @@
                 "var_type"						"FIELD_FLOAT"
                 "charge_time"   				"1 2 3 4"
             }
+            "01"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "mana_per_second" 				"20 30 40 50"
+            }
+            "02"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "cooldown"       				"120"
+            }
+            "03"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "initial_mass"     				"1000000 1200000 1400000 1600000"
+            }
+            "04"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "mass_per_second" 				"1000 1200 1400 1600"
+            }
+            "05"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "damage_per_time"				"100 200 300 400"
+            }
         }
     }
 }

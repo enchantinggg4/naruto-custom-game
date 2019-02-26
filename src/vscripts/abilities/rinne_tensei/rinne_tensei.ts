@@ -11,7 +11,7 @@ class rinne_tensei extends CDOTA_Ability_Lua {
     }
 
     GetCooldown(iLevel: number): number {
-        return 0
+        return this.GetSpecialValueFor("cooldown")
     }
 
     GetChannelTime(): number {
@@ -19,14 +19,12 @@ class rinne_tensei extends CDOTA_Ability_Lua {
     }
 
     GetManaCost(iLevel: number): number {
-        return 0
+        return this.GetSpecialValueFor("mana_per_second")
     }
 
     OnChannelFinish(bInterrupted: boolean): void {
         ParticleManager.DestroyParticle(this.particle, false);
         this.GetCaster().RemoveModifierByName("modifier_rinne_tensei");
-
-
     }
 
     OnSpellStart(): void {

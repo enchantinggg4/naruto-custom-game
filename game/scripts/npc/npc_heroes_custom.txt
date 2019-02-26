@@ -8,4 +8,5 @@
 // dire
 #base "heroes/itachi.txt"
 #base "heroes/nagato.txt"
+#base "heroes/nagato_naraka.txt"
 #base "heroes/zetsu.txt"

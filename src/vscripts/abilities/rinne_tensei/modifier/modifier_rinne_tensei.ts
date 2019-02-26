@@ -33,13 +33,9 @@ class modifier_rinne_tensei extends CDOTA_Modifier_Lua {
 
     OnIntervalThink(): void {
 
-        // F = (G * M * m) / r^2
-        const G = 6.67408e-11;
-
-
         if (IsServer()) {
 
-            this.mass += 1000;
+            this.mass += this.GetAbility().GetSpecialValueFor("mass_per_second");
 
             const units = this.FindAllUnits();
 
@@ -89,7 +85,7 @@ class modifier_rinne_tensei extends CDOTA_Modifier_Lua {
         if (IsServer()) {
             this.StartIntervalThink(this.thinkInterval);
             this.epicenter = Vector(params.x, params.y, params.z);
-            this.mass = 1000000;
+            this.mass = this.GetAbility().GetSpecialValueFor("initial_mass");
         }
     }
 
@@ -110,20 +106,19 @@ class modifier_rinne_tensei extends CDOTA_Modifier_Lua {
                 particle,
                 1,
                 Vector(
-                    Math.min(this.mass / 3500, 1000), 0, 0
+                    1000, 0, 0
                 )
             );
             const affectedUnits = this.FindAllUnits();
-            const mass = this.mass;
             const attacker = this.GetParent();
-            Timers.CreateTimer(2, () => {
+            const dmg = this.GetElapsedTime() * this.GetAbility().GetSpecialValueFor("damage_per_time");
+            Timers.CreateTimer(4, () => {
                 this.FinalizeExplosion();
-                const dmgBase = mass / 1000;
                 affectedUnits.forEach(unit => {
                     ApplyDamage({
                         victim: unit,
                         attacker: attacker,
-                        damage: dmgBase / 2,
+                        damage: dmg,
                         damage_type: DAMAGE_TYPES.DAMAGE_TYPE_MAGICAL
                     })
                 });

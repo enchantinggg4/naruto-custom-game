@@ -16,6 +16,7 @@
 #base "abilities/rinne_path.txt"
 #base "abilities/rinne_pull.txt"
 #base "abilities/rinne_push.txt"
+#base "abilities/rinne_resurrect.txt"
 #base "abilities/rinne_summon.txt"
 #base "abilities/rinne_tensei.txt"
 #base "abilities/sage_mode.txt"
