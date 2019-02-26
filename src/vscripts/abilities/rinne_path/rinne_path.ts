@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_rinne_path", "abilities/rinne_path/modifier/modifier_rinne_path.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 LinkLuaModifier("modifier_rinne_path_main", "abilities/rinne_path/modifier/modifier_rinne_path_main.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
-LinkLuaModifier("modifier_rinne_path_dead", "abilities/rinne_path/modifier/modifier_rinne_path_dead.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
+LinkLuaModifier("modifier_rinne_path_dead", "abilities/rinne_resurrect/modifier/modifier_rinne_path_dead.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
 
 class rinne_path extends CDOTA_Ability_Lua {
 

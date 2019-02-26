@@ -2323,6 +2323,9 @@ declare abstract class CDOTA_Ability_Lua extends CDOTABaseAbility {
  * A Dota NPC Unit
  */
 declare abstract class CDOTA_BaseNPC extends CBaseFlex {
+
+
+    IsNull(): boolean;
     /**
      * Add an ability to this unit by name.
      */

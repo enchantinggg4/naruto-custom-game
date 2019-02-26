@@ -20,6 +20,17 @@ class modifier_rinne_path_dead extends CDOTA_Modifier_Lua {
         return true;
     }
 
+    Resurrect(parent: CDOTA_BaseNPC = this.GetParent()) {
+        if (parent.IsNull()) {
+            return;
+        }
+        parent.SetHealth(
+            this.GetParent().GetMaxHealth() * 0.3
+        );
+        (parent.FindModifierByName("modifier_rinne_path") as modifier_rinne_path).do_save = true;
+        this.Destroy();
+    }
+
     OnCreated(params: table): void {
         if (IsServer()) {
             this.GetParent().AddNewModifier(
@@ -28,12 +39,11 @@ class modifier_rinne_path_dead extends CDOTA_Modifier_Lua {
                 "modifier_stunned",
                 {}
             );
-            this.GetParent().AddNewModifier(
-                this.GetParent(),
-                this.GetAbility(),
-                "modifier_invulnerable",
-                {}
-            );
+            const parent = this.GetParent();
+            const respTime = 10;
+            Timers.CreateTimer(respTime, () => {
+                this.Resurrect(parent);
+            });
         }
     }
 
@@ -70,8 +80,11 @@ class modifier_rinne_path_dead extends CDOTA_Modifier_Lua {
     }
 
     OnTakeDamage(event: ModifierAttackEvent): void {
-        if(IsServer()){
+        if (IsServer()) {
             const hero = this.GetParent() as CDOTA_BaseNPC_Hero;
+            if (hero.GetHealth() === 0) {
+                hero.SetHealth(1);
+            }
         }
     }
 
@@ -85,10 +98,6 @@ class modifier_rinne_path_dead extends CDOTA_Modifier_Lua {
         if (IsServer()) {
             this.GetParent().RemoveModifierByNameAndCaster(
                 "modifier_stunned",
-                this.GetParent()
-            );
-            this.GetParent().RemoveModifierByNameAndCaster(
-                "modifier_invulnerable",
                 this.GetParent()
             );
         }
