@@ -6,6 +6,7 @@ import {
     PRE_GAME_TIME, SHOWCASE_TIME, STRATEGY_TIME, TREE_REGROW_TIME,
     UNIVERSAL_SHOP_MODE
 } from "./settings";
+import {GameEvents} from "./game_events/GameEvents";
 
 const z = 5;
 
@@ -81,6 +82,7 @@ export class Lol extends your_gamemode_name {
     static OnGameInProgress(){
         DebugPrint(`[TS] The game has begun!`);
         BidjuManager.InitialSpawnBidju();
+        GameEvents.OnGameStart();
     }
 
 

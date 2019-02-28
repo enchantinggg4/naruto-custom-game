@@ -1,4 +1,5 @@
 import {ShinobiExtension} from "./Shinobi";
+import {GameState} from "./GameState";
 require("client-server");
 
 
@@ -41,6 +42,8 @@ export class BidjuExtension extends CDOTA_BaseNPC {
 
 export class BidjuManager {
 
+    static nextBidju: string;
+
 
     static SpawnBidju(
         bidju: string,
@@ -77,8 +80,48 @@ export class BidjuManager {
     }
 
     static InitialSpawnBidju() {
+
+        const keys = [];
+
         for (const key in BidjuName) {
-            BidjuManager.SpawnBidju(BidjuName[key])
+            keys.push(key);
+            // BidjuManager.SpawnBidju(BidjuName[key]);
+            GameState.SetBidjuStatus(BidjuName[key], DOTATeam_t.DOTA_TEAM_NEUTRALS);
+            // set all neutral so game doesn't end instantly
         }
+
+        const delayBetweenBidju = 5;
+        const context = {
+            lastBidjuIndex: 0,
+            keys
+        };
+
+        // create one bidju instantly
+        Timers.CreateTimer(0, (context) => {
+            const currentBidju = context.keys[context.lastBidjuIndex] as any;
+            const bidjuName = BidjuName[currentBidju];
+            if(bidjuName){
+                const bidju = BidjuManager.SpawnBidju(bidjuName);
+                context.lastBidjuIndex++;
+                BidjuManager.nextBidju = BidjuName[context.keys[context.lastBidjuIndex] as any];
+                AddFOWViewer(
+                    DOTATeam_t.DOTA_TEAM_GOODGUYS,
+                    bidju.GetAbsOrigin(),
+                    500,
+                    5,
+                    false
+                );
+                AddFOWViewer(
+                    DOTATeam_t.DOTA_TEAM_BADGUYS,
+                    bidju.GetAbsOrigin(),
+                    500,
+                    5,
+                    false
+                );
+
+                GameState.AlertNextBidju(delayBetweenBidju, currentBidju, context.keys[context.lastBidjuIndex] as string);
+                return delayBetweenBidju;
+            }
+        }, context)
     }
 }

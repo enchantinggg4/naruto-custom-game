@@ -79,8 +79,8 @@ class modifier_rinne_path_dead extends CDOTA_Modifier_Lua {
         }) as CDOTA_BaseNPC_Hero[];
     }
 
-    OnTakeDamage(event: ModifierAttackEvent): void {
-        if (IsServer()) {
+    OnTakeDamage(event: ModifierAttackEvent & { unit: CDOTA_BaseNPC}): void {
+        if (IsServer() && event.unit === this.GetParent()) {
             const hero = this.GetParent() as CDOTA_BaseNPC_Hero;
             if (hero.GetHealth() === 0) {
                 hero.SetHealth(1);

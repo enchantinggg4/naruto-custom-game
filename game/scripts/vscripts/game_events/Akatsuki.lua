@@ -1,5 +1,9 @@
 --[[ Generated with https://github.com/Perryvw/TypescriptToLua ]]
 local exports = exports or {};
+local __TSTL_bidju = require("game_events.bidju");
+local BidjuName = __TSTL_bidju.BidjuName;
+local __TSTL_GameState = require("game_events.GameState");
+local GameState = __TSTL_GameState.GameState;
 exports.AkatsukiManager = exports.AkatsukiManager or {};
 exports.AkatsukiManager.__index = exports.AkatsukiManager;
 exports.AkatsukiManager.new = function(construct, ...)
@@ -14,12 +18,31 @@ end;
 exports.AkatsukiManager.IsAkatsuki = function(self, unit)
     return unit:GetTeam() == DOTA_TEAM_BADGUYS;
 end;
+exports.AkatsukiManager.IsCaptured = function(self, bidju)
+    return GameState.BIDJU_MAP[bidju] == DOTA_TEAM_BADGUYS;
+end;
 exports.AkatsukiManager.OnBidjuCaptured = function(self, killedBidju)
     exports.AkatsukiManager:createParticleIndicator(killedBidju);
     exports.AkatsukiManager:createDefender(killedBidju);
-    if killedBidju.owner then
-        DebugPrint("capture this shit!");
+    GameState:SetBidjuStatus(killedBidju:GetUnitName(), DOTA_TEAM_BADGUYS);
+    local allCaptured = exports.AkatsukiManager:CheckAllCaptured();
+    print(allCaptured);
+    print(GameState.BIDJU_MAP);
+    if allCaptured then
+        GameState:SetAkatsukiWon();
     end
+end;
+exports.AkatsukiManager.CheckAllCaptured = function(self)
+    for key in pairs(BidjuName) do
+        do
+            local bidjuName = BidjuName[key];
+            if not exports.AkatsukiManager:IsCaptured(bidjuName) then
+                return false;
+            end
+        end
+        ::__continue5::
+    end
+    return true;
 end;
 exports.AkatsukiManager.createParticleIndicator = function(self, killedBidju)
     local targetEntity = Entities:FindByName(nil, "akatsuki_preview_" .. (tostring(killedBidju:GetUnitName()) .. ""));

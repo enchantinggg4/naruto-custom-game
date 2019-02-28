@@ -2,8 +2,11 @@
 local exports = exports or {};
 local __TSTL_Bidju = require("game_events.Bidju");
 local BidjuManager = __TSTL_Bidju.BidjuManager;
+local BidjuName = __TSTL_Bidju.BidjuName;
 local __TSTL_Akatsuki = require("game_events.Akatsuki");
 local AkatsukiManager = __TSTL_Akatsuki.AkatsukiManager;
+local __TSTL_GameState = require("game_events.GameState");
+local GameState = __TSTL_GameState.GameState;
 require("client-server");
 CDOTA_BaseNPC.setBidju = function(self, bidju)
     self.bidju = bidju;
@@ -59,17 +62,39 @@ exports.ShinobiManager.IsShinobi = function(self, unit)
     return unit:GetTeam() == DOTA_TEAM_GOODGUYS;
 end;
 exports.ShinobiManager.FreeBidju = function(self, bidjuName)
-    DebugPrint("FreeBidju");
     AkatsukiManager:removeParticleIndicator(bidjuName);
     BidjuManager:SpawnBidju(bidjuName);
+    GameState:SetBidjuStatus(bidjuName, DOTA_TEAM_NEUTRALS);
 end;
 exports.ShinobiManager.CaptureBidju = function(self, killedBidju, owner)
     local bidju = BidjuManager:SpawnBidju(killedBidju:GetUnitName(), killedBidju:GetAbsOrigin(), DOTA_TEAM_GOODGUYS, nil);
     bidju:captureReadyRespawn();
+    self:OnBidjuOwned(bidju:GetUnitName());
+end;
+exports.ShinobiManager.IsCaptured = function(self, bidju)
+    return GameState.BIDJU_MAP[bidju] == DOTA_TEAM_GOODGUYS;
+end;
+exports.ShinobiManager.CheckAllCaptured = function(self)
+    for key in pairs(BidjuName) do
+        do
+            local bidjuName = BidjuName[key];
+            if not exports.ShinobiManager:IsCaptured(bidjuName) then
+                return false;
+            end
+        end
+        ::__continue13::
+    end
+    return true;
 end;
 exports.ShinobiManager.OnBidjuCaptured = function(self, bidju, hero)
     bidju:Kill(hero:FindAbilityByName("capture_bidju"), hero);
     hero:setBidjuState(true);
     hero:setBidju(bidju);
+end;
+exports.ShinobiManager.OnBidjuOwned = function(self, bidjuName)
+    GameState:SetBidjuStatus(bidjuName, DOTA_TEAM_GOODGUYS);
+    if exports.ShinobiManager:CheckAllCaptured() then
+        GameState:SetShinobiWon();
+    end
 end;
 return exports;

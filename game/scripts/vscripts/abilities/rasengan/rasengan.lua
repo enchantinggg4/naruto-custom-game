@@ -1,6 +1,8 @@
 --[[ Generated with https://github.com/Perryvw/TypescriptToLua ]]
 local __TSTL_Sounds = require("Sounds");
 local Sound_rasengan = __TSTL_Sounds.Sound_rasengan;
+local __TSTL_Spawn = require("game_events.Spawn");
+local Spawn = __TSTL_Spawn.Spawn;
 LinkLuaModifier("modifier_rasengan_channel", "abilities/rasengan/modifier/modifier_rasengan_channel.lua", LUA_MODIFIER_MOTION_NONE);
 LinkLuaModifier("modifier_rasengan_active", "abilities/rasengan/modifier/modifier_rasengan_active.lua", LUA_MODIFIER_MOTION_NONE);
 rasengan = rasengan or {};

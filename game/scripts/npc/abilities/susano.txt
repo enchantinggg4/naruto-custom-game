@@ -26,17 +26,17 @@
             "00"
             {
                 "var_type"						"FIELD_FLOAT"
-                "charge_time"   				"1.5 1.0 0.5 0.1"
+                "charge_time"   				"1.0 0.5 0.1"
             }
             "01"
             {
                 "var_type"						"FIELD_FLOAT"
-                "mana_cost_second" 				"4 3 2 1"
+                "mana_cost_second" 				"3 2 1"
             }
             "02"
             {
                 "var_type"						"FIELD_FLOAT"
-                "absorb_mana_per_dmg"			"3 2 1 0.5"
+                "absorb_mana_per_dmg"			"2 1 0.5"
             }
          }
     }

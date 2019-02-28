@@ -1,5 +1,7 @@
-import {BidjuExtension, BidjuManager} from "./Bidju";
+import {BidjuExtension, BidjuManager, BidjuName} from "./Bidju";
 import {AkatsukiManager} from "./Akatsuki";
+import {GameState} from "./GameState";
+
 require("client-server");
 
 /** @extension */
@@ -68,9 +70,9 @@ export class ShinobiManager {
 
 
     static FreeBidju(bidjuName: string) {
-        DebugPrint("FreeBidju");
         AkatsukiManager.removeParticleIndicator(bidjuName);
         BidjuManager.SpawnBidju(bidjuName);
+        GameState.SetBidjuStatus(bidjuName, DOTATeam_t.DOTA_TEAM_NEUTRALS);
     }
 
     static CaptureBidju(killedBidju: BidjuExtension, owner: ShinobiExtension) {
@@ -81,7 +83,23 @@ export class ShinobiManager {
             null
         ) as BidjuExtension;
 
+
         bidju.captureReadyRespawn();
+        this.OnBidjuOwned(bidju.GetUnitName());
+    }
+
+    static IsCaptured(bidju: string): boolean {
+        return GameState.BIDJU_MAP[bidju] === DOTATeam_t.DOTA_TEAM_GOODGUYS
+    }
+
+    static CheckAllCaptured(): boolean {
+        for (const key in BidjuName) {
+            const bidjuName = BidjuName[key];
+            if (!ShinobiManager.IsCaptured(bidjuName)) {
+                return false
+            }
+        }
+        return true
     }
 
     static OnBidjuCaptured(bidju: BidjuExtension, hero: ShinobiExtension) {
@@ -89,4 +107,14 @@ export class ShinobiManager {
         hero.setBidjuState(true);
         hero.setBidju(bidju);
     }
+
+    static OnBidjuOwned(bidjuName: string) {
+        GameState.SetBidjuStatus(bidjuName, DOTATeam_t.DOTA_TEAM_GOODGUYS);
+
+        if (ShinobiManager.CheckAllCaptured()) {
+            GameState.SetShinobiWon()
+        }
+    }
+
+
 }

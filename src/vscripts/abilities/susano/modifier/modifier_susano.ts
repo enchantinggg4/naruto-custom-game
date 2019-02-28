@@ -43,26 +43,27 @@ class modifier_susano extends CDOTA_Modifier_Lua {
         this.oldHealth = this.GetParent().GetHealth();
     }
 
-    OnTakeDamage(event: ModifierAttackEvent): void {
-        const dmg = event.damage;
-        const mana = this.GetParent().GetMana();
+    OnTakeDamage(event: ModifierAttackEvent & { unit: CDOTA_BaseNPC }): void {
+        if (event.unit === this.GetParent()) {
+            const dmg = event.damage;
+            const mana = this.GetParent().GetMana();
 
-        const manaPerDamage = this.GetAbility().GetSpecialValueFor("absorb_mana_per_dmg");
+            const manaPerDamage = this.GetAbility().GetSpecialValueFor("absorb_mana_per_dmg");
 
-        const fullAbsorbMana = manaPerDamage * dmg;
+            const fullAbsorbMana = manaPerDamage * dmg;
 
 
-        if (dmg > fullAbsorbMana) {
-            // spend all mana
-            this.GetParent().SpendMana(mana, this.GetAbility());
-            const reflectedDamage = mana / manaPerDamage;
-            const unreflectedDamage = dmg - reflectedDamage;
-            this.GetParent().SetHealth(this.oldHealth - unreflectedDamage);
-        } else {
-            this.GetParent().SpendMana(fullAbsorbMana, this.GetAbility());
-            this.GetParent().SetHealth(this.oldHealth);
+            if (dmg > fullAbsorbMana) {
+                // spend all mana
+                this.GetParent().SpendMana(mana, this.GetAbility());
+                const reflectedDamage = mana / manaPerDamage;
+                const unreflectedDamage = dmg - reflectedDamage;
+                this.GetParent().SetHealth(this.oldHealth - unreflectedDamage);
+            } else {
+                this.GetParent().SpendMana(fullAbsorbMana, this.GetAbility());
+                this.GetParent().SetHealth(this.oldHealth);
+            }
         }
-
     }
 
     DeclareFunctions(): modifierfunction[] {

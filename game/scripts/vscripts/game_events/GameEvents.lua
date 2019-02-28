@@ -18,6 +18,8 @@ local __TSTL_Shinobi = require("game_events.Shinobi");
 local ShinobiManager = __TSTL_Shinobi.ShinobiManager;
 local __TSTL_Akatsuki = require("game_events.Akatsuki");
 local AkatsukiManager = __TSTL_Akatsuki.AkatsukiManager;
+local __TSTL_Spawn = require("game_events.Spawn");
+local Spawn = __TSTL_Spawn.Spawn;
 exports.GameEvents = exports.GameEvents or {};
 exports.GameEvents.__index = exports.GameEvents;
 exports.GameEvents.new = function(construct, ...)
@@ -64,5 +66,8 @@ end;
 exports.GameEvents.OnNPCSpawned = function(self, npc)
     if ((npc:GetTeam() == DOTA_TEAM_GOODGUYS) and npc:IsRealHero()) and npc:IsHero() then
     end
+end;
+exports.GameEvents.OnGameStart = function(self)
+    Spawn:CreateSpawn("konoha_spawn");
 end;
 return exports;

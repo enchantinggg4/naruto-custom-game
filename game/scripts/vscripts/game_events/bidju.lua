@@ -1,5 +1,17 @@
 --[[ Generated with https://github.com/Perryvw/TypescriptToLua ]]
+-- Lua Library inline imports
+__TS__ArrayPush = function(arr, ...)
+    local items = ({...});
+    for ____TS_index = 1, #items do
+        local item = items[____TS_index];
+        arr[(#arr) + 1] = item;
+    end
+    return #arr;
+end;
+
 local exports = exports or {};
+local __TSTL_GameState = require("game_events.GameState");
+local GameState = __TSTL_GameState.GameState;
 require("client-server");
 LinkLuaModifier("modifier_bidju_ready_capture", "abilities/bidju/modifier/modifier_bidju_ready_capture.lua", LUA_MODIFIER_MOTION_NONE);
 exports.BidjuName = {};
@@ -65,11 +77,28 @@ exports.BidjuManager.IsBidju = function(self, unit)
     return false;
 end;
 exports.BidjuManager.InitialSpawnBidju = function(self)
+    local keys = {};
     for key in pairs(exports.BidjuName) do
         do
-            exports.BidjuManager:SpawnBidju(exports.BidjuName[key]);
+            __TS__ArrayPush(keys, key);
+            GameState:SetBidjuStatus(exports.BidjuName[key], DOTA_TEAM_NEUTRALS);
         end
         ::__continue8::
     end
+    local delayBetweenBidju = 5;
+    local context = {lastBidjuIndex = 0, keys = keys};
+    Timers:CreateTimer(0, function(context)
+        local currentBidju = context.keys[context.lastBidjuIndex + 1];
+        local bidjuName = exports.BidjuName[currentBidju];
+        if bidjuName then
+            local bidju = exports.BidjuManager:SpawnBidju(bidjuName);
+            context.lastBidjuIndex = context.lastBidjuIndex + 1;
+            exports.BidjuManager.nextBidju = exports.BidjuName[context.keys[context.lastBidjuIndex + 1]];
+            AddFOWViewer(DOTA_TEAM_GOODGUYS, bidju:GetAbsOrigin(), 500, 5, false);
+            AddFOWViewer(DOTA_TEAM_BADGUYS, bidju:GetAbsOrigin(), 500, 5, false);
+            GameState:AlertNextBidju(delayBetweenBidju, currentBidju, context.keys[context.lastBidjuIndex + 1]);
+            return delayBetweenBidju;
+        end
+    end, context);
 end;
 return exports;

@@ -12,6 +12,8 @@ local SHOWCASE_TIME = __TSTL_settings.SHOWCASE_TIME;
 local STRATEGY_TIME = __TSTL_settings.STRATEGY_TIME;
 local TREE_REGROW_TIME = __TSTL_settings.TREE_REGROW_TIME;
 local UNIVERSAL_SHOP_MODE = __TSTL_settings.UNIVERSAL_SHOP_MODE;
+local __TSTL_GameEvents = require("game_events.GameEvents");
+local GameEvents = __TSTL_GameEvents.GameEvents;
 local z = 5;
 require("libraries/physics");
 require("libraries/projectiles");
@@ -37,6 +39,7 @@ end;
 your_gamemode_name.OnGameInProgress = function(self)
     DebugPrint("[TS] The game has begun!");
     BidjuManager:InitialSpawnBidju();
+    GameEvents:OnGameStart();
 end;
 your_gamemode_name.OnHeroSelected = function(self, data)
     local player = PlayerInstanceFromIndex(data.PlayerID + 1);

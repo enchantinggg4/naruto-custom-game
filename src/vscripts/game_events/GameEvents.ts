@@ -1,8 +1,10 @@
 import {BidjuExtension, BidjuManager} from "./bidju";
 import {ShinobiExtension, ShinobiManager} from "./Shinobi";
 import {AkatsukiManager, BidjuDefender} from "./Akatsuki";
+import {Spawn} from "./Spawn";
 
 export class GameEvents {
+
 
 
     static OnNPCKilled(killed: CDOTA_BaseNPC, killer: CDOTA_BaseNPC, ability: CDOTABaseAbility | null) {
@@ -40,9 +42,11 @@ export class GameEvents {
             } else if (isShinobiKiller) {
                 // shinobi capture bidju!
                 DebugPrint("ShinobiExtension capture!");
+
                 ShinobiManager.CaptureBidju(killedBidju, killer as ShinobiExtension);
 
             } else if (isAkatsukiKiller) {
+                // akatsuki capture
                 AkatsukiManager.OnBidjuCaptured(killedBidju);
             }
         } else if (isBidjuKilled && killedBySpecialAbilities) {
@@ -60,5 +64,10 @@ export class GameEvents {
         if (npc.GetTeam() === DOTATeam_t.DOTA_TEAM_GOODGUYS && npc.IsRealHero() && npc.IsHero()) {
 
         }
+    }
+
+    static OnGameStart() {
+        // create timers for spawn
+        Spawn.CreateSpawn("konoha_spawn");
     }
 }

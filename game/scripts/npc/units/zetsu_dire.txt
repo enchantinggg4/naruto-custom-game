@@ -1,0 +1,48 @@
+"DOTAUnits"
+{
+	//=================================================================================
+	// Gamabunta
+	//=================================================================================
+	"npc_dota_custom_zetsu_creep"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/neutral_creeps/n_creep_satyr_c/n_creep_satyr_c.vmdl"
+		"ModelScale"                "1"
+		"IsSummoned"				"0"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+
+		"HasInventory"				"1"
+		"AttackRange"				"150"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"800"
+		"ProjectileSpeed"			"0"
+
+		"AbilityTalentStart"		"10"
+
+		"ArmorPhysical"       		"0"
+		"MagicalResistance"       	"0"
+
+		"AttackDamageMin"     		"20"
+        "AttackDamageMax"     		"40"
+		"AttackRate"        		"1.7"
+		"AttackAnimationPoint"    	"0.5"
+
+		"BountyXP"          		"100"
+        "BountyGoldMin"       		"45"
+        "BountyGoldMax"       		"55"
+
+		"BoundsHullName"      		"DOTA_HULL_SIZE_HERO"
+
+		"MovementSpeed"       		"300"
+		"MovementTurnRate"      	"0.5"
+
+		"StatusHealth"        		"500"
+		"StatusHealthRegen"     	"1.5"
+		"StatusMana"        		"75"
+		"StatusManaRegen"     		"0.9"
+
+		"VisionDaytimeRange"    	"1800"
+		"VisionNighttimeRange"    	"800"
+	}
+}

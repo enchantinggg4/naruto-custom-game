@@ -1,4 +1,5 @@
-import {BidjuExtension} from "./bidju";
+import {BidjuExtension, BidjuName} from "./bidju";
+import {GameState} from "./GameState";
 
 
 /** @extension */
@@ -22,14 +23,38 @@ export class AkatsukiManager {
         return unit.GetTeam() === DOTATeam_t.DOTA_TEAM_BADGUYS;
     }
 
+    static IsCaptured(bidju: string): boolean {
+        return GameState.BIDJU_MAP[bidju] === DOTATeam_t.DOTA_TEAM_BADGUYS
+    }
+
 
     static OnBidjuCaptured(killedBidju: BidjuExtension) {
         AkatsukiManager.createParticleIndicator(killedBidju);
         AkatsukiManager.createDefender(killedBidju);
-        if(killedBidju.owner){
-            DebugPrint("capture this shit!")
+
+        // akatsuki own this bidju
+        GameState.SetBidjuStatus(killedBidju.GetUnitName(), DOTATeam_t.DOTA_TEAM_BADGUYS);
+
+
+        // check if all are captured
+        const allCaptured = AkatsukiManager.CheckAllCaptured();
+        print(allCaptured);
+        print(GameState.BIDJU_MAP);
+        if (allCaptured) {
+            GameState.SetAkatsukiWon();
         }
     }
+
+    static CheckAllCaptured(): boolean {
+        for (const key in BidjuName) {
+            const bidjuName = BidjuName[key];
+            if (!AkatsukiManager.IsCaptured(bidjuName)) {
+                return false
+            }
+        }
+        return true
+    }
+
 
     static createParticleIndicator(killedBidju: BidjuExtension) {
         const targetEntity = Entities.FindByName(undefined, `akatsuki_preview_${killedBidju.GetUnitName()}`) as CapturedPreview;
@@ -54,7 +79,7 @@ export class AkatsukiManager {
         )
     }
 
-    static removeParticleIndicator(killedBidjuName: string){
+    static removeParticleIndicator(killedBidjuName: string) {
         const targetEntity = Entities.FindByName(undefined, `akatsuki_preview_${killedBidjuName}`) as CapturedPreview;
         if (targetEntity.bidjuIndicatorParticle) {
             ParticleManager.DestroyParticle(targetEntity.bidjuIndicatorParticle, false)
@@ -73,7 +98,7 @@ export class AkatsukiManager {
             DOTATeam_t.DOTA_TEAM_BADGUYS
         ) as BidjuDefender;
         unit.bidjuName = killedBidju.GetUnitName();
-        if(killedBidju.owner){
+        if (killedBidju.owner) {
             killedBidju.owner.onLoseBidju();
         }
     }
