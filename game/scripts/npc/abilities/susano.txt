@@ -38,6 +38,11 @@
                 "var_type"						"FIELD_FLOAT"
                 "absorb_mana_per_dmg"			"2 1 0.5"
             }
+            "03"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "stats_increase_multiplier"  	"0.5 1.5 3"
+            }
          }
     }
 }

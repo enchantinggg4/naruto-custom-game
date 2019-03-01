@@ -53,7 +53,7 @@ class modifier_susano extends CDOTA_Modifier_Lua {
             const fullAbsorbMana = manaPerDamage * dmg;
 
 
-            if (dmg > fullAbsorbMana) {
+            if (fullAbsorbMana > this.GetParent().GetMana()) {
                 // spend all mana
                 this.GetParent().SpendMana(mana, this.GetAbility());
                 const reflectedDamage = mana / manaPerDamage;
@@ -66,9 +66,27 @@ class modifier_susano extends CDOTA_Modifier_Lua {
         }
     }
 
+    GetModifierBonusStats_Strength(): number {
+        const hero = this.GetParent() as CDOTA_BaseNPC_Hero;
+        return this.GetAbility().GetSpecialValueFor("stats_increase_multiplier") * hero.GetStrength();
+    }
+
+    GetModifierBonusStats_Intellect(): number {
+        const hero = this.GetParent() as CDOTA_BaseNPC_Hero;
+        return this.GetAbility().GetSpecialValueFor("stats_increase_multiplier") * hero.GetIntellect();
+    }
+
+    GetModifierBonusStats_Agility(): number {
+        const hero = this.GetParent() as CDOTA_BaseNPC_Hero;
+        return this.GetAbility().GetSpecialValueFor("stats_increase_multiplier") * hero.GetAgility();
+    }
+
     DeclareFunctions(): modifierfunction[] {
         return [
-            modifierfunction.MODIFIER_EVENT_ON_TAKEDAMAGE
+            modifierfunction.MODIFIER_EVENT_ON_TAKEDAMAGE,
+            modifierfunction.MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+            modifierfunction.MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+            modifierfunction.MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
         ]
     }
 

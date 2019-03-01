@@ -53,7 +53,7 @@
 
             <Panel hittest="false" id="SelectedHero" >
                 <Image id="SelectedHeroImage" />
-                <Button id="EnterGameButton" onactivate="EnterGame()" class="disabled" >
+                <Button id="EnterGameButton" class="disabled" >
                     <Label id="EnterGameBtnTxt" text="Waiting for other players..." />
                 </Button>
             </Panel>

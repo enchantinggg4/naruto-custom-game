@@ -91,7 +91,6 @@ function FillHeroes() {
     })
 }
 
-
 function UpdateTimer() {
     const gameTime = Game.GetGameTime();
     const transitionTime = Game.GetStateTransitionTime();
@@ -101,13 +100,16 @@ function UpdateTimer() {
     if (Game.GameStateIsAfter(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
         timerValue = 0;
     }
-
-    $("#TimerValue").SetAttributeString("text", timerValue.toString());
+    ($("#TimerValue") as LabelPanel).text = timerValue.toString();
 
     $.Schedule(0.1, UpdateTimer);
+
 }
 
 (function(){
+    $("#EnterGameButton").SetPanelEvent(PanelEvent.ON_LEFT_CLICK, function(){
+        EnterGame();
+    });
     FillHeroes();
     FillPlayers();
     UpdateTimer();

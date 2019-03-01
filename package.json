@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tstl -p src/vscripts/tsconfig.json",
     "watch": "tstl -p src/vscripts/tsconfig.json --watch",
-    "watchUI": "tsc -p src/custom_game/tsconfig.json --out  --watch",
+    "watchUI": "tsc -p src/custom_game/tsconfig.json --watch",
     "buildSound": "node scripts/gen_soundevents.js",
     "generateAbility": "node scripts/generateAbility.js"
   },

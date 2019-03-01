@@ -17,20 +17,20 @@ export class Spawn {
 
         const team = good ? DOTATeam_t.DOTA_TEAM_GOODGUYS : DOTATeam_t.DOTA_TEAM_BADGUYS;
 
-        const unitsAlreadyThere = FindUnitsInRadius(
-            team,
-            entity.GetAbsOrigin(),
-            null,
-            300,
-            DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-            DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_CREEP,
-            DOTA_UNIT_TARGET_FLAGS.DOTA_UNIT_TARGET_FLAG_NONE,
-            FindType_t.FIND_ANY_ORDER,
-            false
-        ).length > 0;
+        // const unitsAlreadyThere = FindUnitsInRadius(
+        //     team,
+        //     entity.GetAbsOrigin(),
+        //     null,
+        //     300,
+        //     DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+        //     DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_CREEP,
+        //     DOTA_UNIT_TARGET_FLAGS.DOTA_UNIT_TARGET_FLAG_NONE,
+        //     FindType_t.FIND_ANY_ORDER,
+        //     false
+        // ).length > 0;
 
 
-        if (!unitsAlreadyThere) {
+        if (true) {
 
             const unitName = good ? "npc_dota_custom_shinobi" : "npc_dota_custom_zetsu_creep";
 

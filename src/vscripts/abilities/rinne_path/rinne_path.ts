@@ -20,6 +20,10 @@ class rinne_path extends CDOTA_Ability_Lua {
         return 0
     }
 
+    GetMaxLevel(): number {
+        return 1
+    }
+
 
     OnChannelFinish(bInterrupted: boolean): void {
 

@@ -12,6 +12,7 @@
 #base "abilities/rasengan.txt"
 #base "abilities/rinneblink.txt"
 #base "abilities/rinne_absorb.txt"
+#base "abilities/rinne_block.txt"
 #base "abilities/rinne_heal.txt"
 #base "abilities/rinne_path.txt"
 #base "abilities/rinne_pull.txt"
