@@ -45,7 +45,8 @@ your_gamemode_name.OnHeroSelected = function(self, data)
     local player = PlayerInstanceFromIndex(data.PlayerID + 1);
     local hero = CreateHeroForPlayer(data.hero.hero_original_name, player);
     UTIL_Remove(hero);
-    CustomGameEventManager:Send_ServerToAllClients("picking_player_pick", data);
+    local msg = {PlayerID = data.PlayerID, hero = data.hero, team = player:GetTeam()};
+    CustomGameEventManager:Send_ServerToAllClients("picking_player_pick", msg);
 end;
 your_gamemode_name.InitGameMode = function(self)
     CustomGameEventManager:RegisterListener("hero_selected", Dynamic_Wrap(your_gamemode_name, "OnHeroSelected"));

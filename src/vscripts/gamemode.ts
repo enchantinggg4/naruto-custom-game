@@ -33,7 +33,8 @@ require('events');
 // filters.lua
 require('filters');
 
-declare class your_gamemode_name{}
+declare class your_gamemode_name {
+}
 
 interface HeroSelectionData {
     PlayerID: PlayerID,
@@ -79,25 +80,37 @@ export class Lol extends your_gamemode_name {
         // }
     }
 
-    static OnGameInProgress(){
+    static OnGameInProgress() {
         DebugPrint(`[TS] The game has begun!`);
         BidjuManager.InitialSpawnBidju();
         GameEvents.OnGameStart();
     }
 
 
-    static OnHeroSelected(data: HeroSelectionData){
+    static OnHeroSelected(data: HeroSelectionData) {
         const player = PlayerInstanceFromIndex(data.PlayerID + 1);
         const hero = CreateHeroForPlayer(data.hero.hero_original_name, player);
 
         // your_gamemode_name removes invisible copy of hero :)
         UTIL_Remove(hero);
 
-        CustomGameEventManager.Send_ServerToAllClients("picking_player_pick", data);
+        const msg: {
+            PlayerID: PlayerID,
+            hero: {
+                hero_name: string;
+                hero_original_name: string;
+            },
+            team: number;
+        } = {
+            PlayerID: data.PlayerID,
+            hero: data.hero,
+            team: player.GetTeam()
+        };
+        CustomGameEventManager.Send_ServerToAllClients("picking_player_pick", msg);
     }
 
-    static InitGameMode(){
-        CustomGameEventManager.RegisterListener( "hero_selected", Dynamic_Wrap(your_gamemode_name, "OnHeroSelected"));
+    static InitGameMode() {
+        CustomGameEventManager.RegisterListener("hero_selected", Dynamic_Wrap(your_gamemode_name, "OnHeroSelected"));
         DebugPrint("[TS] Starting to load Game Rules.");
 
         // ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(your_gamemode_name, 'OnPlayerLevelUp'), self);

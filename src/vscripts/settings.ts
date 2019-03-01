@@ -10,7 +10,7 @@ export const ALLOW_SAME_HERO_SELECTION = false;		// Should we let people select 
 
 export const CUSTOM_GAME_SETUP_TIME = 25.0;			// How long should custom game setup last - the screen where players pick a team?
 export const HERO_SELECTION_TIME = 10000.0;				// How long should we let people select their hero? Should be at least 5 seconds.
-export const STRATEGY_TIME = 0.0;					// How long should strategy time last? Bug: You can buy items during strategy time and it will not be spent!
+export const STRATEGY_TIME = 15.0;					// How long should strategy time last? Bug: You can buy items during strategy time and it will not be spent!
 export const SHOWCASE_TIME = 0;					// How long should show case time be?
 export const PRE_GAME_TIME = 90.0;					// How long after showcase time should the horn blow and the game start?
 export const POST_GAME_TIME = 60.0;					// How long should we let people stay around before closing the server automatically?
