@@ -3,7 +3,6 @@
 	"npc_dota_hero_naruto"
 	{
 		"override_hero"     "npc_dota_hero_bloodseeker"
-		// "Model"             "models/source/model/naruto.vmdl" to be done later
 		"DisableWearables"  "0"
 		"AbilityLayout"     "6"
 		"Ability1"        	"rasengan"
@@ -13,30 +12,30 @@
 		"Ability5"        	"summon_bidju"
 		"Ability6"        	"chaos_knight_phantasm"
 
-		"ArmorPhysical"       		"0"                 	// Physical protection.
-		"MagicalResistance"       	"0"                 	// Magical protection (percentage).
+		"ArmorPhysical"       		"2"                 	// Physical protection.
+		"MagicalResistance"       	"10"                 	// Magical protection (percentage).
 
-		"AttackDamageMin"     		"1"                   	// Damage range min.
-		"AttackDamageMax"     		"1"                   	// Damage range max.
+		"AttackDamageMin"     		"50"                   	// Damage range min.
+		"AttackDamageMax"     		"70"                   	// Damage range max.
 
 		"AttributePrimary"      	"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"30"                   	// Base strength
-		"AttributeStrengthGain"   	"3.4"                   	// Strength bonus per level.
+		"AttributeStrengthGain"   	"4.4"                   	// Strength bonus per level.
 		"AttributeBaseIntelligence" "14"                   	// Base intelligence
-		"AttributeIntelligenceGain" "1.6"                   	// Intelligence bonus per level.
+		"AttributeIntelligenceGain" "1.5"                   	// Intelligence bonus per level.
 		"AttributeBaseAgility"    	"22"                   	// Base agility
-		"AttributeAgilityGain"    	"2.2"                   	// Agility bonus per level.
+		"AttributeAgilityGain"    	"3.2"                   	// Agility bonus per level.
 
 		"MovementCapabilities"    	"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"       		"360"
+		"MovementSpeed"       		"400"
 		"MovementTurnRate"      	"1.0"                 	// Turning rate.
 
-		"StatusHealth"        		"1000"                 	// Base health.
-		"StatusHealthRegen"     	"1.5"                 	// Base health regeneration
-		"StatusMana"        		"400"                   // Base mana.
-		"StatusManaRegen"     		"2.0"                 // Base mana regeneration
+		"StatusHealth"        		"600"                 	// Base health.
+		"StatusHealthRegen"     	"3.5"                 	// Base health regeneration
+		"StatusMana"        		"600"                   // Base mana.
+		"StatusManaRegen"     		"4.0"                 // Base mana regeneration
 
 		"VisionDaytimeRange"    	"1800"                  // Range of vision at night time.
-		"VisionNighttimeRange"    	"1800"                  // Range of vision at night time.
+		"VisionNighttimeRange"    	"800"                  // Range of vision at night time.
 	}
 }

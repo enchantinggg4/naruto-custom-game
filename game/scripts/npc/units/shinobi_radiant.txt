@@ -42,7 +42,7 @@
 		"StatusMana"        		"75"
 		"StatusManaRegen"     		"0.9"
 
-		"VisionDaytimeRange"    	"1800"
-		"VisionNighttimeRange"    	"800"
+		"VisionDaytimeRange"    	"600"
+		"VisionNighttimeRange"    	"400"
 	}
 }

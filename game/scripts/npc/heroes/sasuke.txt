@@ -20,24 +20,24 @@
 		"AttackDamageMin"     		"1"                   	// Damage range min.
 		"AttackDamageMax"     		"1"                   	// Damage range max.
 
-		"AttributePrimary"      	"DOTA_ATTRIBUTE_STRENGTH"
-		"AttributeBaseStrength"   	"30"                   	// Base strength
+		"AttributePrimary"      	"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"   	"22"                   	// Base strength
 		"AttributeStrengthGain"   	"3.4"                   	// Strength bonus per level.
-		"AttributeBaseIntelligence" "14"                   	// Base intelligence
+		"AttributeBaseIntelligence" "24"                   	// Base intelligence
 		"AttributeIntelligenceGain" "1.6"                   	// Intelligence bonus per level.
-		"AttributeBaseAgility"    	"22"                   	// Base agility
-		"AttributeAgilityGain"    	"2.2"                   	// Agility bonus per level.
+		"AttributeBaseAgility"    	"42"                   	// Base agility
+		"AttributeAgilityGain"    	"4.2"                   	// Agility bonus per level.
 
 		"MovementCapabilities"    	"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"       		"360"
+		"MovementSpeed"       		"420"
 		"MovementTurnRate"      	"1.0"                 	// Turning rate.
 
-		"StatusHealth"        		"1000"                 	// Base health.
+		"StatusHealth"        		"800"                 	// Base health.
 		"StatusHealthRegen"     	"1.5"                 	// Base health regeneration
-		"StatusMana"        		"400"                   // Base mana.
-		"StatusManaRegen"     		"2.0"                 // Base mana regeneration
+		"StatusMana"        		"700"                   // Base mana.
+		"StatusManaRegen"     		"1.0"                 // Base mana regeneration
 
 		"VisionDaytimeRange"    	"1800"                  // Range of vision at night time.
-		"VisionNighttimeRange"    	"1800"                  // Range of vision at night time.
+		"VisionNighttimeRange"    	"800"                  // Range of vision at night time.
 	}
 }
