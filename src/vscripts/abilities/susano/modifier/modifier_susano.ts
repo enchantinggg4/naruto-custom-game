@@ -68,17 +68,19 @@ class modifier_susano extends CDOTA_Modifier_Lua {
 
     GetModifierBonusStats_Strength(): number {
         const hero = this.GetParent() as CDOTA_BaseNPC_Hero;
-        return this.GetAbility().GetSpecialValueFor("stats_increase_multiplier") * hero.GetStrength();
+        // return this.GetAbility().GetSpecialValueFor("stats_increase_multiplier") * hero.GetStrength();
+        return this.GetAbility().GetSpecialValueFor("stats_increase_multiplier")
     }
 
     GetModifierBonusStats_Intellect(): number {
         const hero = this.GetParent() as CDOTA_BaseNPC_Hero;
-        return this.GetAbility().GetSpecialValueFor("stats_increase_multiplier") * hero.GetIntellect();
+        return this.GetAbility().GetSpecialValueFor("stats_increase_multiplier")
     }
 
     GetModifierBonusStats_Agility(): number {
         const hero = this.GetParent() as CDOTA_BaseNPC_Hero;
-        return this.GetAbility().GetSpecialValueFor("stats_increase_multiplier") * hero.GetAgility();
+        // DebugPrint(hero.GetAgility());
+        return this.GetAbility().GetSpecialValueFor("stats_increase_multiplier")
     }
 
     DeclareFunctions(): modifierfunction[] {

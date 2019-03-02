@@ -179,7 +179,8 @@
       "DOTA_Tooltip_modifier_rinne_absorb": "Absorb",
       "DOTA_Tooltip_modifier_rinne_absorb_Description": "Absorbs all damage from spells",
       "DOTA_Tooltip_modifier_rinne_tensei": "Rinne tensei",
-      "DOTA_Tooltip_modifier_rinne_tensei_Description": "Creates a block hole which pulls everything inside it and then explodes"
+      "DOTA_Tooltip_modifier_rinne_tensei_Description": "Creates a block hole which pulls everything inside it and then explodes",
+      "DOTA_Tooltip_ability_rinne_tensei_charge_time": "AbilityName"
     },
     "Language": "English"
   }
