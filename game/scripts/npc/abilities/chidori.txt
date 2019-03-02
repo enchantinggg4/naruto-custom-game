@@ -18,10 +18,11 @@
         "AbilityCastPoint"				"0.3"
         "AbilityCooldown"				"10.0"
 
-        "AbilityChannelTime"			"%charge_time"
+        "AbilityChannelTime"	  "%charge_time"
+        "AbilityManaCost"         "%manacost"
+        "AbilityCooldown"         "%cooldown"
 
         "AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
-        "AbilityManaCost"				"300"
         "AbilityProcsMagicStick"		"1"
 
         "precache"
@@ -69,6 +70,10 @@
                 "mana_burn"        				"10 20 30 40"
             }
         }
-
+        "Modifiers"
+        {
+            "modifier_chidori_active" {}
+            "modifier_chidori_charge" {}
+        }
     }
 }

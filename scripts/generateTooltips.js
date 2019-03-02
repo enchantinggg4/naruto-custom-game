@@ -5,7 +5,7 @@ const parseKV = require("./kvparser").parseKV;
 const jsonToKV = require("./kvparser").jsonToKV;
 
 
-function insertMissingTooltips(ability, specials, global) {
+function insertMissingTooltips(ability, specials, global, all) {
     const allItems = [null].concat(specials.concat(["Lore", "Description"]));
     allItems.forEach(item => {
         if (!item) {
@@ -20,11 +20,33 @@ function insertMissingTooltips(ability, specials, global) {
             }
         }
     });
+
+    Object.keys(all[ability].Modifiers || {}).forEach(modifier => {
+        const keys = [null, "Description"];
+        keys.forEach(item => {
+            if (!item) {
+                const key = `DOTA_Tooltip_${modifier}`;
+                if (global[key] === undefined) {
+                    global[key] = modifier;
+                }
+            } else {
+                const key = `DOTA_Tooltip_${modifier}_${item}`;
+                if (global[key] === undefined) {
+                    global[key] = modifier;
+                }
+            }
+        })
+
+    })
+
+    // all.Modifiers.forEach(modifier => {
+    //     console.log(modifier);
+    // })
 }
 
 const languages = [
     "english",
-    "russian"
+    // "russian"
 ];
 
 

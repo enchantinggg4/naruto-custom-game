@@ -29,5 +29,9 @@
                 "charge_time"   				"1 2 3 4"
             }
         }
+        "Modifiers"
+        {
+            "modifier_rinne_absorb" {}
+        }
     }
 }

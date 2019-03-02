@@ -47,5 +47,9 @@
                 "charge_time"        			"3"
             }
         }
+        "Modifiers"
+        {
+            "modifier_genjutsu" {}
+        }
     }
 }

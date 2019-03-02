@@ -62,5 +62,11 @@
                 "manacost"        				"50"
             }
         }
+
+        "Modifiers"
+        {
+            "modifier_rasengan_active" {}
+            "modifier_rasengan_charge" {}
+        }
     }
 }

@@ -1,4 +1,3 @@
-import {ShinobiExtension} from "../../game_events/Shinobi";
 import {Sound_chidori} from "../../Sounds";
 
 LinkLuaModifier("modifier_chidori_charge", "abilities/chidori/modifier/modifier_chidori_charge.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);

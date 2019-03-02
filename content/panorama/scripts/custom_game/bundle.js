@@ -46,7 +46,7 @@ define("testUI", ["require", "exports", "heroes"], function (require, exports, h
         var heroes = [heroes_1.Radiant, heroes_1.Dire][team];
         var preGame = dotaHud.FindChild("PreGame");
         var grid = preGame.FindChildTraverse("GridCore");
-        grid.Children().forEach(function (panel, index) {
+        grid.Children().forEach(function (panel) {
             var heroName = GetHeroName(panel);
             if (heroName) {
                 if (heroes.some(function (it) { return it.hero_short === heroName; })) {

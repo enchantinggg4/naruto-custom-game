@@ -41,7 +41,7 @@
             "03"
             {
                 "var_type"						"FIELD_FLOAT"
-                "stats_increase_multiplier"  	"0.5 1.5 3"
+                "stats_increase_multiplier"  	"1.5 2 2.5"
             }
          }
     }

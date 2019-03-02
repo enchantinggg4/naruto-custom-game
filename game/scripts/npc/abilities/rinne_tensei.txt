@@ -53,5 +53,9 @@
                 "damage_per_time"				"100 200 300 400"
             }
         }
+        "Modifiers"
+        {
+            "modifier_rinne_tensei" {}
+        }
     }
 }

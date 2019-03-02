@@ -20,7 +20,7 @@ function UpdateTimer() {
 
     const preGame = dotaHud.FindChild("PreGame");
     const grid = preGame.FindChildTraverse("GridCore");
-    grid.Children().forEach((panel, index) => {
+    grid.Children().forEach((panel) => {
         const heroName = GetHeroName(panel);
         if (heroName) {
             if (heroes.some(it => it.hero_short === heroName)) {
