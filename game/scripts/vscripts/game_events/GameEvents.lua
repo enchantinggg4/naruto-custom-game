@@ -69,5 +69,7 @@ exports.GameEvents.OnNPCSpawned = function(self, npc)
 end;
 exports.GameEvents.OnGameStart = function(self)
     Spawn:CreateSpawn("konoha_spawn");
+    Spawn:CreateSpawn("dire_spawn");
+    Spawn:CreateSpawn("jungle_spawn");
 end;
 return exports;

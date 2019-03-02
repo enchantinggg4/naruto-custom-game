@@ -4,13 +4,7 @@
 	</scripts>
 
 	<script>
-		function UpdateHeroSelection() {
 
-		}
-		(function()
-		{
-			GameEvents.Subscribe( "game_rules_state_change", UpdateHeroSelection );
-		})();
 
 		// Uncomment any of the following lines in order to disable that portion of the default UI
 

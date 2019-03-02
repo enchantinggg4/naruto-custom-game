@@ -69,5 +69,8 @@ export class GameEvents {
     static OnGameStart() {
         // create timers for spawn
         Spawn.CreateSpawn("konoha_spawn");
+        Spawn.CreateSpawn("dire_spawn");
+        Spawn.CreateSpawn("jungle_spawn");
+
     }
 }
