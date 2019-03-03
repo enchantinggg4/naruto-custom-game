@@ -1,5 +1,6 @@
 declare class your_gamemode_name {
     static lastUsedAbility: string;
+    static lastUsedAbilityLevel: number;
 }
 
 class kakashi_sharingan extends CDOTA_Ability_Lua {
@@ -11,63 +12,58 @@ class kakashi_sharingan extends CDOTA_Ability_Lua {
     }
 
     GetCooldown(iLevel: number): number {
-        return 0
-    }
-
-    GetChannelTime(): number {
-        return 0
+        return this.GetSpecialValueFor("cooldown");
     }
 
     GetManaCost(iLevel: number): number {
-        return 0
-    }
-
-    OnChannelFinish(bInterrupted: boolean): void {
-
+        return this.GetSpecialValueFor("manacost");
     }
 
     OnSpellStart(): void {
 
-        if (this.currentAbility && this.currentAbility.GetAbilityName() !== your_gamemode_name.lastUsedAbility) {
-            // already stolen something
-            print(this.currentAbility.GetAbilityName())
-            const ability = this.GetCaster().AddAbility(your_gamemode_name.lastUsedAbility);
+        if (your_gamemode_name.lastUsedAbility) {
 
-            ability.SetLevel(this.GetLevel());
+            if (this.currentAbility && this.currentAbility.GetAbilityName() !== your_gamemode_name.lastUsedAbility) {
+                // already stolen something
+                const ability = this.GetCaster().AddAbility(your_gamemode_name.lastUsedAbility);
 
-            this.GetCaster().SwapAbilities(
-                this.currentAbility.GetAbilityName(),
-                ability.GetAbilityName(),
-                false,
-                true
-            );
+                ability.SetLevel(your_gamemode_name.lastUsedAbilityLevel);
+                ability.SetStolen(true);
 
-            this.GetCaster().RemoveAbility(
-                this.currentAbility.GetAbilityName()
-            );
+                this.GetCaster().SwapAbilities(
+                    this.currentAbility.GetAbilityName(),
+                    ability.GetAbilityName(),
+                    false,
+                    true
+                );
 
-            this.currentAbility = ability;
+                this.GetCaster().RemoveAbility(
+                    this.currentAbility.GetAbilityName()
+                );
 
-        } else if (!this.currentAbility) {
-            // completely clear, nothing stolen
-            const ability = this.GetCaster().AddAbility(your_gamemode_name.lastUsedAbility);
+                this.currentAbility = ability;
 
-            ability.SetLevel(this.GetLevel());
+            } else if (!this.currentAbility) {
+                // completely clear, nothing stolen
+                const ability = this.GetCaster().AddAbility(your_gamemode_name.lastUsedAbility);
 
-            this.GetCaster().SwapAbilities(
-                "kakashi_sharingan_steal",
-                ability.GetAbilityName(),
-                false,
-                true
-            );
+                ability.SetLevel(your_gamemode_name.lastUsedAbilityLevel);
+                ability.SetStolen(true);
 
-            this.GetCaster().RemoveAbility(
-                "kakashi_sharingan_steal"
-            );
+                this.GetCaster().SwapAbilities(
+                    "kakashi_sharingan_steal",
+                    ability.GetAbilityName(),
+                    false,
+                    true
+                );
 
-            this.currentAbility = ability;
+                this.GetCaster().RemoveAbility(
+                    "kakashi_sharingan_steal"
+                );
+
+                this.currentAbility = ability;
+            }
         }
-
 
     }
 }

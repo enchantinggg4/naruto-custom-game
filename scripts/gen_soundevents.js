@@ -35,7 +35,7 @@ function GenerateSoundsEvents(directory, root){
                               "value0"        "${relativePath}/${name}.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "10.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -73,9 +73,9 @@ function GenerateFiles(){
 	const files = fs.readdirSync("content/sounds/abilities");
 
 	const enums = files.map(abilityName => {
-		const abilityFullPath = Path.join(__dirname, "content/sounds/abilities", abilityName);
+		const abilityFullPath = Path.join(__dirname, "../content/sounds/abilities", abilityName);
 		const data = GenerateSoundsEvents(abilityFullPath, Path.join(__dirname, "content/sounds"));
-		const soundevents = Path.join(__dirname, "content/soundevents", data.fileName);
+		const soundevents = Path.join(__dirname, "../content/soundevents", data.fileName);
 		fs.writeFileSync(soundevents, data.code);
 		return data.enum
 	}).join("\n");

@@ -15,10 +15,10 @@
                     {
                         "value"
                         {
-                              "value0"        "abilities/tsukuyomi/End.vsnd"
+                              "value0"        "../../../content/sounds/abilities/tsukuyomi/End.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "10.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -47,10 +47,10 @@
                     {
                         "value"
                         {
-                              "value0"        "abilities/tsukuyomi/Loop.vsnd"
+                              "value0"        "../../../content/sounds/abilities/tsukuyomi/Loop.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "10.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -79,10 +79,10 @@
                     {
                         "value"
                         {
-                              "value0"        "abilities/tsukuyomi/Start.vsnd"
+                              "value0"        "../../../content/sounds/abilities/tsukuyomi/Start.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "10.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }

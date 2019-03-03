@@ -6,14 +6,24 @@
     {
         "BaseClass"						"ability_lua"
         "ScriptFile"					"abilities/kakashi_sharingan/kakashi_sharingan.lua"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-        "AbilityTextureName"			"naruto_rasengan_active"
+        "AbilityTextureName"			"kakashi_steal"
 
 
         "AbilitySpecial"
         {
-
+            "00"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "cooldown"         				"2 1 0"
+            }
+            "01"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "manacost"         				"150 100 50"
+            }
         }
     }
 }

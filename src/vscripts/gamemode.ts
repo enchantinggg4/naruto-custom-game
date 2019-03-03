@@ -35,6 +35,7 @@ require('filters');
 
 declare class your_gamemode_name {
     static lastUsedAbility: string;
+    static lastUsedAbilityLevel: number;
 }
 
 interface HeroSelectionData {
@@ -110,7 +111,7 @@ export class Lol extends your_gamemode_name {
         CustomGameEventManager.Send_ServerToAllClients("picking_player_pick", msg);
     }
 
-    static OnAbilityUsed(some: { abilityname: string }) {
+    static OnAbilityUsed(some: { abilityname: string; caster_entindex: number; }) {
         const ignoreList = [
             "kakashi_sharingan",
             "chidori",
@@ -119,6 +120,8 @@ export class Lol extends your_gamemode_name {
             "capture_bidju",
         ];
         if (!ignoreList.some(it => it === some.abilityname)) {
+            const caster = EntIndexToHScript(some.caster_entindex) as CDOTA_BaseNPC;
+            your_gamemode_name.lastUsedAbilityLevel = caster.FindAbilityByName(some.abilityname).GetLevel();
             your_gamemode_name.lastUsedAbility = some.abilityname;
         }
     }

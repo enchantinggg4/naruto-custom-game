@@ -15,10 +15,10 @@
                     {
                         "value"
                         {
-                              "value0"        "abilities/chidori/End.vsnd"
+                              "value0"        "../../../content/sounds/abilities/chidori/End.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "10.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -47,10 +47,10 @@
                     {
                         "value"
                         {
-                              "value0"        "abilities/chidori/Hit.vsnd"
+                              "value0"        "../../../content/sounds/abilities/chidori/Hit.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "10.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -79,10 +79,10 @@
                     {
                         "value"
                         {
-                              "value0"        "abilities/chidori/Loop.vsnd"
+                              "value0"        "../../../content/sounds/abilities/chidori/Loop.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "10.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -111,10 +111,10 @@
                     {
                         "value"
                         {
-                              "value0"        "abilities/chidori/Start.vsnd"
+                              "value0"        "../../../content/sounds/abilities/chidori/Start.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "10.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }

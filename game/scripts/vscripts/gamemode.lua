@@ -65,6 +65,8 @@ your_gamemode_name.OnAbilityUsed = function(self, some)
     if not __TS__ArraySome(ignoreList, function(it)
         return it == some.abilityname;
     end) then
+        local caster = EntIndexToHScript(some.caster_entindex);
+        your_gamemode_name.lastUsedAbilityLevel = caster:FindAbilityByName(some.abilityname):GetLevel();
         your_gamemode_name.lastUsedAbility = some.abilityname;
     end
 end;
