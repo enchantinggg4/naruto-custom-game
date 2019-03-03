@@ -15,7 +15,7 @@
                     {
                         "value"
                         {
-                              "value0"        "../../../content/sounds/abilities/chidori/End.vsnd"
+                              "value0"        "abilities/chidori/End.vsnd"
                         }
                     }
                     "volume"            {   "value"     "3.00000"  }
@@ -47,7 +47,7 @@
                     {
                         "value"
                         {
-                              "value0"        "../../../content/sounds/abilities/chidori/Hit.vsnd"
+                              "value0"        "abilities/chidori/Hit.vsnd"
                         }
                     }
                     "volume"            {   "value"     "3.00000"  }
@@ -79,7 +79,7 @@
                     {
                         "value"
                         {
-                              "value0"        "../../../content/sounds/abilities/chidori/Loop.vsnd"
+                              "value0"        "abilities/chidori/Loop.vsnd"
                         }
                     }
                     "volume"            {   "value"     "3.00000"  }
@@ -111,7 +111,7 @@
                     {
                         "value"
                         {
-                              "value0"        "../../../content/sounds/abilities/chidori/Start.vsnd"
+                              "value0"        "abilities/chidori/Start.vsnd"
                         }
                     }
                     "volume"            {   "value"     "3.00000"  }

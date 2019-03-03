@@ -74,7 +74,8 @@ function GenerateFiles(){
 
 	const enums = files.map(abilityName => {
 		const abilityFullPath = Path.join(__dirname, "../content/sounds/abilities", abilityName);
-		const data = GenerateSoundsEvents(abilityFullPath, Path.join(__dirname, "content/sounds"));
+		console.log(abilityFullPath);
+		const data = GenerateSoundsEvents(abilityFullPath, Path.join(__dirname, "../content/sounds"));
 		const soundevents = Path.join(__dirname, "../content/soundevents", data.fileName);
 		fs.writeFileSync(soundevents, data.code);
 		return data.enum
