@@ -41,8 +41,6 @@ exports.GameEvents.OnNPCKilled = function(self, killed, killer, ability)
     local isShinobiKiller = ShinobiManager:IsShinobi(killer);
     local isAkatsukiKilled = AkatsukiManager:IsAkatsuki(killed);
     local isAkatsukiKiller = AkatsukiManager:IsAkatsuki(killer);
-    DebugPrint("unit killed");
-    DebugPrint(killed:GetUnitName());
     if isBidjuKilled and (not killedBySpecialAbilities) then
         local killedBidju = killed;
         if killedBidju.summoned and (not isAkatsukiKiller) then
