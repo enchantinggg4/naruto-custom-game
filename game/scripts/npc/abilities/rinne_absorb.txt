@@ -11,14 +11,7 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
 
-        "AbilityTextureName"			"naruto_rasengan_active"
-
-
-         "precache"
-        {
-            "particle"          "particles/abilities/amaterasu/amaterasu_fire2.vpcf"
-            "soundfile"         "soundevents/game_sounds_amaterasu.vsndevts"
-        }
+        "AbilityTextureName"			"rinne_absorb"
 
 
         "AbilitySpecial"

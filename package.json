@@ -9,7 +9,8 @@
     "watchUI": "tsc -p src/custom_game/tsconfig.json --watch",
     "buildSound": "node scripts/gen_soundevents.js",
     "generateAbility": "node scripts/generateAbility.js",
-    "tooltip": "node scripts/generateTooltips.js"
+    "tooltip": "node scripts/generateTooltips.js",
+    "icons": "node scripts/convertToPNG.js"
   },
   "repository": {
     "type": "git",

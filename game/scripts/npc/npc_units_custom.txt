@@ -6,6 +6,7 @@
 #base "units/bidju/matatabi.txt"
 #base "units/bidju/shukaku.txt"
 #base "units/bidju/kurama.txt"
+
 #base "units/npc_dota_custom_cave.txt"
 #base "units/shinobi_radiant.txt"
 #base "units/zetsu_dire.txt"
@@ -15,6 +16,10 @@
 
 #base "units/naruto_summon/gamabunta.txt"
 #base "units/naruto_summon/gamatatsu.txt"
+
+
+#base "units/rinnegan_summon/rinne_dog.txt"
+#base "units/rinnegan_summon/rinne_centipede.txt"
 
 "DOTAUnits"
 {

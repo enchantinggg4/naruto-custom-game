@@ -25,10 +25,6 @@ export class GameEvents {
         const isAkatsukiKiller = AkatsukiManager.IsAkatsuki(killer);
 
 
-        DebugPrint("unit killed");
-        DebugPrint(killed.GetUnitName());
-
-
         if (isBidjuKilled && !killedBySpecialAbilities) {
             const killedBidju = killed as BidjuExtension;
             if (killedBidju.summoned && !isAkatsukiKiller) {

@@ -86,8 +86,6 @@ class GameModeEvents extends your_gamemode_name {
     }
 
     static OnNPCSpawned(data: OnNPCSpawnedData){
-        DebugPrint("[TS] a unit spawned");
-
         const npc = EntIndexToHScript(data.entindex) as CDOTA_BaseNPC;
         // const owner = npc.GetOwner();
         GameEvents.OnNPCSpawned(npc);
@@ -107,24 +105,11 @@ class GameModeEvents extends your_gamemode_name {
 
 
     static OnPlayerPickHero(data: any){
-        DebugPrint("[TS] OnPlayerPickHero");
-        // const heroName = data.hero;
-        // const heroEntity = EntIndexToHScript(data.heroindex) as CDOTA_BaseNPC_Hero;
-        // const player = EntIndexToHScript(data.player);
-        //
-        // Timers.CreateTimer(0.5, () => {
-        //    const playerID = heroEntity.GetPlayerID();
-        //    if(PlayerResource.IsFakeClient(playerID)){
-        //        // bot
-        //    }else{
-        //        // ?
-        //    }
-        // });
+
     }
 
 
     static OnEntityKilled(data: any){
-        DebugPrint("[TS] An entity was killed.");
 
         const killed = EntIndexToHScript(data.entindex_killed);
         const killer = data.entindex_attacker && EntIndexToHScript(data.entindex_attacker) || null;

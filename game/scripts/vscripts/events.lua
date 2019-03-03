@@ -56,7 +56,6 @@ your_gamemode_name.OnGameRulesStateChange = function(self, data)
     end
 end;
 your_gamemode_name.OnNPCSpawned = function(self, data)
-    DebugPrint("[TS] a unit spawned");
     local npc = EntIndexToHScript(data.entindex);
     GameEvents:OnNPCSpawned(npc);
     if npc:IsRealHero() and ((npc).bFirstSpawned == nil) then
@@ -70,10 +69,8 @@ your_gamemode_name.OnNPCSpawned = function(self, data)
     end
 end;
 your_gamemode_name.OnPlayerPickHero = function(self, data)
-    DebugPrint("[TS] OnPlayerPickHero");
 end;
 your_gamemode_name.OnEntityKilled = function(self, data)
-    DebugPrint("[TS] An entity was killed.");
     local killed = EntIndexToHScript(data.entindex_killed);
     local killer = (data.entindex_attacker and EntIndexToHScript(data.entindex_attacker)) or nil;
     local ability = (data.entindex_inflictor and EntIndexToHScript(data.entindex_inflictor)) or nil;
