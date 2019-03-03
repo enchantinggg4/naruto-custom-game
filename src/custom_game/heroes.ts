@@ -20,11 +20,12 @@ export const Radiant: IHero[] = [
         hero_title: "Sasuke",
         hero_short: "antimage"
     },
-    // {
-    //     hero_name: "npc_dota_hero_kakashi",
-    //     hero_original_name: "npc_dota_hero_bounty_hunter",
-    //     hero_title: "Kakashi"
-    // },
+    {
+        hero_name: "npc_dota_hero_kakashi",
+        hero_original_name: "npc_dota_hero_bounty_hunter",
+        hero_title: "Kakashi",
+        hero_short: "bounty_hunter"
+    },
     // {
     //     hero_name: "npc_dota_hero_sakura",
     //     hero_original_name: "npc_dota_hero_phantom_assasin",

@@ -1,4 +1,16 @@
 --[[ Generated with https://github.com/Perryvw/TypescriptToLua ]]
+-- Lua Library inline imports
+__TS__ArraySome = function(arr, callbackfn)
+    local i = 0;
+    while i < (#arr) do
+        if callbackfn(arr[i + 1], i, arr) then
+            return true;
+        end
+        i = i + 1;
+    end
+    return false;
+end;
+
 local exports = exports or {};
 local __TSTL_Bidju = require("game_events.Bidju");
 local BidjuManager = __TSTL_Bidju.BidjuManager;
@@ -48,10 +60,19 @@ your_gamemode_name.OnHeroSelected = function(self, data)
     local msg = {PlayerID = data.PlayerID, hero = data.hero, team = player:GetTeam()};
     CustomGameEventManager:Send_ServerToAllClients("picking_player_pick", msg);
 end;
+your_gamemode_name.OnAbilityUsed = function(self, some)
+    local ignoreList = {"kakashi_sharingan", "chidori", "kakashi_wall", "summon_bidju", "capture_bidju"};
+    if not __TS__ArraySome(ignoreList, function(it)
+        return it == some.abilityname;
+    end) then
+        your_gamemode_name.lastUsedAbility = some.abilityname;
+    end
+end;
 your_gamemode_name.InitGameMode = function(self)
     CustomGameEventManager:RegisterListener("hero_selected", Dynamic_Wrap(your_gamemode_name, "OnHeroSelected"));
     DebugPrint("[TS] Starting to load Game Rules.");
     ListenToGameEvent("entity_killed", Dynamic_Wrap(your_gamemode_name, "OnEntityKilled"), self);
+    ListenToGameEvent("dota_player_used_ability", Dynamic_Wrap(your_gamemode_name, "OnAbilityUsed"), self);
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(your_gamemode_name, "OnGameRulesStateChange"), self);
     ListenToGameEvent("npc_spawned", Dynamic_Wrap(your_gamemode_name, "OnNPCSpawned"), self);
     ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(your_gamemode_name, "OnPlayerPickHero"), self);

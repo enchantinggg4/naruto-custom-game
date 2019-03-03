@@ -31,6 +31,8 @@ function RemoveHeroes() {
     grid.Children().forEach((panel) => {
         // we extract hero name that child panel renders
         const heroName = GetHeroName(panel);
+        $.Msg(heroName);
+
         // if it renders hero then heroName is not null
         if (heroName) {
             // we check if heroName is in our list of enabled heroes
@@ -45,6 +47,7 @@ function RemoveHeroes() {
         }
     });
 }
+
 
 
 (function () {

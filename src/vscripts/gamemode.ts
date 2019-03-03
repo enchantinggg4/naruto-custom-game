@@ -34,6 +34,7 @@ require('events');
 require('filters');
 
 declare class your_gamemode_name {
+    static lastUsedAbility: string;
 }
 
 interface HeroSelectionData {
@@ -109,6 +110,19 @@ export class Lol extends your_gamemode_name {
         CustomGameEventManager.Send_ServerToAllClients("picking_player_pick", msg);
     }
 
+    static OnAbilityUsed(some: { abilityname: string }) {
+        const ignoreList = [
+            "kakashi_sharingan",
+            "chidori",
+            "kakashi_wall",
+            "summon_bidju",
+            "capture_bidju",
+        ];
+        if (!ignoreList.some(it => it === some.abilityname)) {
+            your_gamemode_name.lastUsedAbility = some.abilityname;
+        }
+    }
+
     static InitGameMode() {
         CustomGameEventManager.RegisterListener("hero_selected", Dynamic_Wrap(your_gamemode_name, "OnHeroSelected"));
         DebugPrint("[TS] Starting to load Game Rules.");
@@ -129,7 +143,7 @@ export class Lol extends your_gamemode_name {
         // ListenToGameEvent('tree_cut', Dynamic_Wrap(your_gamemode_name, 'OnTreeCut'), self);
         // ListenToGameEvent('entity_hurt', Dynamic_Wrap(your_gamemode_name, 'OnEntityHurt'), self);
         // ListenToGameEvent('player_connect', Dynamic_Wrap(your_gamemode_name, 'PlayerConnect'), self);
-        // ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(your_gamemode_name, 'OnAbilityUsed'), self);
+        ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(your_gamemode_name, 'OnAbilityUsed'), self);
         ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(your_gamemode_name, 'OnGameRulesStateChange'), self);
         ListenToGameEvent('npc_spawned', Dynamic_Wrap(your_gamemode_name, 'OnNPCSpawned'), self);
         ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(your_gamemode_name, 'OnPlayerPickHero'), self);
