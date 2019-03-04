@@ -15,7 +15,7 @@
                     {
                         "value"
                         {
-                              "value0"        "../../../content/sounds/abilities/shadow_fadeout/Start.vsnd"
+                              "value0"        "abilities/shadow_fadeout/Start.vsnd"
                         }
                     }
                     "volume"            {   "value"     "3.00000"  }

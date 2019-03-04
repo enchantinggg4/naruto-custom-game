@@ -120,9 +120,15 @@ export class Lol extends your_gamemode_name {
             "capture_bidju",
         ];
         if (!ignoreList.some(it => it === some.abilityname)) {
+
             const caster = EntIndexToHScript(some.caster_entindex) as CDOTA_BaseNPC;
-            your_gamemode_name.lastUsedAbilityLevel = caster.FindAbilityByName(some.abilityname).GetLevel();
-            your_gamemode_name.lastUsedAbility = some.abilityname;
+            const ability = caster.FindAbilityByName(some.abilityname);
+
+            if (ability) {
+                // prevent items
+                your_gamemode_name.lastUsedAbilityLevel = ability.GetLevel();
+                your_gamemode_name.lastUsedAbility = some.abilityname;
+            }
         }
     }
 

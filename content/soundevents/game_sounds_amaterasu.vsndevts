@@ -15,7 +15,7 @@
                     {
                         "value"
                         {
-                              "value0"        "../../../content/sounds/abilities/amaterasu/Start.vsnd"
+                              "value0"        "abilities/amaterasu/Start.vsnd"
                         }
                     }
                     "volume"            {   "value"     "3.00000"  }

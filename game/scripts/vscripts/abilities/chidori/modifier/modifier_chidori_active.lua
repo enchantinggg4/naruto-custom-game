@@ -32,7 +32,7 @@ modifier_chidori_active.GetModifierDamageOutgoing_Percentage = function(self, ev
 end;
 modifier_chidori_active.OnAttackLanded = function(self, event)
     if event.attacker == self:GetParent() then
-        event.target:ReduceMana(self:GetAbility():GetSpecialValueFor("mana_burn"));
+        event.unit:ReduceMana(self:GetAbility():GetSpecialValueFor("mana_burn"));
         EmitSoundOn(Sound_chidori.Hit, event.target);
     end
 end;

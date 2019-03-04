@@ -34,6 +34,12 @@ define("heroes", ["require", "exports"], function (require, exports) {
             hero_title: "Nagato",
             hero_short: "dark_seer"
         },
+        {
+            hero_name: "npc_dota_hero_hidan",
+            hero_original_name: "npc_dota_hero_night_stalker",
+            hero_title: "Hidan",
+            hero_short: "night_stalker"
+        },
     ];
 });
 define("testUI", ["require", "exports", "heroes"], function (require, exports, heroes_1) {

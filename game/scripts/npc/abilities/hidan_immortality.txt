@@ -1,0 +1,31 @@
+
+"DOTAAbilities"
+{
+    "Version"   "1"
+    "hidan_immortality"
+    {
+        "BaseClass"						"ability_lua"
+        "ScriptFile"					"abilities/hidan_immortality/hidan_immortality.lua"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "AbilityTextureName"			"hidan_immortality"
+
+
+         "precache"
+        {
+            "particle"          "particles/abilities/amaterasu/amaterasu_fire2.vpcf"
+            "soundfile"         "soundevents/game_sounds_amaterasu.vsndevts"
+        }
+
+
+        "AbilitySpecial"
+        {
+            "00"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "charge_time"   				"1 2 3 4"
+            }
+        }
+    }
+}

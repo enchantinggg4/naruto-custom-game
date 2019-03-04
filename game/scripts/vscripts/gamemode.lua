@@ -66,8 +66,11 @@ your_gamemode_name.OnAbilityUsed = function(self, some)
         return it == some.abilityname;
     end) then
         local caster = EntIndexToHScript(some.caster_entindex);
-        your_gamemode_name.lastUsedAbilityLevel = caster:FindAbilityByName(some.abilityname):GetLevel();
-        your_gamemode_name.lastUsedAbility = some.abilityname;
+        local ability = caster:FindAbilityByName(some.abilityname);
+        if ability then
+            your_gamemode_name.lastUsedAbilityLevel = ability:GetLevel();
+            your_gamemode_name.lastUsedAbility = some.abilityname;
+        end
     end
 end;
 your_gamemode_name.InitGameMode = function(self)

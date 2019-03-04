@@ -7,6 +7,7 @@ interface ModifierAttackEvent {
     inflictor?: CDOTABaseAbility;
     original_damage: number;
     ranged_attack: boolean;
+    unit: CDOTA_BaseNPC;
     target: CDOTA_BaseNPC;
 }
 

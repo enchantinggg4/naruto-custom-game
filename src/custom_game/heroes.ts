@@ -51,9 +51,10 @@ export const Dire: IHero[] = [
         hero_title: "Nagato",
         hero_short: "dark_seer"
     },
-    // {
-    //     hero_name: "npc_dota_hero_zetsu",
-    //     hero_original_name: "npc_dota_hero_riki",
-    //     hero_title: "Zetsu"
-    // },
+    {
+        hero_name: "npc_dota_hero_hidan",
+        hero_original_name: "npc_dota_hero_night_stalker",
+        hero_title: "Hidan",
+        hero_short: "night_stalker"
+    },
 ];

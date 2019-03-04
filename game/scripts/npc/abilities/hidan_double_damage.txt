@@ -1,0 +1,33 @@
+
+"DOTAAbilities"
+{
+    "Version"   "1"
+    "hidan_double_damage"
+    {
+        "BaseClass"						"ability_lua"
+        "ScriptFile"					"abilities/hidan_double_damage/hidan_double_damage.lua"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+        "AbilityTextureName"			"hidan_double_damage"
+
+
+         "precache"
+        {
+            "particle"          "particles/abilities/amaterasu/amaterasu_fire2.vpcf"
+            "soundfile"         "soundevents/game_sounds_amaterasu.vsndevts"
+        }
+
+
+        "AbilitySpecial"
+        {
+            "00"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "charge_time"   				"1 2 3 4"
+            }
+        }
+    }
+}
