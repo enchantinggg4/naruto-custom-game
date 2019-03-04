@@ -26,7 +26,22 @@
             "00"
             {
                 "var_type"						"FIELD_FLOAT"
-                "charge_time"   				"1 2 3 4"
+                "range"   				        "300 500 700 900"
+            }
+            "01"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "damage"   		                "200 300 400 500"
+            }
+            "02"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "manacost"   	    	        "50 100 150 200"
+            }
+            "03"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "cooldown"         		        "20 17 14 11"
             }
         }
     }

@@ -7,11 +7,11 @@
         "BaseClass"						"ability_lua"
         "ScriptFile"					"abilities/hidan_blood/hidan_blood.lua"
 
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
         "AbilityTextureName"			"hidan_blood"
+        "AbilityCastRange"              "%range"
+        "AoERadius"                     "%range"
 
 
          "precache"
@@ -26,7 +26,22 @@
             "00"
             {
                 "var_type"						"FIELD_FLOAT"
-                "charge_time"   				"1 2 3 4"
+                "range"   				        "300 500 700 900"
+            }
+            "01"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "health_rate"   		        "0.4 0.6 0.8 1"
+            }
+            "02"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "manacost"   	    	        "50 100 150 200"
+            }
+            "03"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "cooldown"         		        "20 17 14 11"
             }
         }
     }

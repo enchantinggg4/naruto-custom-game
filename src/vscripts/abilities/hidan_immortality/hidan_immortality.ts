@@ -8,13 +8,5 @@ class hidan_immortality extends CDOTA_Ability_Lua {
     GetIntrinsicModifierName(): string {
         return "modifier_hidan_immortality";
     }
-
-    OnChannelFinish(bInterrupted: boolean): void {
-        
-    }
-
-    OnSpellStart(): void {
-       
-    }
 }
         

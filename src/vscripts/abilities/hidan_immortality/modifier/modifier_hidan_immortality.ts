@@ -27,7 +27,7 @@ class modifier_hidan_immortality extends CDOTA_Modifier_Lua {
                     this.GetAbility(),
                     "modifier_stunned",
                     {
-                        duration: 3
+                        duration: this.GetAbility().GetSpecialValueFor("regenerate_time")
                     }
                 )
             }
@@ -38,13 +38,5 @@ class modifier_hidan_immortality extends CDOTA_Modifier_Lua {
         return [
             modifierfunction.MODIFIER_EVENT_ON_TAKEDAMAGE
         ]
-    }
-
-    OnCreated(params: table): void {
-
-    }
-
-    OnDestroy(): void {
-
     }
 }

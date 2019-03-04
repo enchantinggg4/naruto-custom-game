@@ -8,6 +8,7 @@
         "ScriptFile"					"abilities/hidan_immortality/hidan_immortality.lua"
 
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 
         "AbilityTextureName"			"hidan_immortality"
 
@@ -24,7 +25,7 @@
             "00"
             {
                 "var_type"						"FIELD_FLOAT"
-                "charge_time"   				"1 2 3 4"
+                "regenerate_time"   		    "6 5 4"
             }
         }
     }

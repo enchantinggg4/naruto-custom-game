@@ -25,7 +25,12 @@
             "00"
             {
                 "var_type"						"FIELD_FLOAT"
-                "charge_time"   				"1 2 3 4"
+                "complete_regen_percent"    	"5 10 15 20"
+            }
+            "01"
+            {
+                "var_type"						"FIELD_FLOAT"
+                "complete_regen_duration"    	"5 7 9 11"
             }
         }
     }

@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_hidan_contract_complete", "abilities/hidan_contract/modifier/modifier_hidan_contract_complete.lua", LuaModifierType.LUA_MODIFIER_MOTION_NONE);
+
 class modifier_hidan_contract extends CDOTA_Modifier_Lua {
 
     IsHidden(): boolean {
@@ -28,9 +30,24 @@ class modifier_hidan_contract extends CDOTA_Modifier_Lua {
         }
     }
 
+    OnDeath(event: ModifierAttackEvent): void {
+        if (event.unit === this.GetParent()) {
+            this.GetCaster().AddNewModifier(
+                this.GetCaster(),
+                this.GetAbility(),
+                "modifier_hidan_contract_complete",
+                {
+                    duration: this.GetAbility().GetSpecialValueFor("complete_regen_duration")
+                }
+            );
+            this.Destroy();
+        }
+    }
+
     DeclareFunctions(): modifierfunction[] {
         return [
-            modifierfunction.MODIFIER_EVENT_ON_TAKEDAMAGE
+            modifierfunction.MODIFIER_EVENT_ON_TAKEDAMAGE,
+            modifierfunction.MODIFIER_EVENT_ON_DEATH
         ]
     }
 
@@ -43,7 +60,8 @@ class modifier_hidan_contract extends CDOTA_Modifier_Lua {
     }
 
     GetEffectName(): string {
-        return "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok_ovr_arc.vpcf"
+        // return "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ribbon.vpcf"
+        return "particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf"
     }
 
     GetEffectAttachType(): ParticleAttachment_t {
